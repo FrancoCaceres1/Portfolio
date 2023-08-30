@@ -1,9 +1,15 @@
-@import '../../styles/variables.scss';
+@import "../../styles/_variables.scss";
+@import "../../styles/_mixins.scss";
 
-.mainLanding {
-  background-color: $primary-blue;
+.section-landing {
+  @include viewContainer();
 }
 
-.titleLanding {
+.title-landing {
+  @include viewContainer();
   color: $font-color;
+}
+
+.content-landing-container {
+  @include viewContainer();
 }

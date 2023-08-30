@@ -1,14 +1,12 @@
-import styles from './_LandingPage.module.scss';
+import "./_LandingPage.module.scss";
 
 const LandingPage = () => {
   return (
-    <main className={styles.mainLanding}>
-      <section>
-        <div>
-          <h1 className={styles.titleLanding}>hola</h1>
-        </div>
-      </section>
-    </main>
+    <section className="section-landing">
+      <div className="content-landing-container">
+        <h1 className="title-landing">WELCOME</h1>
+      </div>
+    </section>
   );
 };
 
