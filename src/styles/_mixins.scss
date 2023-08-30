@@ -1,0 +1,15 @@
+@mixin centerFlex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin width() {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+@mixin height() {
+  min-height: 100%;
+  max-height: 100%;
+}

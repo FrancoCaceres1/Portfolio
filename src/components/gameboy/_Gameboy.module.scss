@@ -1,0 +1,12 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_mixins.scss';
+
+.main-gameboy {
+  @include centerFlex();
+  @include height();
+  background-color: $primary-blue;
+}
+
+.title-gameboy {
+  color: $font-color;
+}
