@@ -1,39 +1,22 @@
-@mixin centerFlex() {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin centerFlex($display, $direction, $justify, $align, $gap) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
 }
 
-@mixin centerFlexColumn() {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@mixin width($min, $max) {
+  min-width: $min;
+  max-width: $max;
 }
 
-@mixin centerFlexColumnStart() {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-@mixin width() {
-  min-width: 100%;
-  max-width: 100%;
-}
-
-@mixin height() {
-  min-height: 100vh;
-  max-height: 100vh;
+@mixin height($min, $max) {
+  min-height: $min;
+  max-height: $max;
 }
 
 @mixin controllersContainer() {
   min-height: 26.616vh;
   max-height: 26.616vh;
-}
-
-@mixin viewContainer() {
-  min-height: 64.616vh;
-  max-height: 64.616vh;
 }
