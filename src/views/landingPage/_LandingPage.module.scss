@@ -5,17 +5,90 @@
   @include height(57vh, 57vh);
   background-color: $primary-color;
   border-radius: 5px;
+  -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
+  -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
+  box-shadow: inset 5px 5px 0px 0px $third-color;
 }
 
 .title-landing {
-  @include height(57vh, 57vh);
+  @include centerFlex(flex, column, space-between, center, 0);
+  @include width(100%, 100%);
   color: $font-color;
   font-family: $primary-font;
   font-size: 3rem;
   text-align: center;
   padding-top: 2rem;
+  cursor: default;
+}
+
+.subtitle-landing {
+  font-size: 1.3rem;
+}
+
+.start-img-container {
+  @include centerFlex(flex, column, center, center, 0.1rem);
+  @include width(100%, 100%);
+}
+
+.start-button {
+  @include height(5rem, 5rem);
+  @include width(5rem, 5rem);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.start-img {
+  @include height(100%, 100%);
+  @include width(100%, 100%);
+  filter: drop-shadow(-4px 3.5px 0px #090e09);
+}
+
+.start-img-shadow {
+  @include height(100%, 100%);
+  @include width(100%, 100%);
+  transform: translate(-4px, 3.5px);
+}
+
+.press-start {
+  color: $font-color;
+  font-family: $primary-font;
+  font-size: 2rem;
+  text-align: center;
+  cursor: default;
 }
 
 .content-landing-container {
   @include height(57vh, 57vh);
+  @include centerFlex(flex, column, space-between, flex-start, 0);
+}
+
+.pixel-character-container {
+  @include centerFlex(flex, column, center, center, 0);
+  @include height(5rem, 5rem);
+  @include width(100%, 100%);
+  overflow: hidden;
+}
+
+.pixelart-img {
+  @include height(3rem, 3rem);
+  @include width(3rem, 3rem);
+  margin: 0 1rem;
+}
+
+.grass-container {
+  @include height(2.1rem, 2.1rem);
+  @include width(100%, 100%);
+  padding-left: 5px;
+}
+
+.grass-img {
+  @include height(2.2rem, 2.2rem);
+  overflow: hidden;
+}
+
+.on-grass {
+  @include centerFlex(flex, row, space-between, center, 0);
+  @include height(3rem, 3rem);
+  @include width(100%, 100%);
 }
