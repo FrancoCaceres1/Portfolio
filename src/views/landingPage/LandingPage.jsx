@@ -5,7 +5,7 @@ import PixelArt3 from "../.././assets/images/character-run-2.png";
 import Grass1 from "../.././assets/images/grass-1.png";
 import Arrow from "../.././assets/images/arrow.png";
 import Start from "../.././assets/images/start.png";
-import "./_LandingPage.module.scss";
+import "./LandingPage.module.scss";
 
 const LandingPage = () => {
   const images = [PixelArt1, PixelArt2, PixelArt1, PixelArt3];

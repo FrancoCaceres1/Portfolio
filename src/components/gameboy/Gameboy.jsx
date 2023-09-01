@@ -1,6 +1,6 @@
 import LandingPage from "../.././views/landingPage/LandingPage.jsx";
 import { CgZeit } from "react-icons/cg";
-import "./_Gameboy.module.scss";
+import "./Gameboy.module.scss";
 
 const Gameboy = () => {
   return (

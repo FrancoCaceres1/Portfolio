@@ -1,5 +1,5 @@
-@import "../../styles/_variables.scss";
-@import "../../styles/_mixins.scss";
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .main-gameboy {
   @include centerFlex(flex, column, flex-end, center, 3vh);
