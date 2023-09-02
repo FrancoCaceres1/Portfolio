@@ -1,64 +1,64 @@
 import LandingPage from "../.././views/landingPage/LandingPage.jsx";
 import { CgZeit } from "react-icons/cg";
-import "./Gameboy.module.scss";
+import styles from "./Gameboy.module.scss";
 
 const Gameboy = () => {
   return (
-    <main className="main-gameboy">
-      <section className="section-gameboy">
-        <div className="view-container">
+    <main className={styles.mainGameboy}>
+      <section className={styles.sectionGameboy}>
+        <div className={styles.viewContainer}>
           <LandingPage />
         </div>
       </section>
-      <section className="section-controller">
-        <div className="controllers-container">
-          <div className="controllers-1">
-            <div className="row-buttons">
-              <div className="side-buttons">
-                <button className="button-left">
-                  <CgZeit className="button-img left" />
+      <section className={styles.sectionController}>
+        <div className={styles.controllersContainer}>
+          <div className={styles.controllers1}>
+            <div className={styles.rowButtons}>
+              <div className={styles.sideButtons}>
+                <button className={styles.buttonLeft}>
+                  <CgZeit className={`${styles.buttonImg} ${styles.left}`} />
                 </button>
               </div>
-              <div className="center-buttons">
-                <button className="button-up">
-                  <CgZeit className="button-img up" />
+              <div className={styles.centerButtons}>
+                <button className={styles.buttonUp}>
+                  <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
                 </button>
-                <span className="empty-center">
-                  <div className="inner-square top-left"></div>
-                  <div className="inner-square top-right"></div>
-                  <div className="inner-square bottom-left"></div>
-                  <div className="inner-square bottom-right"></div>
+                <span className={styles.emptyCenter}>
+                  <div className={`${styles.innerSquare} ${styles.topLeft}`}></div>
+                  <div className={`${styles.innerSquare} ${styles.topRight}`}></div>
+                  <div className={`${styles.innerSquare} ${styles.bottomLeft}`}></div>
+                  <div className={`${styles.innerSquare} ${styles.bottomRight}`}></div>
                 </span>
-                <button className="button-down">
-                  <CgZeit className="button-img down" />
+                <button className={styles.buttonDown}>
+                  <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
                 </button>
               </div>
-              <div className="side-buttons">
-                <button className="button-right">
-                  <CgZeit className="button-img right" />
+              <div className={styles.sideButtons}>
+                <button className={styles.buttonRight}>
+                  <CgZeit className={`${styles.buttonImg} ${styles.right}`} />
                 </button>
               </div>
             </div>
           </div>
-          <div className="controllers-2">
-            <div className="center-buttons-2">
-              <span className="select">
-                <button className="buttons-center"></button>
-                <span className="select-text">SELECT</span>
+          <div className={styles.controllers2}>
+            <div className={styles.centerButtons2}>
+              <span className={styles.select}>
+                <button className={styles.buttonsCenter}></button>
+                <span className={styles.selectText}>SELECT</span>
               </span>
-              <span className="start">
-                <button className="buttons-center"></button>
-                <span className="start-text">START</span>
+              <span className={styles.start}>
+                <button className={styles.buttonsCenter}></button>
+                <span className={styles.startText}>START</span>
               </span>
             </div>
           </div>
-          <div className="controllers-3">
-            <div className="circle-button-container">
-              <div className="circle-button-container-1">
-                <button className="circle-button-1">B</button>
+          <div className={styles.controllers3}>
+            <div className={styles.circleButtonContainer}>
+              <div className={styles.circleButtonContainer1}>
+                <button className={styles.circleButton1}>B</button>
               </div>
-              <div className="circle-button-container-2">
-                <button className="circle-button-2">A</button>
+              <div className={styles.circleButtonContainer2}>
+                <button className={styles.circleButton2}>A</button>
               </div>
             </div>
           </div>

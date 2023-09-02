@@ -4,7 +4,9 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Store from '../src/redux/store.js';
-import './index.scss'
+import './index.scss';
+import './components/gameboy/Gameboy.module.scss';
+import './views/landingPage/LandingPage.module.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

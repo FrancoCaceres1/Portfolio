@@ -5,12 +5,12 @@ import PixelArt3 from "../.././assets/images/character-run-2.png";
 import Grass1 from "../.././assets/images/grass-1.png";
 import Arrow from "../.././assets/images/arrow.png";
 import Start from "../.././assets/images/start.png";
-import "./LandingPage.module.scss";
+import styles from "./LandingPage.module.scss";
 
 const LandingPage = () => {
   const images = [PixelArt1, PixelArt2, PixelArt1, PixelArt3];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [startImageClass, setStartImageClass] = useState("start-img");
+  const [startImageClass, setStartImageClass] = useState(styles.startImg);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,7 +23,7 @@ const LandingPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setStartImageClass((prevClass) =>
-        prevClass === "start-img" ? "start-img-shadow" : "start-img"
+        prevClass === styles.startImg ? styles.startImgShadow : styles.startImg
       );
     }, 700);
 
@@ -31,28 +31,28 @@ const LandingPage = () => {
   }, []);
 
   return (
-    <section className="section-landing">
-      <div className="content-landing-container">
-        <h1 className="title-landing">
-          WELCOME<span className="subtitle-landing">Franco&apos;s portfolio</span>
+    <section className={styles.sectionLanding}>
+      <div className={styles.contentLandingContainer}>
+        <h1 className={styles.titleLanding}>
+          WELCOME<span className={styles.subtitleLanding}>Franco&apos;s portfolio</span>
         </h1>
-        <div className="start-img-container">
-          <button className="start-button">
+        <div className={styles.startImgContainer}>
+          <button className={styles.startButton}>
             <img className={startImageClass} src={Start} />
           </button>
-          <h2 className="press-start">press start</h2>
+          <h2 className={styles.pressStart}>press start</h2>
         </div>
-        <div className="pixel-character-container">
-          <div className="on-grass">
+        <div className={styles.pixelCharacterContainer}>
+          <div className={styles.onGrass}>
             <img
-              className="pixelart-img"
+              className={styles.pixelartImg}
               src={images[currentIndex]}
               alt={`Character ${currentIndex + 1}`}
             />
-            <img className="pixelart-img" src={Arrow} />
+            <img className={styles.pixelartImg} src={Arrow} />
           </div>
-          <div className="grass-container">
-            <img className="grass-img" src={Grass1} />
+          <div className={styles.grassContainer}>
+            <img className={styles.grassImg} src={Grass1} />
           </div>
         </div>
       </div>

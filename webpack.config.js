@@ -1,4 +1,5 @@
 import path from "path";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const __dirname = path.resolve();
 
@@ -22,7 +23,7 @@ export default {
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
@@ -38,6 +39,11 @@ export default {
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
   resolve: {
     extensions: [".js", ".jsx"],
   },

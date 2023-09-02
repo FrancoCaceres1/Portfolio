@@ -1,53 +1,53 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
-.main-gameboy {
+.mainGameboy {
   @include centerFlex(flex, column, flex-end, center, 3vh);
   @include height(100vh, 100vh);
   background-color: $primary-blue;
   padding: 1rem 1rem;
 }
 
-.section-controller {
+.sectionController {
   @include controllersContainer();
   @include width(100%, 100%);
 }
 
-.controllers-container {
+.controllersContainer {
   @include centerFlex(flex, row, center, center, 0);
   @include controllersContainer();
 }
 
-.section-gameboy {
+.sectionGameboy {
   @include height(64.616vh, 64.616vh);
   @include width(100%, 100%);
 }
 
-.view-container {
+.viewContainer {
   @include height(64.616vh, 64.616vh);
   background-color: #131314;
   padding: 1rem;
   border-radius: 7px 7px 25px 25px;
 }
 
-.center-buttons,
-.side-buttons {
+.centerButtons,
+.sideButtons {
   @include width(2.096rem, 2.096rem);
 }
 
-.row-buttons {
+.rowButtons {
   width: 100%;
   height: 6.2082rem;
   @include centerFlex(flex, row, center, center, 0);
 }
 
-.side-buttons {
+.sideButtons {
   display: flex;
   align-items: center;
 }
 
-.button-left,
-.button-right {
+.buttonLeft,
+.buttonRight {
   width: 100%;
   height: 2rem;
   background-color: #565e6a;
@@ -55,14 +55,14 @@
   cursor: pointer;
 }
 
-.center-buttons {
+.centerButtons {
   @include height(6.2081rem, 6.2081rem);
   @include centerFlex(flex, column, center, center, 0);
 }
 
-.button-down,
-.button-up,
-.empty-center {
+.buttonDown,
+.buttonUp,
+.emptyCenter {
   @include width(100%, 100%);
   @include height(2.069rem, 2.069rem);
   background-color: #565e6a;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.button-up {
+.buttonUp {
   border-top: 0.25rem solid $black;
   border-left: 0.25rem solid $black;
   border-right: 0.25rem solid $black;
@@ -83,7 +83,7 @@
   }
 }
 
-.button-down {
+.buttonDown {
   border-bottom: 0.25rem solid $black;
   border-left: 0.25rem solid $black;
   border-right: 0.25rem solid $black;
@@ -97,7 +97,7 @@
   }
 }
 
-.button-right {
+.buttonRight {
   border-top: 0.25rem solid $black;
   border-bottom: 0.25rem solid $black;
   border-right: 0.25rem solid $black;
@@ -111,7 +111,7 @@
   }
 }
 
-.button-left {
+.buttonLeft {
   border-top: 0.25rem solid $black;
   border-left: 0.25rem solid $black;
   border-bottom: 0.25rem solid $black;
@@ -125,7 +125,7 @@
   }
 }
 
-.button-img {
+.buttonImg {
   position: absolute;
   color: #292929;
   z-index: 3;
@@ -153,64 +153,64 @@
   right: -0.09rem;
 }
 
-.empty-center {
+.emptyCenter {
   position: relative;
   cursor: default;
 }
 
-.inner-square {
+.innerSquare {
   width: 0.25rem;
   height: 0.28rem;
   background-color: $black;
   position: absolute;
 }
 
-.top-left {
+.topLeft {
   top: 0;
   left: 0;
   border-radius: 0 0 5px 0;
 }
 
-.top-right {
+.topRight {
   top: 0;
   right: 0;
   border-radius: 0 0 0 5px;
 }
 
-.bottom-left {
+.bottomLeft {
   bottom: 0;
   left: 0;
   border-radius: 0 5px 0 0;
   box-shadow: 0px -2.5px 0px #888;
 }
 
-.bottom-right {
+.bottomRight {
   bottom: 0;
   right: 0;
   border-radius: 5px 0 0 0;
   box-shadow: 0px -2.5px 0px #888;
 }
 
-.controllers-1,
-.controllers-2,
-.controllers-3 {
+.controllers1,
+.controllers2,
+.controllers3 {
   @include controllersContainer();
   @include width(6.291rem, 6.291rem);
   padding-top: 1rem;
 }
 
-.controllers-1 {
+.controllers1 {
   @include centerFlex(flex, row, center, flex-start, 0);
 }
 
-.center-buttons-2 {
+.centerButtons2 {
   @include width(100%, 100%);
   @include centerFlex(flex, row, center, flex-end, 0.5rem);
   @include controllersContainer();
   padding-bottom: 1rem;
 }
 
-.buttons-center {
+.buttonsCenter {
   width: 2rem;
   height: 1.2rem;
   border-radius: 0.5rem;
@@ -237,25 +237,25 @@
   }
 }
 
-.circle-button-container {
+.circleButtonContainer {
   @include centerFlex(flex, row, center, flex-start, 1.3rem);
   height: 4.4rem;
 }
 
-.circle-button-container-2 {
+.circleButtonContainer2 {
   @include centerFlex(flex, row, center, flex-start, 0);
   width: 2.5rem;
   height: 100%;
 }
 
-.circle-button-container-1 {
+.circleButtonContainer1 {
   @include centerFlex(flex, row, center, flex-end, 0);
   width: 2.5rem;
   height: 100%;
 }
 
-.circle-button-1,
-.circle-button-2 {
+.circleButton1,
+.circleButton2 {
   width: 100%;
   height: 2.5rem;
   border-radius: 100%;
@@ -285,8 +285,8 @@
   @include centerFlex(flex, column, center, center, 0.3rem);
 }
 
-.start-text,
-.select-text {
+.startText,
+.selectText {
   text-shadow: 0px 1px 1px #00182e;
   color: $secondary-blue;
   letter-spacing: -1px;
