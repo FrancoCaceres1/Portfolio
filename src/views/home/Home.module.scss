@@ -1,0 +1,60 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.sectionHome {
+  @include height(57vh, 57vh);
+  background-color: $primary-color;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
+  -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
+  box-shadow: inset 5px 5px 0px 0px $third-color;
+}
+
+.optionsContainer {
+  padding: 2rem 0 0 0.313rem;
+}
+
+.list {
+  @include centerFlex(flex, column, center, flex-start, 0.5rem);
+  color: $font-color;
+  font-family: $primary-font;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: left;
+  list-style-type: none;
+  .option {
+    @include width(100%, 100%);
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    .hyphen {
+      margin-right: 0.5rem;
+    }
+    .buttonAContainerHidden {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+  .selected {
+    @include width(100%, 100%);
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    background-color: $secondary-color;
+    color: $primary-color;
+    .hyphen {
+      margin-right: 0.5rem;
+    }
+    .buttonAContainer {
+      @include width(2rem, 2rem);
+      @include height(2rem, 2rem);
+      position: absolute;
+      right: 0.9rem;
+      .buttonAImage {
+        @include width(100%, 100%);
+        @include height(100%, 100%);
+        filter: drop-shadow(-1.5px 1px 0px #090e09);
+      }
+    }
+  }
+}

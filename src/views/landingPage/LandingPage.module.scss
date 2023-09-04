@@ -15,7 +15,7 @@
   @include width(100%, 100%);
   color: $font-color;
   font-family: $primary-font;
-  font-size: 3rem;
+  font-size: 3.3rem;
   text-align: center;
   padding-top: 2rem;
   cursor: default;
@@ -26,7 +26,7 @@
 }
 
 .startImgContainer {
-  @include centerFlex(flex, column, center, center, 0.1rem);
+  @include centerFlex(flex, column, center, center, 0.5rem);
   @include width(100%, 100%);
 }
 
@@ -41,12 +41,14 @@
 .startImg {
   @include height(100%, 100%);
   @include width(100%, 100%);
+  margin-left: 0.3rem;
   filter: drop-shadow(-4px 3.5px 0px #090e09);
 }
 
 .startImgShadow {
   @include height(100%, 100%);
   @include width(100%, 100%);
+  margin-left: 0.3rem;
   transform: translate(-4px, 3.5px);
 }
 

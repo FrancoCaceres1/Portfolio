@@ -1,20 +1,32 @@
 import LandingPage from "../.././views/landingPage/LandingPage.jsx";
+import Home from "../.././views/home/Home.jsx";
 import { CgZeit } from "react-icons/cg";
 import { useState } from "react";
 import styles from "./Gameboy.module.scss";
 
 const Gameboy = () => {
   const [click, setClick] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   const handleClick = () => {
     setClick(true);
   };
 
+  if (click) {
+    setTimeout(() => {
+      setIsReady(true);
+    }, "1150");
+  }
+
   return (
     <main className={styles.mainGameboy}>
       <section className={styles.sectionGameboy}>
         <div className={styles.viewContainer}>
-          <LandingPage click={click} handleClick={handleClick} />
+          {isReady ? (
+            <Home />
+          ) : (
+            <LandingPage click={click} handleClick={handleClick} />
+          )}
         </div>
       </section>
       <section className={styles.sectionController}>
@@ -58,7 +70,10 @@ const Gameboy = () => {
           <div className={styles.controllers2}>
             <div className={styles.centerButtons2}>
               <span className={styles.select}>
-                <button className={styles.buttonsCenter}></button>
+                <button
+                  className={styles.buttonsCenter}
+                  onClick={handleClick}
+                ></button>
                 <span className={styles.selectText}>SELECT</span>
               </span>
               <span className={styles.start}>
