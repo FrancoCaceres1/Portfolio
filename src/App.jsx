@@ -1,11 +1,7 @@
 import Gameboy from "./components/gameboy/Gameboy.jsx";
 
 function App() {
-  return (
-    <div>
-      <Gameboy />
-    </div>
-  );
+  return <Gameboy />;
 }
 
 export default App;

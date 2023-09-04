@@ -1,13 +1,20 @@
 import LandingPage from "../.././views/landingPage/LandingPage.jsx";
 import { CgZeit } from "react-icons/cg";
+import { useState } from "react";
 import styles from "./Gameboy.module.scss";
 
 const Gameboy = () => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => {
+    setClick(true);
+  };
+
   return (
     <main className={styles.mainGameboy}>
       <section className={styles.sectionGameboy}>
         <div className={styles.viewContainer}>
-          <LandingPage />
+          <LandingPage click={click} handleClick={handleClick} />
         </div>
       </section>
       <section className={styles.sectionController}>
@@ -24,10 +31,18 @@ const Gameboy = () => {
                   <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
                 </button>
                 <span className={styles.emptyCenter}>
-                  <div className={`${styles.innerSquare} ${styles.topLeft}`}></div>
-                  <div className={`${styles.innerSquare} ${styles.topRight}`}></div>
-                  <div className={`${styles.innerSquare} ${styles.bottomLeft}`}></div>
-                  <div className={`${styles.innerSquare} ${styles.bottomRight}`}></div>
+                  <div
+                    className={`${styles.innerSquare} ${styles.topLeft}`}
+                  ></div>
+                  <div
+                    className={`${styles.innerSquare} ${styles.topRight}`}
+                  ></div>
+                  <div
+                    className={`${styles.innerSquare} ${styles.bottomLeft}`}
+                  ></div>
+                  <div
+                    className={`${styles.innerSquare} ${styles.bottomRight}`}
+                  ></div>
                 </span>
                 <button className={styles.buttonDown}>
                   <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
@@ -47,7 +62,10 @@ const Gameboy = () => {
                 <span className={styles.selectText}>SELECT</span>
               </span>
               <span className={styles.start}>
-                <button className={styles.buttonsCenter}></button>
+                <button
+                  className={styles.buttonsCenter}
+                  onClick={handleClick}
+                ></button>
                 <span className={styles.startText}>START</span>
               </span>
             </div>
