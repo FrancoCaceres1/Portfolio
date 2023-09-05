@@ -1,103 +1,104 @@
-import LandingPage from "../.././views/landingPage/LandingPage.jsx";
-import Home from "../.././views/home/Home.jsx";
+import { useLocation, useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import { CgZeit } from "react-icons/cg";
-import { useState } from "react";
 import styles from "./Gameboy.module.scss";
 
-const Gameboy = () => {
-  const [click, setClick] = useState(false);
-  const [isReady, setIsReady] = useState(false);
+const Gameboy = (props) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isLandingPage = location.pathname === "/";
 
-  const handleClick = () => {
-    setClick(true);
+  Gameboy.propTypes = {
+    handleAnimation: PropTypes.func.isRequired,
   };
 
-  if (click) {
+  const handleBack = () => {
+    props.handleAnimation(false);
+    window.history.back();
+  };
+
+  const handleClick = () => {
+    props.handleAnimation(true);
     setTimeout(() => {
-      setIsReady(true);
+      navigate("/home");
     }, "1150");
-  }
+  };
 
   return (
-    <main className={styles.mainGameboy}>
-      <section className={styles.sectionGameboy}>
-        <div className={styles.viewContainer}>
-          {isReady ? (
-            <Home />
-          ) : (
-            <LandingPage click={click} handleClick={handleClick} />
-          )}
+    <section className={styles.sectionController}>
+      <div className={styles.controllersContainer}>
+        <div className={styles.controllers1}>
+          <div className={styles.rowButtons}>
+            <div className={styles.sideButtons}>
+              <button className={styles.buttonLeft}>
+                <CgZeit className={`${styles.buttonImg} ${styles.left}`} />
+              </button>
+            </div>
+            <div className={styles.centerButtons}>
+              <button className={styles.buttonUp}>
+                <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
+              </button>
+              <span className={styles.emptyCenter}>
+                <div
+                  className={`${styles.innerSquare} ${styles.topLeft}`}
+                ></div>
+                <div
+                  className={`${styles.innerSquare} ${styles.topRight}`}
+                ></div>
+                <div
+                  className={`${styles.innerSquare} ${styles.bottomLeft}`}
+                ></div>
+                <div
+                  className={`${styles.innerSquare} ${styles.bottomRight}`}
+                ></div>
+              </span>
+              <button className={styles.buttonDown}>
+                <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
+              </button>
+            </div>
+            <div className={styles.sideButtons}>
+              <button className={styles.buttonRight}>
+                <CgZeit className={`${styles.buttonImg} ${styles.right}`} />
+              </button>
+            </div>
+          </div>
         </div>
-      </section>
-      <section className={styles.sectionController}>
-        <div className={styles.controllersContainer}>
-          <div className={styles.controllers1}>
-            <div className={styles.rowButtons}>
-              <div className={styles.sideButtons}>
-                <button className={styles.buttonLeft}>
-                  <CgZeit className={`${styles.buttonImg} ${styles.left}`} />
-                </button>
-              </div>
-              <div className={styles.centerButtons}>
-                <button className={styles.buttonUp}>
-                  <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
-                </button>
-                <span className={styles.emptyCenter}>
-                  <div
-                    className={`${styles.innerSquare} ${styles.topLeft}`}
-                  ></div>
-                  <div
-                    className={`${styles.innerSquare} ${styles.topRight}`}
-                  ></div>
-                  <div
-                    className={`${styles.innerSquare} ${styles.bottomLeft}`}
-                  ></div>
-                  <div
-                    className={`${styles.innerSquare} ${styles.bottomRight}`}
-                  ></div>
-                </span>
-                <button className={styles.buttonDown}>
-                  <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
-                </button>
-              </div>
-              <div className={styles.sideButtons}>
-                <button className={styles.buttonRight}>
-                  <CgZeit className={`${styles.buttonImg} ${styles.right}`} />
-                </button>
-              </div>
-            </div>
+        <div className={styles.controllers2}>
+          <div className={styles.centerButtons2}>
+            <span className={styles.select}>
+              <button
+                className={styles.buttonsCenter}
+                onClick={handleClick}
+              ></button>
+              <span className={styles.selectText}>SELECT</span>
+            </span>
+            <span className={styles.start}>
+              <button
+                className={styles.buttonsCenter}
+                onClick={handleClick}
+              ></button>
+              <span className={styles.startText}>START</span>
+            </span>
           </div>
-          <div className={styles.controllers2}>
-            <div className={styles.centerButtons2}>
-              <span className={styles.select}>
-                <button
-                  className={styles.buttonsCenter}
-                  onClick={handleClick}
-                ></button>
-                <span className={styles.selectText}>SELECT</span>
-              </span>
-              <span className={styles.start}>
-                <button
-                  className={styles.buttonsCenter}
-                  onClick={handleClick}
-                ></button>
-                <span className={styles.startText}>START</span>
-              </span>
-            </div>
-          </div>
-          <div className={styles.controllers3}>
-            <div className={styles.circleButtonContainer}>
-              <div className={styles.circleButtonContainer1}>
+        </div>
+        <div className={styles.controllers3}>
+          <div className={styles.circleButtonContainer}>
+            <div className={styles.circleButtonContainer1}>
+              {isLandingPage ? (
                 <button className={styles.circleButton1}>B</button>
-              </div>
-              <div className={styles.circleButtonContainer2}>
-                <button className={styles.circleButton2}>A</button>
-              </div>
+              ) : (
+                <button className={styles.circleButton1} onClick={handleBack}>
+                  B
+                </button>
+              )}
+            </div>
+            <div className={styles.circleButtonContainer2}>
+              <button className={styles.circleButton2}>A</button>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 };
 

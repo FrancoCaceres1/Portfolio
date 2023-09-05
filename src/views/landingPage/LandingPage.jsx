@@ -1,10 +1,25 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import Start from "../.././assets/images/start.png";
 import PixelCharacter from "../.././components/pixelCharacter/PixelCharacter.jsx";
 import styles from "./LandingPage.module.scss";
 
-const LandingPage = (handleClick) => {
+const LandingPage = (props) => {
+  const navigate = useNavigate();
   const [startImageClass, setStartImageClass] = useState(styles.startImg);
+
+  LandingPage.propTypes = {
+    handleAnimation: PropTypes.func.isRequired,
+    click: PropTypes.bool.isRequired,
+  };
+
+  const handleClick = () => {
+    props.handleAnimation(true);
+    setTimeout(() => {
+      navigate("/home");
+    }, "1150");
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,19 +41,17 @@ const LandingPage = (handleClick) => {
           </span>
         </h1>
         <div className={styles.startImgContainer}>
-          <button
-            className={styles.startButton}
-            onClick={handleClick.handleClick}
-          >
+          <button className={styles.startButton} onClick={handleClick}>
             <img
               className={startImageClass}
               src={Start}
               alt="pixel-play-button"
             />
           </button>
+
           <h2 className={styles.pressStart}>press start</h2>
         </div>
-        <PixelCharacter click={handleClick.click} />
+        <PixelCharacter click={props.click} />
       </div>
     </section>
   );

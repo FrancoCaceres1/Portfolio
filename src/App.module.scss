@@ -1,0 +1,21 @@
+@import "./styles/variables.scss";
+@import "./styles/mixins.scss";
+
+.mainGameboy {
+  @include centerFlex(flex, column, flex-end, center, 3vh);
+  @include height(100vh, 100vh);
+  background-color: $primary-blue;
+  padding: 1rem 1rem;
+}
+
+.sectionGameboy {
+  @include height(64.616vh, 64.616vh);
+  @include width(100%, 100%);
+}
+
+.viewContainer {
+  @include height(64.616vh, 64.616vh);
+  background-color: #131314;
+  padding: 1rem;
+  border-radius: 7px 7px 25px 25px;
+}
