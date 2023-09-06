@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import PixelArt1 from "../.././assets/images/character-1.png";

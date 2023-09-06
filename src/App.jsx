@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Routes, Route, Navigate } from "react-router-dom";
 import React, { useState } from "react";
 import LandingPage from "./views/landingPage/LandingPage.jsx";

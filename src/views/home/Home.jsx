@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import ButtonA from "../.././assets/images/a-button.png";
 import React, { useState } from "react";
 import styles from "./Home.module.scss";
