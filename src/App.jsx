@@ -8,6 +8,8 @@ import styles from "./App.module.scss";
 
 function App() {
   const [click, setClick] = useState(false);
+  const [option, setOption] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(1);
 
   const handleAnimation = (value) => {
     setClick(value);
@@ -24,15 +26,29 @@ function App() {
                 <LandingPage handleAnimation={handleAnimation} click={click} />
               }
             />
-            <Route path="/home" element={<Home />} />
-            {/* <Route path="/detail/:id" element={<DetailPage />} />
-            <Route path="/activities" element={<FormPage />} />
-            <Route path="/ver" element={<ActivitiesPage />} /> */}
+            <Route
+              path="/home"
+              element={
+                <Home
+                  option={option}
+                  setOption={setOption}
+                  selectedOption={selectedOption}
+                  setSelectedOption={setSelectedOption}
+                />
+              }
+            />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </section>
-      <Gameboy handleAnimation={handleAnimation} click={click} />
+      <Gameboy
+        handleAnimation={handleAnimation}
+        click={click}
+        option={option}
+        setOption={setOption}
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
     </main>
   );
 }

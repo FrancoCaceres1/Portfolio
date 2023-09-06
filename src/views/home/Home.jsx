@@ -1,28 +1,27 @@
 /* eslint-disable no-unused-vars */
 import ButtonA from "../.././assets/images/a-button.png";
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import styles from "./Home.module.scss";
 
-const Home = () => {
-  const [selectedOne, setSelectedOne] = useState(true);
-  const [selectedTwo, setSelectedTwo] = useState(false);
-  const [selectedThree, setSelectedThree] = useState(false);
+const Home = (props) => {
+  Home.propTypes = {
+    option: PropTypes.number.isRequired,
+    setOption: PropTypes.func.isRequired,
+    selectedOption: PropTypes.number.isRequired,
+    setSelectedOption: PropTypes.func.isRequired,
+  };
 
   const handleHover = (value) => {
-    if (value === "2") {
-      setSelectedTwo(true);
-      setSelectedThree(false);
-      setSelectedOne(false);
-    }
-    if (value === "3") {
-      setSelectedTwo(false);
-      setSelectedThree(true);
-      setSelectedOne(false);
-    }
-    if (value === "1") {
-      setSelectedTwo(false);
-      setSelectedThree(false);
-      setSelectedOne(true);
+    const optionMap = {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+    };
+
+    if (optionMap[value]) {
+      props.setSelectedOption(optionMap[value]);
+      props.setOption(optionMap[value]);
     }
   };
 
@@ -31,13 +30,13 @@ const Home = () => {
       <div className={styles.optionsContainer}>
         <ol className={styles.list}>
           <li
-            className={selectedOne ? styles.selected : styles.option}
+            className={props.selectedOption === 1 || props.option === 1 ? styles.selected : styles.option}
             onMouseEnter={() => handleHover("1")}
           >
             <span className={styles.hyphen}>-</span>PROJECTS
             <span
               className={
-                selectedOne
+                props.selectedOption === 1 || props.option === 1
                   ? styles.buttonAContainer
                   : styles.buttonAContainerHidden
               }
@@ -49,12 +48,12 @@ const Home = () => {
               />
             </span>
           </li>
-          <li className={selectedTwo ? styles.selected : styles.option} onMouseEnter={() => handleHover("2")}>
+          <li className={props.selectedOption === 2 || props.option === 2 ? styles.selected : styles.option} onMouseEnter={() => handleHover("2")}>
             <span className={styles.hyphen}>-</span>
             ABOUT ME
             <span
               className={
-                selectedTwo
+                props.selectedOption === 2 || props.option === 2
                   ? styles.buttonAContainer
                   : styles.buttonAContainerHidden
               }
@@ -66,11 +65,11 @@ const Home = () => {
               />
             </span>
           </li>
-          <li className={selectedThree ? styles.selected : styles.option} onMouseEnter={() => handleHover("3")}>
+          <li className={props.selectedOption === 3 || props.option === 3 ? styles.selected : styles.option} onMouseEnter={() => handleHover("3")}>
             <span className={styles.hyphen}>-</span>CONTACT ME
             <span
               className={
-                selectedThree
+                props.selectedOption === 3 || props.option === 3
                   ? styles.buttonAContainer
                   : styles.buttonAContainerHidden
               }

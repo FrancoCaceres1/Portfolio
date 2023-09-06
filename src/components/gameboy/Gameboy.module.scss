@@ -34,6 +34,7 @@
   background-color: #565e6a;
   border: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .centerButtons {
@@ -49,6 +50,7 @@
   background-color: #565e6a;
   border: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .buttonUp {
@@ -198,6 +200,7 @@
   background-color: #d9d9d9;
   border: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   background: linear-gradient(
     to bottom,
     #0f0e0f 0%,
@@ -253,7 +256,7 @@
   line-height: 2.5rem;
   font-size: 1.25rem;
   cursor: pointer;
-
+  -webkit-tap-highlight-color: transparent;
   &:active {
     box-shadow: -1px 1px 1px $black, 0px 0px 5px $black inset;
     border-width: 0px;

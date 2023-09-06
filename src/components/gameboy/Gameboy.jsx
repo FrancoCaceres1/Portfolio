@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CgZeit } from "react-icons/cg";
@@ -9,9 +9,15 @@ const Gameboy = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/";
+  const isHome = location.pathname === "/home";
 
   Gameboy.propTypes = {
     handleAnimation: PropTypes.func.isRequired,
+    click: PropTypes.bool.isRequired,
+    option: PropTypes.number.isRequired,
+    setOption: PropTypes.func.isRequired,
+    selectedOption: PropTypes.number.isRequired,
+    setSelectedOption: PropTypes.func.isRequired,
   };
 
   const handleBack = () => {
@@ -26,6 +32,21 @@ const Gameboy = (props) => {
     }, "1150");
   };
 
+  const handleNavigation = (value) => {
+    if (value == "up") {
+      if (props.option > 1) {
+        props.setOption(props.option - 1);
+        props.setSelectedOption(props.selectedOption - 1);
+      }
+    }
+    if (value == "down") {
+      if (props.option < 3) {
+        props.setOption(props.option + 1);
+        props.setSelectedOption(props.selectedOption + 1);
+      }
+    }
+  };
+
   return (
     <section className={styles.sectionController}>
       <div className={styles.controllersContainer}>
@@ -37,7 +58,7 @@ const Gameboy = (props) => {
               </button>
             </div>
             <div className={styles.centerButtons}>
-              <button className={styles.buttonUp}>
+              <button className={styles.buttonUp} onClick={() => handleNavigation("up")}>
                 <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
               </button>
               <span className={styles.emptyCenter}>
@@ -54,7 +75,7 @@ const Gameboy = (props) => {
                   className={`${styles.innerSquare} ${styles.bottomRight}`}
                 ></div>
               </span>
-              <button className={styles.buttonDown}>
+              <button className={styles.buttonDown} onClick={() => handleNavigation("down")}>
                 <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
               </button>
             </div>
@@ -68,17 +89,33 @@ const Gameboy = (props) => {
         <div className={styles.controllers2}>
           <div className={styles.centerButtons2}>
             <span className={styles.select}>
-              <button
-                className={styles.buttonsCenter}
-                onClick={handleClick}
-              ></button>
+              {isHome || props.click ? (
+                <>
+                  <button className={styles.buttonsCenter}></button>
+                </>
+              ) : (
+                <>
+                  <button
+                    className={styles.buttonsCenter}
+                    onClick={handleClick}
+                  ></button>
+                </>
+              )}
               <span className={styles.selectText}>SELECT</span>
             </span>
             <span className={styles.start}>
-              <button
-                className={styles.buttonsCenter}
-                onClick={handleClick}
-              ></button>
+              {isHome || props.click ? (
+                <>
+                  <button className={styles.buttonsCenter}></button>
+                </>
+              ) : (
+                <>
+                  <button
+                    className={styles.buttonsCenter}
+                    onClick={handleClick}
+                  ></button>
+                </>
+              )}
               <span className={styles.startText}>START</span>
             </span>
           </div>

@@ -42,14 +42,23 @@ const LandingPage = (props) => {
           </span>
         </h1>
         <div className={styles.startImgContainer}>
-          <button className={styles.startButton} onClick={handleClick}>
-            <img
-              className={startImageClass}
-              src={Start}
-              alt="pixel-play-button"
-            />
-          </button>
-
+          {props.click ? (
+            <button className={styles.startButton}>
+              <img
+                className={startImageClass}
+                src={Start}
+                alt="pixel-play-button"
+              />
+            </button>
+          ) : (
+            <button className={styles.startButton} onClick={handleClick}>
+              <img
+                className={startImageClass}
+                src={Start}
+                alt="pixel-play-button"
+              />
+            </button>
+          )}
           <h2 className={styles.pressStart}>press start</h2>
         </div>
         <PixelCharacter click={props.click} />
