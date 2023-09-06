@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CgZeit } from "react-icons/cg";

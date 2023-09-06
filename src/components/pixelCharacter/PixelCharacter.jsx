@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import PixelArt1 from "../.././assets/images/character-1.png";
 import PixelArt2 from "../.././assets/images/character-run-1.png";

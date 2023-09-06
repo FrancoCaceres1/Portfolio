@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";

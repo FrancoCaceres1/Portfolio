@@ -1,5 +1,5 @@
 import ButtonA from "../.././assets/images/a-button.png";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.scss";
 
 const Home = () => {
