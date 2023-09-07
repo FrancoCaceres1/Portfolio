@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
 import Projects from "./views/projects/Projects.jsx";
-import Contact from "./views/contact/Contact.jsx";
-import About from "./views/about/About.jsx";
+import Contact from "./views/Contact/Contact.jsx";
+import About from "./views/About/About.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
 import styles from "./App.module.scss";
 
