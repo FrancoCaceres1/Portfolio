@@ -2,6 +2,7 @@
 @import "../../styles/mixins.scss";
 
 .sectionHome {
+  @include centerFlex(flex, column, space-between, center, 0);
   @include height(57vh, 57vh);
   background-color: $primary-color;
   border-radius: 5px;
@@ -11,6 +12,7 @@
 }
 
 .optionsContainer {
+  @include width(100%, 100%);
   padding: 2rem 0 0 0.313rem;
 }
 
@@ -62,7 +64,35 @@
 .link {
   @include width(100%, 100%);
   text-decoration: none;
+  color: $font-color;
   &:visited {
     color: $font-color;
+  }
+}
+
+.buttonBContainer {
+  @include centerFlex(flex, row, flex-end, center, 0);
+  @include width(100%, 100%);
+  padding: 0 0.65rem 1rem 0;
+  .buttonB {
+    @include centerFlex(flex, row, space-between, center, 0);
+    @include width(8.5rem, 8.5rem);
+    @include height(3rem, 3rem);
+    padding: 0 0.3rem;
+    border: none;
+    background-color: $secondary-color;
+    cursor: pointer;
+    .buttonBImage {
+      @include width(2rem, 2rem);
+      @include height(2rem, 2rem);
+      filter: drop-shadow(-1.5px 1px 0px #090e09);
+    }
+    .backText {
+      color: $primary-color;
+      font-family: $primary-font;
+      font-size: 2rem;
+      font-weight: 600;
+      padding-left: 0.4rem;
+    }
   }
 }

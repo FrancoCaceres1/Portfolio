@@ -33,14 +33,11 @@ const Gameboy = (props) => {
   };
 
   const handleNavigation = (value) => {
-    if (value == "up" && isHome) {
-      if (props.option > 1) {
+    if (isHome) {
+      if (value === "up" && props.option > 1) {
         props.setOption(props.option - 1);
         props.setSelectedOption(props.selectedOption - 1);
-      }
-    }
-    if (value == "down" && isHome) {
-      if (props.option < 3) {
+      } else if (value === "down" && props.option < 3) {
         props.setOption(props.option + 1);
         props.setSelectedOption(props.selectedOption + 1);
       }
@@ -48,14 +45,16 @@ const Gameboy = (props) => {
   };
 
   const handleRedirect = () => {
-    if (props.option === 1 && isHome) {
-      navigate("/projects");
-    }
-    if (props.option === 2 && isHome) {
-      navigate("/about");
-    }
-    if (props.option === 3 && isHome) {
-      navigate("/contact");
+    if (isHome) {
+      const navigationRoutes = {
+        1: "/projects",
+        2: "/about",
+        3: "/contact",
+      };
+      const route = navigationRoutes[props.option];
+      if (route) {
+        navigate(route);
+      }
     }
   };
 
@@ -150,7 +149,9 @@ const Gameboy = (props) => {
               )}
             </div>
             <div className={styles.circleButtonContainer2}>
-              <button className={styles.circleButton2} onClick={handleRedirect}>A</button>
+              <button className={styles.circleButton2} onClick={handleRedirect}>
+                A
+              </button>
             </div>
           </div>
         </div>

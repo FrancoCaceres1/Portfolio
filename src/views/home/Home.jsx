@@ -1,16 +1,21 @@
 /* eslint-disable no-unused-vars */
 import ButtonA from "../.././assets/images/a-button.png";
+import ButtonB from "../.././assets/images/b-button.png";
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Home.module.scss";
 
 const Home = (props) => {
+  const navigate = useNavigate();
+
   Home.propTypes = {
     option: PropTypes.number.isRequired,
     setOption: PropTypes.func.isRequired,
     selectedOption: PropTypes.number.isRequired,
     setSelectedOption: PropTypes.func.isRequired,
+    handleAnimation: PropTypes.func.isRequired,
   };
 
   const handleHover = (value) => {
@@ -26,87 +31,101 @@ const Home = (props) => {
     }
   };
 
+  const handleNavigate = (value) => {
+    if (value === "/") {
+      props.handleAnimation(false);
+      navigate(value);
+    } else {
+      setTimeout(() => {
+        navigate(value);
+      }, "150");
+    }
+  };
+
   return (
     <section className={styles.sectionHome}>
       <div className={styles.optionsContainer}>
         <ol className={styles.list}>
-          <Link to="/projects" className={styles.link}>
-            <li
+          <li
+            className={
+              props.selectedOption === 1 || props.option === 1
+                ? styles.selected
+                : styles.option
+            }
+            onMouseEnter={() => handleHover("1")}
+            onClick={() => handleNavigate("/projects")}
+          >
+            <span className={styles.hyphen}>-</span>PROJECTS
+            <span
               className={
                 props.selectedOption === 1 || props.option === 1
-                  ? styles.selected
-                  : styles.option
+                  ? styles.buttonAContainer
+                  : styles.buttonAContainerHidden
               }
-              onMouseEnter={() => handleHover("1")}
             >
-              <span className={styles.hyphen}>-</span>PROJECTS
-              <span
-                className={
-                  props.selectedOption === 1 || props.option === 1
-                    ? styles.buttonAContainer
-                    : styles.buttonAContainerHidden
-                }
-              >
-                <img
-                  src={ButtonA}
-                  alt="a-button"
-                  className={styles.buttonAImage}
-                />
-              </span>
-            </li>
-          </Link>
-          <Link to="/about" className={styles.link}>
-            <li
+              <img
+                src={ButtonA}
+                alt="a-button"
+                className={styles.buttonAImage}
+              />
+            </span>
+          </li>
+          <li
+            className={
+              props.selectedOption === 2 || props.option === 2
+                ? styles.selected
+                : styles.option
+            }
+            onMouseEnter={() => handleHover("2")}
+            onClick={() => handleNavigate("/about")}
+          >
+            <span className={styles.hyphen}>-</span>
+            ABOUT ME
+            <span
               className={
                 props.selectedOption === 2 || props.option === 2
-                  ? styles.selected
-                  : styles.option
+                  ? styles.buttonAContainer
+                  : styles.buttonAContainerHidden
               }
-              onMouseEnter={() => handleHover("2")}
             >
-              <span className={styles.hyphen}>-</span>
-              ABOUT ME
-              <span
-                className={
-                  props.selectedOption === 2 || props.option === 2
-                    ? styles.buttonAContainer
-                    : styles.buttonAContainerHidden
-                }
-              >
-                <img
-                  src={ButtonA}
-                  alt="a-button"
-                  className={styles.buttonAImage}
-                />
-              </span>
-            </li>
-          </Link>
-          <Link to="/contact" className={styles.link}>
-            <li
+              <img
+                src={ButtonA}
+                alt="a-button"
+                className={styles.buttonAImage}
+              />
+            </span>
+          </li>
+          <li
+            className={
+              props.selectedOption === 3 || props.option === 3
+                ? styles.selected
+                : styles.option
+            }
+            onMouseEnter={() => handleHover("3")}
+            onClick={() => handleNavigate("/contact")}
+          >
+            <span className={styles.hyphen}>-</span>CONTACT ME
+            <span
               className={
                 props.selectedOption === 3 || props.option === 3
-                  ? styles.selected
-                  : styles.option
+                  ? styles.buttonAContainer
+                  : styles.buttonAContainerHidden
               }
-              onMouseEnter={() => handleHover("3")}
             >
-              <span className={styles.hyphen}>-</span>CONTACT ME
-              <span
-                className={
-                  props.selectedOption === 3 || props.option === 3
-                    ? styles.buttonAContainer
-                    : styles.buttonAContainerHidden
-                }
-              >
-                <img
-                  src={ButtonA}
-                  alt="a-button"
-                  className={styles.buttonAImage}
-                />
-              </span>
-            </li>
-          </Link>
+              <img
+                src={ButtonA}
+                alt="a-button"
+                className={styles.buttonAImage}
+              />
+            </span>
+          </li>
         </ol>
+      </div>
+      <div className={styles.buttonBContainer}>
+        <button className={styles.buttonB} onClick={() => handleNavigate("/")}>
+          <span className={styles.backText}>BACK</span>
+          <img src={ButtonB} alt="b-button" className={styles.buttonBImage} />
+        </button>
       </div>
     </section>
   );

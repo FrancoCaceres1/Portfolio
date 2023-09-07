@@ -37,6 +37,7 @@ function App() {
                   setOption={setOption}
                   selectedOption={selectedOption}
                   setSelectedOption={setSelectedOption}
+                  handleAnimation={handleAnimation}
                 />
               }
             />
