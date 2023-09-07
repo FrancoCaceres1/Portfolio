@@ -3,6 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import React, { useState } from "react";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
+import Projects from "./views/projects/Projects.jsx";
+import Contact from "./views/contact/Contact.jsx";
+import About from "./views/about/About.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
 import styles from "./App.module.scss";
 
@@ -37,6 +40,9 @@ function App() {
                 />
               }
             />
+            <Route path="/projects" element={<Projects/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/contact" element={<Contact/>}/>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>

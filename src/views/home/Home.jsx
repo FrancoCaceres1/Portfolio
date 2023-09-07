@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import ButtonA from "../.././assets/images/a-button.png";
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Home.module.scss";
 
@@ -14,9 +15,9 @@ const Home = (props) => {
 
   const handleHover = (value) => {
     const optionMap = {
-      "1": 1,
-      "2": 2,
-      "3": 3,
+      1: 1,
+      2: 2,
+      3: 3,
     };
 
     if (optionMap[value]) {
@@ -29,58 +30,82 @@ const Home = (props) => {
     <section className={styles.sectionHome}>
       <div className={styles.optionsContainer}>
         <ol className={styles.list}>
-          <li
-            className={props.selectedOption === 1 || props.option === 1 ? styles.selected : styles.option}
-            onMouseEnter={() => handleHover("1")}
-          >
-            <span className={styles.hyphen}>-</span>PROJECTS
-            <span
+          <Link to="/projects" className={styles.link}>
+            <li
               className={
                 props.selectedOption === 1 || props.option === 1
-                  ? styles.buttonAContainer
-                  : styles.buttonAContainerHidden
+                  ? styles.selected
+                  : styles.option
               }
+              onMouseEnter={() => handleHover("1")}
             >
-              <img
-                src={ButtonA}
-                alt="a-button"
-                className={styles.buttonAImage}
-              />
-            </span>
-          </li>
-          <li className={props.selectedOption === 2 || props.option === 2 ? styles.selected : styles.option} onMouseEnter={() => handleHover("2")}>
-            <span className={styles.hyphen}>-</span>
-            ABOUT ME
-            <span
+              <span className={styles.hyphen}>-</span>PROJECTS
+              <span
+                className={
+                  props.selectedOption === 1 || props.option === 1
+                    ? styles.buttonAContainer
+                    : styles.buttonAContainerHidden
+                }
+              >
+                <img
+                  src={ButtonA}
+                  alt="a-button"
+                  className={styles.buttonAImage}
+                />
+              </span>
+            </li>
+          </Link>
+          <Link to="/about" className={styles.link}>
+            <li
               className={
                 props.selectedOption === 2 || props.option === 2
-                  ? styles.buttonAContainer
-                  : styles.buttonAContainerHidden
+                  ? styles.selected
+                  : styles.option
               }
+              onMouseEnter={() => handleHover("2")}
             >
-              <img
-                src={ButtonA}
-                alt="a-button"
-                className={styles.buttonAImage}
-              />
-            </span>
-          </li>
-          <li className={props.selectedOption === 3 || props.option === 3 ? styles.selected : styles.option} onMouseEnter={() => handleHover("3")}>
-            <span className={styles.hyphen}>-</span>CONTACT ME
-            <span
+              <span className={styles.hyphen}>-</span>
+              ABOUT ME
+              <span
+                className={
+                  props.selectedOption === 2 || props.option === 2
+                    ? styles.buttonAContainer
+                    : styles.buttonAContainerHidden
+                }
+              >
+                <img
+                  src={ButtonA}
+                  alt="a-button"
+                  className={styles.buttonAImage}
+                />
+              </span>
+            </li>
+          </Link>
+          <Link to="/contact" className={styles.link}>
+            <li
               className={
                 props.selectedOption === 3 || props.option === 3
-                  ? styles.buttonAContainer
-                  : styles.buttonAContainerHidden
+                  ? styles.selected
+                  : styles.option
               }
+              onMouseEnter={() => handleHover("3")}
             >
-              <img
-                src={ButtonA}
-                alt="a-button"
-                className={styles.buttonAImage}
-              />
-            </span>
-          </li>
+              <span className={styles.hyphen}>-</span>CONTACT ME
+              <span
+                className={
+                  props.selectedOption === 3 || props.option === 3
+                    ? styles.buttonAContainer
+                    : styles.buttonAContainerHidden
+                }
+              >
+                <img
+                  src={ButtonA}
+                  alt="a-button"
+                  className={styles.buttonAImage}
+                />
+              </span>
+            </li>
+          </Link>
         </ol>
       </div>
     </section>

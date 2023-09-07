@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { CgZeit } from "react-icons/cg";
+import { CgAlignBottom, CgLayoutGrid, CgZeit } from "react-icons/cg";
 import styles from "./Gameboy.module.scss";
 
 const Gameboy = (props) => {
@@ -33,17 +33,29 @@ const Gameboy = (props) => {
   };
 
   const handleNavigation = (value) => {
-    if (value == "up") {
+    if (value == "up" && isHome) {
       if (props.option > 1) {
         props.setOption(props.option - 1);
         props.setSelectedOption(props.selectedOption - 1);
       }
     }
-    if (value == "down") {
+    if (value == "down" && isHome) {
       if (props.option < 3) {
         props.setOption(props.option + 1);
         props.setSelectedOption(props.selectedOption + 1);
       }
+    }
+  };
+
+  const handleRedirect = () => {
+    if (props.option === 1 && isHome) {
+      navigate("/projects");
+    }
+    if (props.option === 2 && isHome) {
+      navigate("/about");
+    }
+    if (props.option === 3 && isHome) {
+      navigate("/contact");
     }
   };
 
@@ -58,7 +70,10 @@ const Gameboy = (props) => {
               </button>
             </div>
             <div className={styles.centerButtons}>
-              <button className={styles.buttonUp} onClick={() => handleNavigation("up")}>
+              <button
+                className={styles.buttonUp}
+                onClick={() => handleNavigation("up")}
+              >
                 <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
               </button>
               <span className={styles.emptyCenter}>
@@ -75,7 +90,10 @@ const Gameboy = (props) => {
                   className={`${styles.innerSquare} ${styles.bottomRight}`}
                 ></div>
               </span>
-              <button className={styles.buttonDown} onClick={() => handleNavigation("down")}>
+              <button
+                className={styles.buttonDown}
+                onClick={() => handleNavigation("down")}
+              >
                 <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
               </button>
             </div>
@@ -132,7 +150,7 @@ const Gameboy = (props) => {
               )}
             </div>
             <div className={styles.circleButtonContainer2}>
-              <button className={styles.circleButton2}>A</button>
+              <button className={styles.circleButton2} onClick={handleRedirect}>A</button>
             </div>
           </div>
         </div>
