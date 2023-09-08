@@ -32,6 +32,7 @@
   font-family: $primary-font;
   color: $font-color;
   padding: 0.313rem 0 0 0.313rem;
+  cursor: default;
   h1 {
     @include width(100%, 100%);
     background-color: $secondary-color;
@@ -50,7 +51,7 @@
   }
   span {
     @include width(80vw, 80vw);
-    @include height(2.5rem, 2.5rem);
+    @include height(5.5vh, 5.5vh);
     position: absolute;
     background-color: $primary-color;
     bottom: 2.9rem;
