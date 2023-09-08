@@ -15,6 +15,7 @@
 
 .viewContainer {
   @include height(64.616vh, 64.616vh);
+  position: relative;
   background-color: #131314;
   padding: 1rem;
   border-radius: 7px 7px 25px 25px;

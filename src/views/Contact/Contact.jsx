@@ -4,8 +4,10 @@ import styles from "./Contact.module.scss";
 
 const Contact = () => {
   return (
-    <h1>Contact me</h1>
+    <section className={styles.sectionContact}>
+      <h1>Contact me</h1>
+    </section>
   );
-}
+};
 
 export default Contact;

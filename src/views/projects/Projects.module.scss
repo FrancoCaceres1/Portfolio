@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.sectionProjects {
+  @include centerFlex(flex, column, space-between, center, 0);
+  @include height(57vh, 57vh);
+  background-color: $primary-color;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
+  -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
+  box-shadow: inset 5px 5px 0px 0px $third-color;
+}
