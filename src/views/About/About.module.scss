@@ -9,21 +9,6 @@
   -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
   -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
   box-shadow: inset 5px 5px 0px 0px $third-color;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    width: 0.1px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-    border-radius: 4px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: $primary-color;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 4px;
-  }
 }
 
 .infoContainer {
@@ -46,14 +31,53 @@
   p {
     font-size: 1.4rem;
     font-weight: 600;
-    padding: 0 1rem 2.9rem 1rem;
+    @include height(38vh, 38vh);
+    padding: 0 1rem;
     text-align: left;
   }
-  span {
-    @include width(80vw, 80vw);
-    @include height(5.5vh, 5.5vh);
-    position: absolute;
-    background-color: $primary-color;
-    bottom: 2.9rem;
+}
+
+.textContainer {
+  overflow: hidden;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 0.1px;
   }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $primary-color;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+}
+
+.scrollButtons {
+  @include centerFlex(flex, row, flex-end, center, 0.5rem);
+  @include width(100%, 100%);
+  padding-right: 1.2rem;
+  button {
+    @include width(2.5rem, 2.5rem);
+    @include height(2rem, 2rem);
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    .arrow {
+      @include width(2.5rem, 2.5rem);
+      @include height(2rem, 2rem);
+      filter: drop-shadow(-3px 0.5px 0px #090e09);
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+}
+
+.arrowDown {
+  @include width(2.5rem, 2.5rem);
+  @include height(2rem, 2rem);
+  -webkit-tap-highlight-color: transparent;
 }
