@@ -1,55 +1,24 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import DownRow from "../.././assets/images/down-row.png";
 import UpRow from "../.././assets/images/up-row.png";
 import styles from "./About.module.scss";
 
-const About = () => {
+const About = (props) => {
   const pRef = useRef(null);
-  const [showArrowDown, setShowArrowDown] = useState(true);
-  const [showArrowUp, setShowArrowUp] = useState(false);
-  const [isAtBottom, setIsAtBottom] = useState(false);
-  const [scrollInterval, setScrollInterval] = useState(false);
 
-  const handleScrollStart = (direction) => {
-    const pElement = pRef.current;
-    setIsAtBottom(
-      pElement.scrollTop + pElement.clientHeight === pElement.scrollHeight
-    );
-    isAtBottom && setShowArrowDown(false);
-    if (pElement) {
-      if (direction === "up") {
-        pElement.scrollTop -= 20;
-        pElement.scrollTop === 0 && setShowArrowUp(false);
-        setShowArrowDown(true);
-      } else if (direction === "down") {
-        pElement.scrollTop += 20;
-        setShowArrowUp(true);
-      }
-    }
-    const interval = setInterval(() => {
-      const pElement = pRef.current;
-      if (pElement) {
-        if (direction === "up") {
-          pElement.scrollTop -= 20;
-          pElement.scrollTop === 0 && setShowArrowUp(false);
-        } else if (direction === "down") {
-          pElement.scrollTop += 20;
-          setShowArrowUp(true);
-        }
-        pElement.scrollTop === 0 && clearInterval(interval);
-      }
-    }, 100);
-
-    setScrollInterval(interval);
+  About.propTypes = {
+    handleScrollStart: PropTypes.func.isRequired,
+    handleScrollStop: PropTypes.func.isRequired,
+    showArrowDown: PropTypes.bool.isRequired,
+    showArrowUp: PropTypes.bool.isRequired,
+    setPRef: PropTypes.func.isRequired,
   };
 
-  const handleScrollStop = () => {
-    if (scrollInterval) {
-      clearInterval(scrollInterval);
-      setScrollInterval(null);
-    }
-  };
+  useEffect(() => {
+    props.setPRef(pRef.current)
+  }, []);
 
   return (
     <section className={styles.sectionAbout}>
@@ -67,23 +36,23 @@ const About = () => {
           </p>
         </div>
         <div className={styles.scrollButtons}>
-          {showArrowUp && (
+          {props.showArrowUp && (
             <button
-              onMouseDown={() => handleScrollStart("up")}
-              onMouseUp={handleScrollStop}
-              onMouseLeave={handleScrollStop}
+              onMouseDown={() => props.handleScrollStart("up")}
+              onMouseUp={props.handleScrollStop}
+              onMouseLeave={props.handleScrollStop}
             >
               <img className={styles.arrow} src={UpRow} alt="up-row" />
             </button>
           )}
           <button
-            onMouseDown={() => handleScrollStart("down")}
-            onMouseUp={handleScrollStop}
-            onMouseLeave={handleScrollStop}
+            onMouseDown={() => props.handleScrollStart("down")}
+            onMouseUp={props.handleScrollStop}
+            onMouseLeave={props.handleScrollStop}
           >
             <img
               className={
-                !showArrowDown ? `${styles.arrowDown}` : `${styles.arrow}`
+                !props.showArrowDown ? `${styles.arrowDown}` : `${styles.arrow}`
               }
               src={DownRow}
               alt="down-row"

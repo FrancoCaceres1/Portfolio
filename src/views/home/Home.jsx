@@ -2,7 +2,6 @@
 import ButtonA from "../.././assets/images/a-button.png";
 import ButtonB from "../.././assets/images/b-button.png";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Home.module.scss";

@@ -13,6 +13,51 @@ function App() {
   const [click, setClick] = useState(false);
   const [option, setOption] = useState(1);
   const [selectedOption, setSelectedOption] = useState(1);
+  const [showArrowDown, setShowArrowDown] = useState(true);
+  const [showArrowUp, setShowArrowUp] = useState(false);
+  const [isAtBottom, setIsAtBottom] = useState(false);
+  const [scrollInterval, setScrollInterval] = useState(false);
+  const [pRef, setPRef] = useState(null);
+
+  const handleScrollStart = (direction) => {
+    const pElement = pRef;
+    setIsAtBottom(
+      pElement.scrollTop + pElement.clientHeight === pElement.scrollHeight
+    );
+    isAtBottom && setShowArrowDown(false);
+    if (pElement) {
+      if (direction === "up") {
+        pElement.scrollTop -= 20;
+        pElement.scrollTop === 0 && setShowArrowUp(false);
+        setShowArrowDown(true);
+      } else if (direction === "down") {
+        pElement.scrollTop += 20;
+        setShowArrowUp(true);
+      }
+    }
+    const interval = setInterval(() => {
+      const pElement = pRef;
+      if (pElement) {
+        if (direction === "up") {
+          pElement.scrollTop -= 20;
+          pElement.scrollTop === 0 && setShowArrowUp(false);
+        } else if (direction === "down") {
+          pElement.scrollTop += 20;
+          setShowArrowUp(true);
+        }
+        pElement.scrollTop === 0 && clearInterval(interval);
+      }
+    }, 100);
+
+    setScrollInterval(interval);
+  };
+
+  const handleScrollStop = () => {
+    if (scrollInterval) {
+      clearInterval(scrollInterval);
+      setScrollInterval(null);
+    }
+  };
 
   const handleAnimation = (value) => {
     setClick(value);
@@ -42,7 +87,18 @@ function App() {
               }
             />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
+            <Route
+              path="/about"
+              element={
+                <About
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                />
+              }
+            />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
@@ -55,6 +111,8 @@ function App() {
         setOption={setOption}
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
+        handleScrollStart={handleScrollStart}
+        handleScrollStop={handleScrollStop}
       />
     </main>
   );

@@ -18,6 +18,8 @@ const Gameboy = (props) => {
     setOption: PropTypes.func.isRequired,
     selectedOption: PropTypes.number.isRequired,
     setSelectedOption: PropTypes.func.isRequired,
+    handleScrollStart: PropTypes.func.isRequired,
+    handleScrollStop: PropTypes.func.isRequired,
   };
 
   const handleBack = () => {
@@ -72,6 +74,9 @@ const Gameboy = (props) => {
               <button
                 className={styles.buttonUp}
                 onClick={() => handleNavigation("up")}
+                onMouseDown={() => props.handleScrollStart("up")}
+                onMouseUp={props.handleScrollStop}
+                onMouseLeave={props.handleScrollStop}
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
               </button>
@@ -92,6 +97,9 @@ const Gameboy = (props) => {
               <button
                 className={styles.buttonDown}
                 onClick={() => handleNavigation("down")}
+                onMouseDown={() => props.handleScrollStart("down")}
+                onMouseUp={props.handleScrollStop}
+                onMouseLeave={props.handleScrollStop}
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
               </button>
