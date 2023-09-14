@@ -3,6 +3,8 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import DownRow from "../.././assets/images/down-row.png";
 import UpRow from "../.././assets/images/up-row.png";
+import Download from "../.././assets/images/download.png";
+import ButtonA from "../.././assets/images/a-button.png";
 import styles from "./About.module.scss";
 
 const About = (props) => {
@@ -14,11 +16,12 @@ const About = (props) => {
     showArrowDown: PropTypes.bool.isRequired,
     showArrowUp: PropTypes.bool.isRequired,
     setPRef: PropTypes.func.isRequired,
+    handleDownload: PropTypes.func.isRequired,
   };
 
   useEffect(() => {
-    props.setPRef(pRef.current)
-  }, []);
+    props.setPRef(pRef.current);
+  }, [props]);
 
   return (
     <section className={styles.sectionAbout}>
@@ -34,6 +37,13 @@ const About = (props) => {
             always with the goal of contributing to the world of web development
             while honing my skills throughout my career.
           </p>
+          <div className={styles.downloadContainer}>
+            <button className={styles.downloadCV} onClick={props.handleDownload}>
+              <img className={styles.downloadImage} src={Download} alt="download" />
+              DOWNLOAD CV
+              <img className={styles.AButton} src={ButtonA} alt="a-button" />
+            </button>
+          </div>
         </div>
         <div className={styles.scrollButtons}>
           {props.showArrowUp && (

@@ -63,6 +63,11 @@ function App() {
     setClick(value);
   };
 
+  const handleDownload = (e) => {
+    e.preventDefault();
+    window.open("https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view", "_blank");
+  };
+
   return (
     <main className={styles.mainGameboy}>
       <section className={styles.sectionGameboy}>
@@ -96,6 +101,7 @@ function App() {
                   showArrowDown={showArrowDown}
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
+                  handleDownload={handleDownload}
                 />
               }
             />
@@ -113,6 +119,7 @@ function App() {
         setSelectedOption={setSelectedOption}
         handleScrollStart={handleScrollStart}
         handleScrollStop={handleScrollStop}
+        handleDownload={handleDownload}
       />
     </main>
   );

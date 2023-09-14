@@ -31,15 +31,17 @@
   p {
     font-size: 1.4rem;
     font-weight: 600;
-    @include height(38vh, 38vh);
     padding: 0 1rem;
     text-align: left;
   }
 }
 
 .textContainer {
+  @include centerFlex(flex, column, flex-start, center, 2rem);
+  @include height(38vh, 38vh);
   overflow: hidden;
   overflow-y: scroll;
+  padding-bottom: 1.2rem;
   &::-webkit-scrollbar {
     width: 0.1px;
   }
@@ -54,6 +56,30 @@
     background-color: transparent;
     border-radius: 4px;
   }
+  .downloadContainer {
+    @include width(100%, 100%);
+    .downloadCV {
+      @include centerFlex(flex, row, flex-start, center, 0.7rem);
+      @include width(100%, 100%);
+      @include height(3rem, 3rem);
+      @include button($secondary-color, none);
+      font-family: $primary-font;
+      color: $primary-color;
+      position: relative;
+      font-size: 2rem;
+      font-weight: 600;
+      padding-left: 1rem;
+      .downloadImage {
+        @include height(2rem, 2rem);
+      }
+      .AButton {
+        @include height(2rem, 2rem);
+        position: absolute;
+        right: 1.1rem;
+        filter: drop-shadow(-1.5px 1px 0px #090e09);
+      }
+    }
+  }
 }
 
 .scrollButtons {
@@ -64,14 +90,11 @@
     @include width(2.5rem, 2.5rem);
     @include height(2rem, 2rem);
     margin-top: 1rem;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+    @include button(transparent, none);
     .arrow {
       @include width(2.5rem, 2.5rem);
       @include height(2rem, 2rem);
       filter: drop-shadow(-3px 0.5px 0px #090e09);
-      -webkit-tap-highlight-color: transparent;
     }
   }
 }
@@ -79,5 +102,4 @@
 .arrowDown {
   @include width(2.5rem, 2.5rem);
   @include height(2rem, 2rem);
-  -webkit-tap-highlight-color: transparent;
 }

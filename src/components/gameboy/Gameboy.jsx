@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { CgAlignBottom, CgLayoutGrid, CgZeit } from "react-icons/cg";
@@ -10,6 +10,7 @@ const Gameboy = (props) => {
   const navigate = useNavigate();
   const isLandingPage = location.pathname === "/";
   const isHome = location.pathname === "/home";
+  const isAbout = location.pathname === "/about";
 
   Gameboy.propTypes = {
     handleAnimation: PropTypes.func.isRequired,
@@ -20,6 +21,7 @@ const Gameboy = (props) => {
     setSelectedOption: PropTypes.func.isRequired,
     handleScrollStart: PropTypes.func.isRequired,
     handleScrollStop: PropTypes.func.isRequired,
+    handleDownload: PropTypes.func.isRequired,
   };
 
   const handleBack = () => {
@@ -32,6 +34,10 @@ const Gameboy = (props) => {
     setTimeout(() => {
       navigate("/home");
     }, "1150");
+  };
+
+  const handleSelect = () => {
+    navigate("/home");
   };
 
   const handleNavigation = (value) => {
@@ -114,7 +120,14 @@ const Gameboy = (props) => {
         <div className={styles.controllers2}>
           <div className={styles.centerButtons2}>
             <span className={styles.select}>
-              {isHome || props.click ? (
+              {!isHome && !isLandingPage ? (
+                <>
+                  <button
+                    className={styles.buttonsCenter}
+                    onClick={handleSelect}
+                  ></button>
+                </>
+              ) : isHome || props.click ? (
                 <>
                   <button className={styles.buttonsCenter}></button>
                 </>
@@ -157,9 +170,21 @@ const Gameboy = (props) => {
               )}
             </div>
             <div className={styles.circleButtonContainer2}>
-              <button className={styles.circleButton2} onClick={handleRedirect}>
-                A
-              </button>
+              {isAbout ? (
+                <button
+                  className={styles.circleButton2}
+                  onClick={props.handleDownload}
+                >
+                  A
+                </button>
+              ) : (
+                <button
+                  className={styles.circleButton2}
+                  onClick={handleRedirect}
+                >
+                  A
+                </button>
+              )}
             </div>
           </div>
         </div>

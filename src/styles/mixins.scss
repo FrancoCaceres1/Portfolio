@@ -20,3 +20,10 @@
   min-height: 26.616vh;
   max-height: 26.616vh;
 }
+
+@mixin button($background, $border) {
+  background-color: $background;
+  border: $border;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
