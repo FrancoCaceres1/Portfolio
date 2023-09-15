@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import ButtonA from "../.././assets/images/a-button.png";
-import ButtonB from "../.././assets/images/b-button.png";
 import React from "react";
+import ButtonA from "../.././assets/images/a-button.png";
+import BackButtton from "../.././components/backButton/BackButton.jsx";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./Home.module.scss";
@@ -31,14 +31,9 @@ const Home = (props) => {
   };
 
   const handleNavigate = (value) => {
-    if (value === "/") {
-      props.handleAnimation(false);
-      navigate(value);
-    } else {
       setTimeout(() => {
         navigate(value);
       }, "150");
-    }
   };
 
   return (
@@ -120,12 +115,7 @@ const Home = (props) => {
           </li>
         </ol>
       </div>
-      <div className={styles.buttonBContainer}>
-        <button className={styles.buttonB} onClick={() => handleNavigate("/")}>
-          <span className={styles.backText}>BACK</span>
-          <img src={ButtonB} alt="b-button" className={styles.buttonBImage} />
-        </button>
-      </div>
+      <BackButtton handleAnimation={props.handleAnimation}/>
     </section>
   );
 };

@@ -80,9 +80,15 @@ const Gameboy = (props) => {
               <button
                 className={styles.buttonUp}
                 onClick={() => handleNavigation("up")}
-                onMouseDown={() => props.handleScrollStart("up")}
-                onMouseUp={props.handleScrollStop}
-                onMouseLeave={props.handleScrollStop}
+                onMouseDown={() =>
+                  !isHome && !isLandingPage && props.handleScrollStart("up")
+                }
+                onMouseUp={
+                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                }
+                onMouseLeave={
+                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                }
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
               </button>
@@ -103,9 +109,15 @@ const Gameboy = (props) => {
               <button
                 className={styles.buttonDown}
                 onClick={() => handleNavigation("down")}
-                onMouseDown={() => props.handleScrollStart("down")}
-                onMouseUp={props.handleScrollStop}
-                onMouseLeave={props.handleScrollStop}
+                onMouseDown={() =>
+                  !isHome && !isLandingPage && props.handleScrollStart("down")
+                }
+                onMouseUp={
+                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                }
+                onMouseLeave={
+                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                }
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
               </button>

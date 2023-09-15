@@ -38,7 +38,7 @@
 
 .textContainer {
   @include centerFlex(flex, column, flex-start, center, 2rem);
-  @include height(38vh, 38vh);
+  @include height(37vh, 37vh);
   overflow: hidden;
   overflow-y: scroll;
   padding-bottom: 1.2rem;
@@ -86,6 +86,8 @@
   @include centerFlex(flex, row, flex-end, center, 0.5rem);
   @include width(100%, 100%);
   padding-right: 1.2rem;
+  margin-top: 0.5rem;
+  position: relative;
   button {
     @include width(2.5rem, 2.5rem);
     @include height(2rem, 2rem);
@@ -96,6 +98,10 @@
       @include height(2rem, 2rem);
       filter: drop-shadow(-3px 0.5px 0px #090e09);
     }
+  }
+  .backButton {
+    position: absolute;
+    left: 1rem;
   }
 }
 

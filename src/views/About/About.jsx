@@ -5,6 +5,7 @@ import DownRow from "../.././assets/images/down-row.png";
 import UpRow from "../.././assets/images/up-row.png";
 import Download from "../.././assets/images/download.png";
 import ButtonA from "../.././assets/images/a-button.png";
+import BackButtton from "../.././components/backButton/BackButton.jsx";
 import styles from "./About.module.scss";
 
 const About = (props) => {
@@ -38,14 +39,24 @@ const About = (props) => {
             while honing my skills throughout my career.
           </p>
           <div className={styles.downloadContainer}>
-            <button className={styles.downloadCV} onClick={props.handleDownload}>
-              <img className={styles.downloadImage} src={Download} alt="download" />
+            <button
+              className={styles.downloadCV}
+              onClick={props.handleDownload}
+            >
+              <img
+                className={styles.downloadImage}
+                src={Download}
+                alt="download"
+              />
               DOWNLOAD CV
               <img className={styles.AButton} src={ButtonA} alt="a-button" />
             </button>
           </div>
         </div>
         <div className={styles.scrollButtons}>
+          <div className={styles.backButton}>
+          <BackButtton />
+          </div>
           {props.showArrowUp && (
             <button
               onMouseDown={() => props.handleScrollStart("up")}
