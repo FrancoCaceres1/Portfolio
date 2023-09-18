@@ -2,7 +2,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
-import { CgAlignBottom, CgLayoutGrid, CgZeit } from "react-icons/cg";
+import { CgZeit } from "react-icons/cg";
 import styles from "./Gameboy.module.scss";
 
 const Gameboy = (props) => {

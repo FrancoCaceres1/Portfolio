@@ -1,0 +1,31 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.scrollButtons {
+  @include centerFlex(flex, row, flex-end, center, 0.5rem);
+  @include width(100%, 100%);
+  padding-right: 1.2rem;
+  margin-top: 0.5rem;
+  position: relative;
+  button {
+    @include width(2.5rem, 2.5rem);
+    @include height(2rem, 2rem);
+    margin-top: 0.7rem;
+    @include button(transparent, none);
+    .arrow {
+      @include width(2.5rem, 2.5rem);
+      @include height(2rem, 2rem);
+      filter: drop-shadow(-3px 0.5px 0px #090e09);
+    }
+  }
+  .backButton {
+    position: absolute;
+    left: 1rem;
+    margin-top: 0.7rem;
+  }
+}
+
+.arrowDown {
+  @include width(2.5rem, 2.5rem);
+  @include height(2rem, 2rem);
+}

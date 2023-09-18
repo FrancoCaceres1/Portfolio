@@ -1,23 +1,21 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import DownRow from "../.././assets/images/down-row.png";
-import UpRow from "../.././assets/images/up-row.png";
 import Download from "../.././assets/images/download.png";
 import ButtonA from "../.././assets/images/a-button.png";
-import BackButtton from "../.././components/backButton/BackButton.jsx";
+import ScrollButtons from "../../components/scrollButtons/ScrollButtons";
 import styles from "./About.module.scss";
 
 const About = (props) => {
   const pRef = useRef(null);
 
   About.propTypes = {
+    setPRef: PropTypes.func.isRequired,
+    handleDownload: PropTypes.func.isRequired,
     handleScrollStart: PropTypes.func.isRequired,
     handleScrollStop: PropTypes.func.isRequired,
     showArrowDown: PropTypes.bool.isRequired,
     showArrowUp: PropTypes.bool.isRequired,
-    setPRef: PropTypes.func.isRequired,
-    handleDownload: PropTypes.func.isRequired,
   };
 
   useEffect(() => {
@@ -53,33 +51,12 @@ const About = (props) => {
             </button>
           </div>
         </div>
-        <div className={styles.scrollButtons}>
-          <div className={styles.backButton}>
-          <BackButtton />
-          </div>
-          {props.showArrowUp && (
-            <button
-              onMouseDown={() => props.handleScrollStart("up")}
-              onMouseUp={props.handleScrollStop}
-              onMouseLeave={props.handleScrollStop}
-            >
-              <img className={styles.arrow} src={UpRow} alt="up-row" />
-            </button>
-          )}
-          <button
-            onMouseDown={() => props.handleScrollStart("down")}
-            onMouseUp={props.handleScrollStop}
-            onMouseLeave={props.handleScrollStop}
-          >
-            <img
-              className={
-                !props.showArrowDown ? `${styles.arrowDown}` : `${styles.arrow}`
-              }
-              src={DownRow}
-              alt="down-row"
-            />
-          </button>
-        </div>
+        <ScrollButtons
+          handleScrollStart={props.handleScrollStart}
+          handleScrollStop={props.handleScrollStop}
+          showArrowDown={props.showArrowDown}
+          showArrowUp={props.showArrowUp}
+        />
       </div>
     </section>
   );
