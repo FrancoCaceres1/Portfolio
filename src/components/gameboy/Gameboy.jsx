@@ -53,7 +53,7 @@ const Gameboy = (props) => {
     }
   };
 
-  const handleRedirect = () => {
+  const handleRedirect = (url) => {
     if (isHome) {
       const navigationRoutes = {
         1: "/projects",
@@ -64,6 +64,9 @@ const Gameboy = (props) => {
       if (route) {
         navigate(route);
       }
+    }
+    if (isContact) {
+      window.open(url, "_blank");
     }
   };
 
@@ -201,6 +204,33 @@ const Gameboy = (props) => {
                 <button
                   className={styles.circleButton2}
                   onClick={props.handleDownload}
+                >
+                  A
+                </button>
+              ) : isContact && props.option === 3 ? (
+                <button
+                  className={styles.circleButton2}
+                  onClick={props.handleDownload}
+                >
+                  A
+                </button>
+              ) : isContact && props.option === 2 ? (
+                <button
+                  className={styles.circleButton2}
+                  onClick={() => {
+                    handleRedirect("https://github.com/FrancoCaceres1");
+                  }}
+                >
+                  A
+                </button>
+              ) : isContact && props.option === 1 ? (
+                <button
+                  className={styles.circleButton2}
+                  onClick={() => {
+                    handleRedirect(
+                      "https://www.linkedin.com/in/franco-c%C3%A1ceres-2731a0273/"
+                    );
+                  }}
                 >
                   A
                 </button>

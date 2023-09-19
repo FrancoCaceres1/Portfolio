@@ -5,7 +5,7 @@
   @include centerFlex(flex, row, flex-end, center, 0.5rem);
   @include width(100%, 100%);
   padding-right: 1.2rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   position: relative;
   button {
     @include width(2.5rem, 2.5rem);
