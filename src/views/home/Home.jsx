@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect } from "react";
 import ButtonA from "../.././assets/images/a-button.png";
 import BackButtton from "../.././components/backButton/BackButton.jsx";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +16,11 @@ const Home = (props) => {
     setSelectedOption: PropTypes.func.isRequired,
     handleAnimation: PropTypes.func.isRequired,
   };
+
+  useEffect(() => {
+    props.setSelectedOption(1);
+    props.setOption(1);
+  }, []);
 
   const handleHover = (value) => {
     const optionMap = {

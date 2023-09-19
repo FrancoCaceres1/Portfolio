@@ -65,7 +65,10 @@ function App() {
 
   const handleDownload = (e) => {
     e.preventDefault();
-    window.open("https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view", "_blank");
+    window.open(
+      "https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view",
+      "_blank"
+    );
   };
 
   return (
@@ -105,7 +108,23 @@ function App() {
                 />
               }
             />
-            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/contact"
+              element={
+                <Contact
+                  option={option}
+                  setOption={setOption}
+                  selectedOption={selectedOption}
+                  setSelectedOption={setSelectedOption}
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                  handleDownload={handleDownload}
+                />
+              }
+            />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>

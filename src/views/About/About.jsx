@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
-import Download from "../.././assets/images/download.png";
-import ButtonA from "../.././assets/images/a-button.png";
-import ScrollButtons from "../../components/scrollButtons/ScrollButtons";
+import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
+import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
 import styles from "./About.module.scss";
 
 const About = (props) => {
@@ -36,20 +35,7 @@ const About = (props) => {
             always with the goal of contributing to the world of web development
             while honing my skills throughout my career.
           </p>
-          <div className={styles.downloadContainer}>
-            <button
-              className={styles.downloadCV}
-              onClick={props.handleDownload}
-            >
-              <img
-                className={styles.downloadImage}
-                src={Download}
-                alt="download"
-              />
-              DOWNLOAD CV
-              <img className={styles.AButton} src={ButtonA} alt="a-button" />
-            </button>
-          </div>
+          <DownloadButton handleDownload={props.handleDownload} />
         </div>
         <ScrollButtons
           handleScrollStart={props.handleScrollStart}

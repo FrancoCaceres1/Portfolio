@@ -1,0 +1,47 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.downloadContainer {
+  @include width(100%, 100%);
+  .downloadCV {
+    @include centerFlex(flex, row, flex-start, center, 0.7rem);
+    @include width(100%, 100%);
+    @include height(3rem, 3rem);
+    @include button($secondary-color, none);
+    font-family: $primary-font;
+    color: $primary-color;
+    position: relative;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    .downloadImage {
+      @include height(2rem, 2rem);
+      filter: drop-shadow(-1.5px 1px 0px #090e09);
+    }
+    .AButton {
+      @include height(2rem, 2rem);
+      position: absolute;
+      right: 1.1rem;
+      filter: drop-shadow(-1.5px 1px 0px #090e09);
+    }
+  }
+  .hidden {
+    @include centerFlex(flex, row, flex-start, center, 0.7rem);
+    @include width(100%, 100%);
+    @include height(3rem, 3rem);
+    @include button($primary-color, none);
+    font-family: $primary-font;
+    color: $font-color;
+    position: relative;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    .downloadImage {
+      @include height(2rem, 2rem);
+    }
+    .AButton {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+}

@@ -11,6 +11,7 @@ const Gameboy = (props) => {
   const isLandingPage = location.pathname === "/";
   const isHome = location.pathname === "/home";
   const isAbout = location.pathname === "/about";
+  const isContact = location.pathname === "/contact";
 
   Gameboy.propTypes = {
     handleAnimation: PropTypes.func.isRequired,
@@ -41,7 +42,7 @@ const Gameboy = (props) => {
   };
 
   const handleNavigation = (value) => {
-    if (isHome) {
+    if (isHome || isContact) {
       if (value === "up" && props.option > 1) {
         props.setOption(props.option - 1);
         props.setSelectedOption(props.selectedOption - 1);
@@ -81,13 +82,20 @@ const Gameboy = (props) => {
                 className={styles.buttonUp}
                 onClick={() => handleNavigation("up")}
                 onMouseDown={() =>
-                  !isHome && !isLandingPage && props.handleScrollStart("up")
+                  !isHome &&
+                  !isContact &&
+                  !isLandingPage &&
+                  props.handleScrollStart("up")
                 }
                 onMouseUp={
-                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
                 }
                 onMouseLeave={
-                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
                 }
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
@@ -110,13 +118,20 @@ const Gameboy = (props) => {
                 className={styles.buttonDown}
                 onClick={() => handleNavigation("down")}
                 onMouseDown={() =>
-                  !isHome && !isLandingPage && props.handleScrollStart("down")
+                  !isHome &&
+                  !isContact &&
+                  !isLandingPage &&
+                  props.handleScrollStart("down")
                 }
                 onMouseUp={
-                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
                 }
                 onMouseLeave={
-                  !isHome && !isLandingPage ? props.handleScrollStop : null
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
                 }
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
