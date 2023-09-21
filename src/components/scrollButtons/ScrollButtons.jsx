@@ -17,8 +17,9 @@ const ScrollButtons = (props) => {
   return (
     <div className={styles.scrollButtons}>
     <div className={styles.backButton}>
-    <BackButtton />
+    <BackButtton/>
     </div>
+    <div className={styles.scrollButtonsContainer}>
     {props.showArrowUp && (
       <button
         onMouseDown={() => props.handleScrollStart("up")}
@@ -41,6 +42,7 @@ const ScrollButtons = (props) => {
         alt="down-row"
       />
     </button>
+    </div>
   </div>
   )
 };

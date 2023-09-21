@@ -69,3 +69,9 @@
     color: $font-color;
   }
 }
+
+.backButtonContainer {
+  @include centerFlex(flex, row, flex-end, center, 0);
+  @include width(100%, 100%);
+  padding: 1rem;
+}

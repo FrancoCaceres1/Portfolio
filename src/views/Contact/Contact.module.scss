@@ -12,26 +12,30 @@
 }
 
 .infoContainer {
-  @include centerFlex(flex, column, center, center, 0);
+  @include centerFlex(flex, column, space-between, center, 0);
   @include width(100%, 100%);
+  @include height(57vh, 57vh);
   font-family: $primary-font;
   color: $font-color;
   padding: 0.3rem 0 0 0.313rem;
   cursor: default;
-  h1 {
+  .contactContainer {
     @include width(100%, 100%);
-    background-color: $secondary-color;
-    color: $primary-color;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.3rem;
-    padding: 0.5rem 0 0.5rem 0.313rem;
+    h1 {
+      @include width(100%, 100%);
+      background-color: $secondary-color;
+      color: $primary-color;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.3rem;
+      padding: 0.5rem 0 0.5rem 0.313rem;
+    }
   }
 }
 
 .textContainer {
-  @include centerFlex(flex, column, flex-start, center, 1rem);
+  @include centerFlex(flex, column, flex-start, center, 0.5rem);
   @include height(37vh, 37vh);
   @include width(100%, 100%);
   overflow: hidden;
@@ -54,7 +58,7 @@
 }
 
 .option {
-  @include centerFlex(flex, row, flex-start, center, 0.7rem);
+  @include centerFlex(flex, row, flex-start, center, 0.8rem);
   @include width(100%, 100%);
   @include height(3rem, 3rem);
   @include button($secondary-color, none);
@@ -77,7 +81,7 @@
 }
 
 .hidden {
-  @include centerFlex(flex, row, flex-start, center, 0.7rem);
+  @include centerFlex(flex, row, flex-start, center, 0.8rem);
   @include width(100%, 100%);
   @include height(3rem, 3rem);
   @include button($primary-color, none);

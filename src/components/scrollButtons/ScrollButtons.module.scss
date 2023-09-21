@@ -2,26 +2,24 @@
 @import "../../styles/mixins.scss";
 
 .scrollButtons {
-  @include centerFlex(flex, row, flex-end, center, 0.5rem);
+  @include centerFlex(flex, row, space-between, center, 0.5rem);
   @include width(100%, 100%);
-  padding-right: 1.2rem;
-  margin-top: 1rem;
-  position: relative;
+  @include height(3rem, 3rem);
+  padding: 0 1.2rem 2rem 1.12rem;
+  .scrollButtonsContainer {
+    @include centerFlex(flex, row, flex-end, center, 0);
+    @include width(5rem, 5rem);
+    margin-top: 0.2rem;
+  }
   button {
     @include width(2.5rem, 2.5rem);
     @include height(2rem, 2rem);
-    margin-top: 0.7rem;
     @include button(transparent, none);
     .arrow {
       @include width(2.5rem, 2.5rem);
       @include height(2rem, 2rem);
       filter: drop-shadow(-3px 0.5px 0px #090e09);
     }
-  }
-  .backButton {
-    position: absolute;
-    left: 1rem;
-    margin-top: 0.7rem;
   }
 }
 

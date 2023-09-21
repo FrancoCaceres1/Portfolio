@@ -4,7 +4,6 @@
 .buttonBContainer {
   @include centerFlex(flex, row, flex-end, center, 0);
   @include width(100%, 100%);
-  padding: 0 0.65rem 1rem 0;
   .buttonB {
     @include centerFlex(flex, row, space-between, center, 0);
     @include width(8.5rem, 8.5rem);

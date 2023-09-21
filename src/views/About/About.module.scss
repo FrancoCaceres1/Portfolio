@@ -5,6 +5,7 @@
   @include centerFlex(flex, column, flex-start, center, 0);
   @include height(57vh, 57vh);
   background-color: $primary-color;
+  font-family: $primary-font;
   border-radius: 5px;
   -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
   -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
@@ -12,22 +13,26 @@
 }
 
 .infoContainer {
-  @include centerFlex(flex, column, center, center, 0);
+  @include centerFlex(flex, column, space-between, center, 0);
   @include width(100%, 100%);
-  font-family: $primary-font;
+  @include height(57vh, 57vh);
   color: $font-color;
   padding: 0.3rem 0 0 0.313rem;
-  cursor: default;
-  h1 {
-    @include width(100%, 100%);
-    background-color: $secondary-color;
-    color: $primary-color;
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.3rem;
-    padding: 0.5rem 0 0.5rem 0.313rem;
+  .aboutContainer {
+    @include height(45vh, 45vh);
+    overflow: hidden;
+    h1 {
+      @include width(100%, 100%);
+      background-color: $secondary-color;
+      color: $primary-color;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.3rem;
+      padding: 0.5rem 0 0.5rem 0.313rem;
+    }
   }
+  cursor: default;
   p {
     font-size: 1.4rem;
     font-weight: 600;

@@ -36,9 +36,9 @@ const Home = (props) => {
   };
 
   const handleNavigate = (value) => {
-      setTimeout(() => {
-        navigate(value);
-      }, "150");
+    setTimeout(() => {
+      navigate(value);
+    }, "150");
   };
 
   return (
@@ -120,7 +120,9 @@ const Home = (props) => {
           </li>
         </ol>
       </div>
-      <BackButtton handleAnimation={props.handleAnimation}/>
+      <div className={styles.backButtonContainer}>
+        <BackButtton handleAnimation={props.handleAnimation} />
+      </div>
     </section>
   );
 };
