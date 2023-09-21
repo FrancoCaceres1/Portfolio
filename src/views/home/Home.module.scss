@@ -5,6 +5,7 @@
   @include centerFlex(flex, column, space-between, center, 0);
   @include height(57vh, 57vh);
   background-color: $primary-color;
+  font-family: $primary-font;
   border-radius: 5px;
   -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
   -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
@@ -13,13 +14,22 @@
 
 .optionsContainer {
   @include width(100%, 100%);
-  padding: 2rem 0 0 0.313rem;
+  padding: 0.313rem 0 0 0.313rem;
+  h1 {
+    @include width(100%, 100%);
+    background-color: $secondary-color;
+    color: $primary-color;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 0 0.5rem 0;
+  }
 }
 
 .list {
   @include centerFlex(flex, column, center, flex-start, 0.5rem);
   color: $font-color;
-  font-family: $primary-font;
   font-weight: 600;
   font-size: 2rem;
   text-align: left;

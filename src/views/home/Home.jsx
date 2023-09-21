@@ -44,6 +44,7 @@ const Home = (props) => {
   return (
     <section className={styles.sectionHome}>
       <div className={styles.optionsContainer}>
+        <h1>HOME</h1>
         <ol className={styles.list}>
           <li
             className={
