@@ -7,6 +7,7 @@ import Projects from "./views/projects/Projects.jsx";
 import Contact from "./views/Contact/Contact.jsx";
 import About from "./views/About/About.jsx";
 import Skills from "./views/skills/Skills.jsx";
+import Settings from "./views/settings/Settings.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
 import styles from "./App.module.scss";
 
@@ -136,6 +137,18 @@ function App() {
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
                   handleDownload={handleDownload}
+                />
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <Settings
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
                 />
               }
             />

@@ -2,12 +2,14 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import Download from "../.././assets/images/download.png";
 import ButtonA from "../.././assets/images/a-button.png";
 import styles from "./DownloadButton.module.scss";
 
 const DownloadButton = (props) => {
   const location = useLocation();
+  const { t } = useTranslation();
   const isAbout = location.pathname === "/about";
   const isSkills = location.pathname === "/skills";
 
@@ -23,7 +25,7 @@ const DownloadButton = (props) => {
       {isAbout || isSkills ? (
         <button className={styles.downloadCV} onClick={props.handleDownload}>
           <img className={styles.downloadImage} src={Download} alt="download" />
-          DOWNLOAD CV
+          {t("download.title")}
           <img className={styles.AButton} src={ButtonA} alt="a-button" />
         </button>
       ) : (
@@ -37,7 +39,7 @@ const DownloadButton = (props) => {
           onMouseEnter={() => props.handleHover("3")}
         >
           <img className={styles.downloadImage} src={Download} alt="download" />
-          DOWNLOAD CV
+          {t("download.title")}
           <img className={styles.AButton} src={ButtonA} alt="a-button" />
         </button>
       )}

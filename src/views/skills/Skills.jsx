@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
 import C from "../.././assets/images/skills/c.png";
@@ -23,6 +24,7 @@ import styles from "./Skills.module.scss";
 
 const Skills = (props) => {
   const pRef = useRef(null);
+  const { t } = useTranslation();
 
   Skills.propTypes = {
     setPRef: PropTypes.func.isRequired,
@@ -41,7 +43,7 @@ const Skills = (props) => {
     <section className={styles.sectionSkills}>
       <div className={styles.infoContainer}>
         <div className={styles.skillsContainer}>
-          <h1>MY SKILLS</h1>
+          <h1>{t("skills.title")}</h1>
           <div className={styles.textContainer} ref={pRef}>
             <section className={styles.iconsContainer}>
               <span>

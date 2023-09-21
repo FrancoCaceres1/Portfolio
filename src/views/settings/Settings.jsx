@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useLanguage } from "../.././language/LanguageContext.jsx";
 import { useTranslation } from "react-i18next";
-import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
-import styles from "./About.module.scss";
+import styles from "./Settings.module.scss";
 
-const About = (props) => {
+const Settings = (props) => {
   const pRef = useRef(null);
+  const { changeLanguage } = useLanguage();
   const { t } = useTranslation();
 
-  About.propTypes = {
+  Settings.propTypes = {
     setPRef: PropTypes.func.isRequired,
-    handleDownload: PropTypes.func.isRequired,
     handleScrollStart: PropTypes.func.isRequired,
     handleScrollStop: PropTypes.func.isRequired,
     showArrowDown: PropTypes.bool.isRequired,
@@ -21,18 +21,20 @@ const About = (props) => {
 
   useEffect(() => {
     props.setPRef(pRef.current);
-  }, [props]);
+  }, []);
+
+  const handleLanguageChange = (newLanguage) => {
+    changeLanguage(newLanguage);
+  };
 
   return (
-    <section className={styles.sectionAbout}>
+    <section className={styles.sectionSkills}>
       <div className={styles.infoContainer}>
-        <div className={styles.aboutContainer}>
-          <h1>{t("about.title")}</h1>
+        <div className={styles.skillsContainer}>
+          <h1>{t("settings.title")}</h1>
           <div className={styles.textContainer} ref={pRef}>
-            <p>
-            {t("about.text")}
-            </p>
-            <DownloadButton handleDownload={props.handleDownload} />
+            <button onClick={() => handleLanguageChange("en")}>{t("settings.english")}</button>
+            <button onClick={() => handleLanguageChange("es")}>{t("settings.spanish")}</button>
           </div>
         </div>
         <ScrollButtons
@@ -46,4 +48,4 @@ const About = (props) => {
   );
 };
 
-export default About;
+export default Settings;

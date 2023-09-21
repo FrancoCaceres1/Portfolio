@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
 import LinkedIn from "../.././assets/images/linkedin.png";
@@ -10,6 +11,7 @@ import styles from "./Contact.module.scss";
 
 const Contact = (props) => {
   const pRef = useRef(null);
+  const { t } = useTranslation();
 
   Contact.propTypes = {
     setPRef: PropTypes.func.isRequired,
@@ -51,7 +53,7 @@ const Contact = (props) => {
     <section className={styles.sectionContact}>
       <div className={styles.infoContainer}>
         <div className={styles.contactContainer}>
-          <h1>CONTACT ME</h1>
+          <h1>{t("contact.title")}</h1>
           <div className={styles.textContainer} ref={pRef}>
             <button
               className={
