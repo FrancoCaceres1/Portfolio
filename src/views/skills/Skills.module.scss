@@ -1,0 +1,84 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.sectionSkills {
+  @include centerFlex(flex, column, flex-start, center, 0);
+  @include height(57vh, 57vh);
+  background-color: $primary-color;
+  font-family: $primary-font;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
+  -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
+  box-shadow: inset 5px 5px 0px 0px $third-color;
+}
+
+.infoContainer {
+  @include centerFlex(flex, column, space-between, center, 0);
+  @include width(100%, 100%);
+  @include height(57vh, 57vh);
+  color: $font-color;
+  padding: 0.3rem 0 0 0.313rem;
+  .skillsContainer {
+    @include width(100%, 100%);
+    @include height(45vh, 45vh);
+    overflow: hidden;
+    h1 {
+      @include width(100%, 100%);
+      background-color: $secondary-color;
+      color: $primary-color;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.3rem;
+      padding: 0.5rem 0 0.5rem 0.313rem;
+    }
+  }
+  cursor: default;
+  p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    text-align: left;
+  }
+}
+
+.textContainer {
+  @include centerFlex(flex, column, flex-start, center, 4rem);
+  @include height(37vh, 37vh);
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 1.2rem;
+  &::-webkit-scrollbar {
+    width: 0.1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $primary-color;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  .iconsContainer {
+    @include width(100%, 100%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 1.7rem 0 1.7rem;
+    span {
+      @include centerFlex(flex, column, flex-start, center, 0.5rem);
+      @include width(100%, 100%);
+      @include height(3rem, 3rem);
+      text-align: center;
+      img {
+        @include width(3rem, 3rem);
+        @include height(3rem, 3rem);
+      }
+    }
+  }
+}

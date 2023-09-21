@@ -9,6 +9,7 @@ import styles from "./DownloadButton.module.scss";
 const DownloadButton = (props) => {
   const location = useLocation();
   const isAbout = location.pathname === "/about";
+  const isSkills = location.pathname === "/skills";
 
   DownloadButton.propTypes = {
     handleDownload: PropTypes.func.isRequired,
@@ -19,7 +20,7 @@ const DownloadButton = (props) => {
 
   return (
     <div className={styles.downloadContainer}>
-      {isAbout ? (
+      {isAbout || isSkills ? (
         <button className={styles.downloadCV} onClick={props.handleDownload}>
           <img className={styles.downloadImage} src={Download} alt="download" />
           DOWNLOAD CV

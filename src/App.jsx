@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
 import Projects from "./views/projects/Projects.jsx";
-import Contact from "./views/Contact/Contact.jsx";
-import About from "./views/About/About.jsx";
+import Contact from "./views/contact/Contact.jsx";
+import About from "./views/about/About.jsx";
+import Skills from "./views/skills/Skills.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
 import styles from "./App.module.scss";
 
@@ -116,6 +117,19 @@ function App() {
                   setOption={setOption}
                   selectedOption={selectedOption}
                   setSelectedOption={setSelectedOption}
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                  handleDownload={handleDownload}
+                />
+              }
+            />
+            <Route
+              path="/skills"
+              element={
+                <Skills
                   handleScrollStart={handleScrollStart}
                   handleScrollStop={handleScrollStop}
                   showArrowDown={showArrowDown}

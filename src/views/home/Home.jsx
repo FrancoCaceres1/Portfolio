@@ -27,6 +27,7 @@ const Home = (props) => {
       1: 1,
       2: 2,
       3: 3,
+      4: 4,
     };
 
     if (optionMap[value]) {
@@ -108,6 +109,30 @@ const Home = (props) => {
             <span
               className={
                 props.selectedOption === 3 || props.option === 3
+                  ? styles.buttonAContainer
+                  : styles.buttonAContainerHidden
+              }
+            >
+              <img
+                src={ButtonA}
+                alt="a-button"
+                className={styles.buttonAImage}
+              />
+            </span>
+          </li>
+          <li
+            className={
+              props.selectedOption === 4 || props.option === 4
+                ? styles.selected
+                : styles.option
+            }
+            onMouseEnter={() => handleHover("4")}
+            onClick={() => handleNavigate("/skills")}
+          >
+            <span className={styles.hyphen}>-</span>MY SKILLS
+            <span
+              className={
+                props.selectedOption === 4 || props.option === 4
                   ? styles.buttonAContainer
                   : styles.buttonAContainerHidden
               }
