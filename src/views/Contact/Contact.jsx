@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
@@ -10,40 +10,21 @@ import ButtonA from "../.././assets/images/a-button.png";
 import styles from "./Contact.module.scss";
 
 const Contact = (props) => {
-  const pRef = useRef(null);
   const { t } = useTranslation();
 
   Contact.propTypes = {
-    setPRef: PropTypes.func.isRequired,
     handleDownload: PropTypes.func.isRequired,
-    handleScrollStart: PropTypes.func.isRequired,
-    handleScrollStop: PropTypes.func.isRequired,
-    showArrowDown: PropTypes.bool.isRequired,
-    showArrowUp: PropTypes.bool.isRequired,
     option: PropTypes.number.isRequired,
     setOption: PropTypes.func.isRequired,
     selectedOption: PropTypes.number.isRequired,
     setSelectedOption: PropTypes.func.isRequired,
+    handleHover: PropTypes.func.isRequired,
   };
 
   useEffect(() => {
-    props.setPRef(pRef.current);
     props.setSelectedOption(1);
     props.setOption(1);
   }, []);
-
-  const handleHover = (value) => {
-    const optionMap = {
-      1: 1,
-      2: 2,
-      3: 3,
-    };
-
-    if (optionMap[value]) {
-      props.setSelectedOption(optionMap[value]);
-      props.setOption(optionMap[value]);
-    }
-  };
 
   const handleRedirect = (url) => {
     window.open(url, "_blank");
@@ -54,7 +35,7 @@ const Contact = (props) => {
       <div className={styles.infoContainer}>
         <div className={styles.contactContainer}>
           <h1>{t("contact.title")}</h1>
-          <div className={styles.textContainer} ref={pRef}>
+          <div className={styles.textContainer}>
             <button
               className={
                 props.selectedOption === 1 || props.option === 1
@@ -66,7 +47,7 @@ const Contact = (props) => {
                   "https://www.linkedin.com/in/franco-c%C3%A1ceres-2731a0273/"
                 )
               }
-              onMouseEnter={() => handleHover("1")}
+              onMouseEnter={() => props.handleHover("1")}
             >
               <img className={styles.iconImage} src={LinkedIn} alt="linkedin" />
               LINKEDIN
@@ -81,7 +62,7 @@ const Contact = (props) => {
               onClick={() =>
                 handleRedirect("https://github.com/FrancoCaceres1")
               }
-              onMouseEnter={() => handleHover("2")}
+              onMouseEnter={() => props.handleHover("2")}
             >
               <img className={styles.iconImage} src={Github} alt="github" />
               GITHUB
@@ -89,18 +70,13 @@ const Contact = (props) => {
             </button>
             <DownloadButton
               handleDownload={props.handleDownload}
-              handleHover={handleHover}
+              handleHover={props.handleHover}
               option={props.option}
               selectedOption={props.selectedOption}
             />
           </div>
         </div>
-        <ScrollButtons
-          handleScrollStart={props.handleScrollStart}
-          handleScrollStop={props.handleScrollStop}
-          showArrowDown={props.showArrowDown}
-          showArrowUp={props.showArrowUp}
-        />
+        <ScrollButtons />
       </div>
     </section>
   );

@@ -22,23 +22,17 @@
     @include width(100%, 100%);
     @include height(45vh, 45vh);
     overflow: hidden;
+    cursor: default;
     h1 {
       @include width(100%, 100%);
       background-color: $secondary-color;
       color: $primary-color;
       text-align: center;
-      font-size: 2rem;
+      font-size: $primary-size;
       font-weight: 600;
       margin-bottom: 1.3rem;
       padding: 0.5rem 0 0.5rem 0.313rem;
     }
-  }
-  cursor: default;
-  p {
-    font-size: 1.4rem;
-    font-weight: 600;
-    padding: 0 1rem;
-    text-align: left;
   }
 }
 

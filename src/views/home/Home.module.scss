@@ -20,7 +20,7 @@
     background-color: $secondary-color;
     color: $primary-color;
     text-align: center;
-    font-size: 2rem;
+    font-size: $primary-size;
     font-weight: 600;
     margin-bottom: 1.25rem;
     padding: 0.5rem 0 0.5rem 0;
@@ -31,7 +31,7 @@
   @include centerFlex(flex, column, center, flex-start, 0.5rem);
   color: $font-color;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: $primary-size;
   text-align: left;
   list-style-type: none;
   .option {
@@ -94,6 +94,7 @@
     img {
       @include width(2.3rem, 2.3rem);
       @include height(2.3rem, 2.3rem);
+      margin-left: 1px;
       filter: drop-shadow(-1px 1px 0px #090e09);
     }
   }

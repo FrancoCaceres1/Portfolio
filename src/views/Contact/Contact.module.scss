@@ -26,7 +26,7 @@
       background-color: $secondary-color;
       color: $primary-color;
       text-align: center;
-      font-size: 2rem;
+      font-size: $primary-size;
       font-weight: 600;
       margin-bottom: 1.3rem;
       padding: 0.5rem 0 0.5rem 0.313rem;
@@ -65,7 +65,7 @@
   font-family: $primary-font;
   color: $primary-color;
   position: relative;
-  font-size: 2rem;
+  font-size: $primary-size;
   font-weight: 600;
   padding-left: 1rem;
   .iconImage {
@@ -88,7 +88,7 @@
   font-family: $primary-font;
   color: $font-color;
   position: relative;
-  font-size: 2rem;
+  font-size: $primary-size;
   font-weight: 600;
   padding-left: 1rem;
   .iconImage {

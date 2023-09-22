@@ -18,7 +18,7 @@
   @include height(57vh, 57vh);
   color: $font-color;
   padding: 0.3rem 0 0 0.313rem;
-  .skillsContainer {
+  .settingsContainer {
     @include width(100%, 100%);
     @include height(45vh, 45vh);
     overflow: hidden;
@@ -27,7 +27,7 @@
       background-color: $secondary-color;
       color: $primary-color;
       text-align: center;
-      font-size: 2rem;
+      font-size: $primary-size;
       font-weight: 600;
       margin-bottom: 1.3rem;
       padding: 0.5rem 0 0.5rem 0.313rem;
@@ -48,6 +48,10 @@
   overflow: hidden;
   overflow-y: scroll;
   padding-bottom: 1.2rem;
+  color: $font-color;
+  font-weight: 600;
+  font-size: $primary-size;
+  text-align: left;
   &::-webkit-scrollbar {
     width: 0.1px;
   }
@@ -61,5 +65,64 @@
   &::-webkit-scrollbar-track {
     background-color: transparent;
     border-radius: 4px;
+  }
+  span {
+    padding-right: 0.5rem;
+  }
+  .option {
+    @include width(100%, 100%);
+    position: relative;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    .hyphen {
+      margin-right: 0.5rem;
+    }
+    .buttonAContainerHidden {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+  .selected {
+    @include width(100%, 100%);
+    position: relative;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: $secondary-color;
+    color: $primary-color;
+    .hyphen {
+      margin-right: 0.5rem;
+    }
+    .buttonAContainer {
+      @include width(2rem, 2rem);
+      @include height(2rem, 2rem);
+      position: absolute;
+      right: 0.9rem;
+      padding-right: 0;
+      .buttonAImage {
+        @include width(100%, 100%);
+        @include height(100%, 100%);
+        filter: drop-shadow(-1.5px 1px 0px #090e09);
+      }
+    }
+    .languageOptions {
+      @include centerFlex(flex, row, space-between, center, 0);
+      @include width(100%, 100%);
+      @include height(3rem, 3rem);
+      margin-top: 0.6rem;
+      button {
+        @include button(transparent, none);
+        font-family: $primary-font;
+        color: $primary-color;
+        font-size: $primary-size;
+        font-weight: 600;
+      }
+      .select {
+        @include button($primary-color, none);
+        font-family: $primary-font;
+        color: $font-color;
+        font-size: $primary-size;
+        font-weight: 600;
+      }
+    }
   }
 }

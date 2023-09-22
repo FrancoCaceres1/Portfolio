@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { Routes, Route, Navigate } from "react-router-dom";
 import React, { useState } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
 import Projects from "./views/projects/Projects.jsx";
@@ -12,6 +12,7 @@ import Gameboy from "./components/gameboy/Gameboy.jsx";
 import styles from "./App.module.scss";
 
 function App() {
+  const navigate = useNavigate();
   const [click, setClick] = useState(false);
   const [option, setOption] = useState(1);
   const [selectedOption, setSelectedOption] = useState(1);
@@ -73,6 +74,28 @@ function App() {
     );
   };
 
+  const handleHover = (value) => {
+    const optionMap = {
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+    };
+
+    if (optionMap[value]) {
+      setSelectedOption(optionMap[value]);
+      setOption(optionMap[value]);
+    }
+  };
+
+  const handleNavigate = (value) => {
+    value === "/settings"
+      ? navigate(value)
+      : setTimeout(() => {
+          navigate(value);
+        }, "150");
+  };
+
   return (
     <main className={styles.mainGameboy}>
       <section className={styles.sectionGameboy}>
@@ -93,6 +116,8 @@ function App() {
                   selectedOption={selectedOption}
                   setSelectedOption={setSelectedOption}
                   handleAnimation={handleAnimation}
+                  handleNavigate={handleNavigate}
+                  handleHover={handleHover}
                 />
               }
             />
@@ -118,12 +143,8 @@ function App() {
                   setOption={setOption}
                   selectedOption={selectedOption}
                   setSelectedOption={setSelectedOption}
-                  handleScrollStart={handleScrollStart}
-                  handleScrollStop={handleScrollStop}
-                  showArrowDown={showArrowDown}
-                  showArrowUp={showArrowUp}
-                  setPRef={setPRef}
                   handleDownload={handleDownload}
+                  handleHover={handleHover}
                 />
               }
             />
@@ -144,11 +165,11 @@ function App() {
               path="/settings"
               element={
                 <Settings
-                  handleScrollStart={handleScrollStart}
-                  handleScrollStop={handleScrollStop}
-                  showArrowDown={showArrowDown}
-                  showArrowUp={showArrowUp}
-                  setPRef={setPRef}
+                  option={option}
+                  setOption={setOption}
+                  selectedOption={selectedOption}
+                  setSelectedOption={setSelectedOption}
+                  handleHover={handleHover}
                 />
               }
             />
