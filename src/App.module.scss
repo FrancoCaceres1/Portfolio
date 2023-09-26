@@ -4,8 +4,23 @@
 .mainGameboy {
   @include centerFlex(flex, column, flex-end, center, 3vh);
   @include height(100vh, 100vh);
-  background-color: $primary-blue;
   padding: 1rem 1rem;
+}
+
+.backgroundBlue {
+  background-color: $primary-blue;
+}
+
+.backgroundRed {
+  background-color: $primary-red;
+}
+
+.backgroundOrange {
+  background-color: $primary-orange;
+}
+
+.backgroundPurple {
+  background-color: $primary-purple;
 }
 
 .sectionGameboy {

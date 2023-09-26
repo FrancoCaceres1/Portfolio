@@ -24,6 +24,7 @@ i18n.use(initReactI18next).init({
           selection: "> EN",
           english: "ENGLISH",
           spanish: "SPANISH",
+          color: "COLOR ",
         },
         skills: {
           title: "MY SKILLS",
@@ -67,6 +68,7 @@ i18n.use(initReactI18next).init({
           selection: "> ES",
           english: "INGLÉS",
           spanish: "ESPAÑOL",
+          color: "COLOR ",
         },
         skills: {
           title: "MIS HABILIDADES",

@@ -22,6 +22,8 @@ const Settings = (props) => {
     setLanguage: PropTypes.func.isRequired,
     handleLanguageChange: PropTypes.func.isRequired,
     handleSelect: PropTypes.func.isRequired,
+    handleColorChange: PropTypes.func.isRequired,
+    color: PropTypes.number.isRequired,
   };
 
   useEffect(() => {
@@ -36,17 +38,19 @@ const Settings = (props) => {
         <div className={styles.settingsContainer}>
           <h1>{t("settings.title")}</h1>
           <div className={styles.textContainer}>
-            <div className={styles.languageContainer}>
+            <div
+              className={styles.languageContainer}
+              onMouseEnter={() => props.handleHover("1")}
+            >
               <div
                 className={
                   props.selectedOption === 1 || props.option === 1
                     ? styles.selected
                     : styles.option
                 }
-                onMouseEnter={() => props.handleHover("1")}
                 onClick={() => props.handleSelect(1)}
               >
-                <span>-</span>
+                <span className={styles.line}>-</span>
                 {t("settings.language")}
                 {props.selected === 1 && t("settings.selection")}
                 {props.selected != 1 ? (
@@ -100,19 +104,38 @@ const Settings = (props) => {
                 </section>
               )}
             </div>
-            <div className={styles.languageContainer}>
+            <div
+              className={styles.languageContainer}
+              onMouseEnter={() => props.handleHover("2")}
+            >
               <div
                 className={
                   props.selectedOption === 2 || props.option === 2
                     ? styles.selected
                     : styles.option
                 }
-                onMouseEnter={() => props.handleHover("2")}
                 onClick={() => props.handleSelect(2)}
               >
-                <span>-</span>
-                {t("settings.language")}
-                {props.selected === 2 && t("settings.selection")}
+                <span className={styles.line}>-</span>
+                {t("settings.color")}
+                {props.selected === 2 && (
+                  <>
+                  <span className={styles.arrow}>&gt;</span>
+                    <div
+                      className={`${styles.colorContainer} ${
+                        props.color === 1
+                          ? styles.backgroundBlue
+                          : props.color === 2
+                          ? styles.backgroundRed
+                          : props.color === 3
+                          ? styles.backgroundOrange
+                          : props.color === 4
+                          ? styles.backgroundPurple
+                          : styles.backgroundBlue
+                      }`}
+                    ></div>
+                  </>
+                )}
                 {props.selected != 2 ? (
                   <span
                     className={
@@ -147,19 +170,31 @@ const Settings = (props) => {
                 <section className={styles.languageOptions}>
                   <button
                     className={
-                      props.language === 1 ? styles.select : styles.noSelect
+                      props.color === 1 ? styles.optionBackgroundBlue : styles.noBackgroundBlue
                     }
-                    onClick={() => props.handleLanguageChange("en", 1)}
+                    onClick={() => props.handleColorChange(1)}
                   >
-                    {t("settings.english")}
                   </button>
                   <button
                     className={
-                      props.language === 2 ? styles.select : styles.noSelect
+                      props.color === 2 ? styles.optionBackgroundRed : styles.noBackgroundRed
                     }
-                    onClick={() => props.handleLanguageChange("es", 2)}
+                    onClick={() => props.handleColorChange(2)}
                   >
-                    {t("settings.spanish")}
+                  </button>
+                  <button
+                    className={
+                      props.color === 3 ? styles.optionBackgroundOrange : styles.noBackgroundOrange
+                    }
+                    onClick={() => props.handleColorChange(3)}
+                  >
+                  </button>
+                  <button
+                    className={
+                      props.color === 4 ? styles.optionBackgroundPurple : styles.noBackgroundPurple
+                    }
+                    onClick={() => props.handleColorChange(4)}
+                  >
                   </button>
                 </section>
               )}

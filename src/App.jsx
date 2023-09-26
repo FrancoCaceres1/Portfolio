@@ -25,6 +25,7 @@ function App() {
   const [pRef, setPRef] = useState(null);
   const [selected, setSelected] = useState(0);
   const [language, setLanguage] = useState(1);
+  const [color, setColor] = useState(1);
 
   const handleScrollStart = (direction) => {
     const pElement = pRef;
@@ -79,6 +80,9 @@ function App() {
   };
 
   const handleHover = (value) => {
+    if (value != option) {
+      setSelected(0);
+    }
     const optionMap = {
       1: 1,
       2: 2,
@@ -104,6 +108,19 @@ function App() {
     }
   };
 
+  const handleColorChange = (value) => {
+    const optionMap = {
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+    };
+
+    if (optionMap[value]) {
+      setColor(optionMap[value]);
+    }
+  };
+
   const handleNavigate = (value) => {
     value === "/settings"
       ? navigate(value)
@@ -120,14 +137,24 @@ function App() {
     };
 
     if (optionMap[value]) {
-      selected === value
-        ? setSelected(0)
-        : setSelected(optionMap[value]);
+      selected === value ? setSelected(0) : setSelected(optionMap[value]);
     }
   };
 
   return (
-    <main className={styles.mainGameboy}>
+    <main
+      className={`${styles.mainGameboy} ${
+        color === 1
+          ? styles.backgroundBlue
+          : color === 2
+          ? styles.backgroundRed
+          : color === 3
+          ? styles.backgroundOrange
+          : color === 4
+          ? styles.backgroundPurple
+          : styles.backgroundBlue
+      }`}
+    >
       <section className={styles.sectionGameboy}>
         <div className={styles.viewContainer}>
           <Routes>
@@ -206,6 +233,8 @@ function App() {
                   setLanguage={setLanguage}
                   handleLanguageChange={handleLanguageChange}
                   handleSelect={handleSelect}
+                  handleColorChange={handleColorChange}
+                  color={color}
                 />
               }
             />
@@ -228,6 +257,8 @@ function App() {
         selected={selected}
         setSelected={setSelected}
         handleSelect={handleSelect}
+        handleColorChange={handleColorChange}
+        color={color}
       />
     </main>
   );

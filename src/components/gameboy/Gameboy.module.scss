@@ -193,7 +193,11 @@
   padding-bottom: 1rem;
 }
 
-.buttonsCenter {
+.buttonsCenter,
+.blue,
+.red,
+.orange,
+.purple {
   width: 2rem;
   height: 1.2rem;
   border-radius: 0.5rem;
@@ -219,6 +223,16 @@
       #62636c 100%
     );
   }
+}
+
+.red {
+  box-shadow: 0px -2px 1px #b10f0f;
+}
+.orange {
+  box-shadow: 0px -2px 1px #db7d30;
+}
+.purple {
+  box-shadow: 0px -2px 1px #5a1cbd;
 }
 
 .circleButtonContainer {
@@ -269,10 +283,37 @@
   @include centerFlex(flex, column, center, center, 0.3rem);
 }
 
-.startText,
-.selectText {
+.startTextBlue,
+.selectTextBlue {
   text-shadow: 0px 1px 1px #00182e;
   color: $secondary-blue;
+  letter-spacing: -1px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.startTextRed,
+.selectTextRed {
+  text-shadow: 0px 1px 1px #2e0000;
+  color: $secondary-red;
+  letter-spacing: -1px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.startTextOrange,
+.selectTextOrange {
+  text-shadow: 0px 1px 1px #2e1600;
+  color: $secondary-orange;
+  letter-spacing: -1px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.startTextPurple,
+.selectTextPurple {
+  text-shadow: 0px 1px 1px #14002e;
+  color: $secondary-purple;
   letter-spacing: -1px;
   font-size: 16px;
   text-align: center;

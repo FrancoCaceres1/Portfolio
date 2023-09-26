@@ -29,6 +29,8 @@ const Gameboy = (props) => {
     selected: PropTypes.number.isRequired,
     handleSelect: PropTypes.func.isRequired,
     setSelected: PropTypes.func.isRequired,
+    color: PropTypes.number.isRequired,
+    handleColorChange: PropTypes.func.isRequired,
   };
 
   const handleBack = () => {
@@ -55,13 +57,13 @@ const Gameboy = (props) => {
         props.setSelectedOption(props.selectedOption - 1);
       } else if (value === "down" && props.option < 4) {
         if (isSettings && props.option < 2) {
-          props.setSelected(0)
+          props.setSelected(0);
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
-        } else if (isContact && props.option < 3){
+        } else if (isContact && props.option < 3) {
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
-        } else if (isHome){
+        } else if (isHome) {
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
         }
@@ -87,11 +89,22 @@ const Gameboy = (props) => {
     }
   };
 
-  const handleChangeLanguage = (value) => {
-    value === "r" &&
-      (props.language === 1) & props.handleLanguageChange("es", 2);
-    value === "l" &&
-      (props.language === 2) & props.handleLanguageChange("en", 1);
+  const handleSettings = () => {
+    navigate("/settings");
+  };
+
+  const handleChangeOption = (value) => {
+    if (isSettings && props.selected === 2) {
+      value === "r" &&
+        (props.color < 4) & props.handleColorChange(props.color + 1);
+      value === "l" &&
+        (props.color > 1) & props.handleColorChange(props.color - 1);
+    } else {
+      value === "r" &&
+        (props.language === 1) & props.handleLanguageChange("es", 2);
+      value === "l" &&
+        (props.language === 2) & props.handleLanguageChange("en", 1);
+    }
   };
 
   return (
@@ -100,10 +113,10 @@ const Gameboy = (props) => {
         <div className={styles.controllers1}>
           <div className={styles.rowButtons}>
             <div className={styles.sideButtons}>
-              {isSettings && props.selected === 1 ? (
+              {(isSettings && props.selected === 1) || props.selected === 2 ? (
                 <button
                   className={styles.buttonLeft}
-                  onClick={() => handleChangeLanguage("l")}
+                  onClick={() => handleChangeOption("l")}
                 >
                   <CgZeit className={`${styles.buttonImg} ${styles.left}`} />
                 </button>
@@ -176,10 +189,10 @@ const Gameboy = (props) => {
               </button>
             </div>
             <div className={styles.sideButtons}>
-              {isSettings && props.selected === 1 ? (
+              {(isSettings && props.selected === 1) || props.selected === 2 ? (
                 <button
                   className={styles.buttonRight}
-                  onClick={() => handleChangeLanguage("r")}
+                  onClick={() => handleChangeOption("r")}
                 >
                   <CgZeit className={`${styles.buttonImg} ${styles.right}`} />
                 </button>
@@ -194,41 +207,72 @@ const Gameboy = (props) => {
         <div className={styles.controllers2}>
           <div className={styles.centerButtons2}>
             <span className={styles.select}>
-              {!isHome && !isLandingPage ? (
-                <>
-                  <button
-                    className={styles.buttonsCenter}
-                    onClick={handleSelect}
-                  ></button>
-                </>
-              ) : isHome || props.click ? (
-                <>
-                  <button className={styles.buttonsCenter}></button>
-                </>
-              ) : (
-                <>
-                  <button
-                    className={styles.buttonsCenter}
-                    onClick={handleClick}
-                  ></button>
-                </>
-              )}
-              <span className={styles.selectText}>SELECT</span>
+              <button
+                className={`${styles.buttonsCenter} ${
+                  props.color === 1
+                    ? styles.blue
+                    : props.color === 2
+                    ? styles.red
+                    : props.color === 3
+                    ? styles.orange
+                    : props.color === 4
+                    ? styles.purple
+                    : styles.blue
+                }`}
+                onClick={
+                  !isHome && !isLandingPage
+                    ? handleSelect
+                    : isHome || props.click
+                    ? handleSettings
+                    : handleClick
+                }
+              ></button>
+              <span
+                className={
+                  props.color === 1
+                    ? styles.selectTextBlue
+                    : props.color === 2
+                    ? styles.selectTextRed
+                    : props.color === 3
+                    ? styles.selectTextOrange
+                    : props.color === 4
+                    ? styles.selectTextPurple
+                    : styles.selectTextBlue
+                }
+              >
+                SELECT
+              </span>
             </span>
             <span className={styles.start}>
-              {isHome || props.click ? (
-                <>
-                  <button className={styles.buttonsCenter}></button>
-                </>
-              ) : (
-                <>
-                  <button
-                    className={styles.buttonsCenter}
-                    onClick={handleClick}
-                  ></button>
-                </>
-              )}
-              <span className={styles.startText}>START</span>
+              <button
+                className={`${styles.buttonsCenter} ${
+                  props.color === 1
+                    ? styles.blue
+                    : props.color === 2
+                    ? styles.red
+                    : props.color === 3
+                    ? styles.orange
+                    : props.color === 4
+                    ? styles.purple
+                    : styles.blue
+                }`}
+                onClick={isLandingPage ? handleClick : null}
+              ></button>
+              <span
+                className={
+                  props.color === 1
+                    ? styles.selectTextBlue
+                    : props.color === 2
+                    ? styles.selectTextRed
+                    : props.color === 3
+                    ? styles.selectTextOrange
+                    : props.color === 4
+                    ? styles.selectTextPurple
+                    : styles.selectTextBlue
+                }
+              >
+                START
+              </span>
             </span>
           </div>
         </div>

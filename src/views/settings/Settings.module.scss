@@ -74,7 +74,7 @@
       @include height(3.5rem, 3.5rem);
       background-color: $secondary-color;
       padding: 0.3rem 1rem 0.5rem 1rem;
-      button {
+      .noSelect {
         @include button(transparent, none);
         font-family: $primary-font;
         color: $primary-color;
@@ -90,7 +90,7 @@
         padding: 0.2rem 0.5rem;
       }
     }
-    span {
+    .line {
       padding-right: 0.5rem;
     }
     .option {
@@ -107,6 +107,7 @@
       }
     }
     .selected {
+      @include centerFlex(flex, row, flex-start, center, 0);
       @include width(100%, 100%);
       position: relative;
       padding: 0.5rem 1rem;
@@ -130,4 +131,72 @@
       }
     }
   }
+}
+
+.arrow {
+  padding-left: 1rem;
+}
+
+.colorContainer {
+  @include width(1.7rem, 1.7rem);
+  @include height(1.7rem, 1.7rem);
+  margin-left: 1rem;
+  border: 2px solid $primary-color;
+}
+
+.backgroundBlue {
+  background-color: $primary-blue;
+}
+
+.backgroundRed {
+  background-color: $primary-red;
+}
+
+.backgroundOrange {
+  background-color: $primary-orange;
+}
+
+.backgroundPurple {
+  background-color: $primary-purple;
+}
+
+.optionBackgroundBlue,
+.optionBackgroundRed,
+.optionBackgroundOrange,
+.optionBackgroundPurple {
+  @include button(transparent, 2px solid $primary-color);
+  @include width(1.7rem, 1.7rem);
+  @include height(1.7rem, 1.7rem);
+}
+
+.noBackgroundBlue,
+.noBackgroundRed,
+.noBackgroundOrange,
+.noBackgroundPurple {
+  @include button(transparent, none);
+  @include width(1.7rem, 1.7rem);
+  @include height(1.7rem, 1.7rem);
+}
+
+.noBackgroundBlue,
+.optionBackgroundBlue {
+  background-color: $primary-blue;
+}
+
+.noBackgroundRed,
+.optionBackgroundRed {
+  background-color: $primary-red;
+}
+
+.noBackgroundOrange,
+.optionBackgroundOrange {
+  background-color: $primary-orange;
+}
+
+.optionBackgroundPurple {
+  background-color: $primary-purple;
+}
+
+.noBackgroundPurple {
+  @include button($primary-purple, none);
 }
