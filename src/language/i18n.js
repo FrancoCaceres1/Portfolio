@@ -20,7 +20,8 @@ i18n.use(initReactI18next).init({
         },
         settings: {
           title: "SETTINGS",
-          language: "LANGUAGE > EN",
+          language: "LANGUAGE ",
+          selection: "> EN",
           english: "ENGLISH",
           spanish: "SPANISH",
         },
@@ -62,7 +63,8 @@ i18n.use(initReactI18next).init({
         },
         settings: {
           title: "AJUSTES",
-          language: "IDIOMA > ES",
+          language: "IDIOMA ",
+          selection: "> ES",
           english: "INGLÉS",
           spanish: "ESPAÑOL",
         },

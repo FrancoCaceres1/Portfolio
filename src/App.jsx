@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { useLanguage } from "./language/LanguageContext.jsx";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
 import Projects from "./views/projects/Projects.jsx";
@@ -13,6 +14,7 @@ import styles from "./App.module.scss";
 
 function App() {
   const navigate = useNavigate();
+  const { changeLanguage } = useLanguage();
   const [click, setClick] = useState(false);
   const [option, setOption] = useState(1);
   const [selectedOption, setSelectedOption] = useState(1);
@@ -21,6 +23,8 @@ function App() {
   const [isAtBottom, setIsAtBottom] = useState(false);
   const [scrollInterval, setScrollInterval] = useState(false);
   const [pRef, setPRef] = useState(null);
+  const [selected, setSelected] = useState(0);
+  const [language, setLanguage] = useState(1);
 
   const handleScrollStart = (direction) => {
     const pElement = pRef;
@@ -88,12 +92,38 @@ function App() {
     }
   };
 
+  const handleLanguageChange = (newLanguage, value) => {
+    changeLanguage(newLanguage);
+    const optionMap = {
+      1: 1,
+      2: 2,
+    };
+
+    if (optionMap[value]) {
+      setLanguage(optionMap[value]);
+    }
+  };
+
   const handleNavigate = (value) => {
     value === "/settings"
       ? navigate(value)
       : setTimeout(() => {
           navigate(value);
         }, "150");
+  };
+
+  const handleSelect = (value) => {
+    const optionMap = {
+      1: 1,
+      2: 2,
+      3: 3,
+    };
+
+    if (optionMap[value]) {
+      selected === value
+        ? setSelected(0)
+        : setSelected(optionMap[value]);
+    }
   };
 
   return (
@@ -170,6 +200,12 @@ function App() {
                   selectedOption={selectedOption}
                   setSelectedOption={setSelectedOption}
                   handleHover={handleHover}
+                  selected={selected}
+                  setSelected={setSelected}
+                  language={language}
+                  setLanguage={setLanguage}
+                  handleLanguageChange={handleLanguageChange}
+                  handleSelect={handleSelect}
                 />
               }
             />
@@ -187,6 +223,11 @@ function App() {
         handleScrollStart={handleScrollStart}
         handleScrollStop={handleScrollStop}
         handleDownload={handleDownload}
+        handleLanguageChange={handleLanguageChange}
+        language={language}
+        selected={selected}
+        setSelected={setSelected}
+        handleSelect={handleSelect}
       />
     </main>
   );
