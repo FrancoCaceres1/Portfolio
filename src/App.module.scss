@@ -7,6 +7,24 @@
   padding: 1rem 1rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  .backgroundBlue {
+    background-color: $primary-blue;
+  }
+
+  .backgroundRed {
+    background-color: $primary-red;
+  }
+
+  .backgroundOrange {
+    background-color: $primary-orange;
+  }
+
+  .backgroundPurple {
+    background-color: $primary-purple;
+  }
+}
+
 .backgroundBlue {
   background-color: $primary-blue;
 }
@@ -31,6 +49,9 @@
 .viewContainer {
   @include height(64.616vh, 64.616vh);
   position: relative;
+  @media (prefers-color-scheme: dark) {
+    background-color: #131314;
+  }
   background-color: #131314;
   padding: 1rem;
   border-radius: 7px 7px 25px 25px;

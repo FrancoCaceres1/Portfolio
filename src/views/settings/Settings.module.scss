@@ -4,6 +4,8 @@
 .sectionSkills {
   @include centerFlex(flex, column, flex-start, center, 0);
   @include height(57vh, 57vh);
+  @include darkBackground($primary-color);
+  @include darkShadow(inset 0px 5px 0px 0px $third-color);
   background-color: $primary-color;
   font-family: $primary-font;
   border-radius: 5px;
@@ -16,6 +18,7 @@
   @include centerFlex(flex, column, space-between, center, 0);
   @include width(100%, 100%);
   @include height(57vh, 57vh);
+  @include darkColor($font-color);
   color: $font-color;
   padding: 0.3rem 0 0 0.313rem;
   .settingsContainer {
@@ -24,6 +27,8 @@
     overflow: hidden;
     h1 {
       @include width(100%, 100%);
+      @include darkBackground($secondary-color);
+      @include darkColor($primary-color);
       background-color: $secondary-color;
       color: $primary-color;
       text-align: center;
@@ -45,6 +50,7 @@
 .textContainer {
   @include centerFlex(flex, column, flex-start, center, 1rem);
   @include height(37vh, 37vh);
+  @include darkColor($font-color);
   overflow: hidden;
   overflow-y: scroll;
   padding-bottom: 1.2rem;
@@ -60,6 +66,7 @@
     border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb:hover {
+    @include darkBackground($primary-color);
     background-color: $primary-color;
   }
   &::-webkit-scrollbar-track {
@@ -72,10 +79,12 @@
       @include centerFlex(flex, row, space-between, center, 0);
       @include width(100%, 100%);
       @include height(3.5rem, 3.5rem);
+      @include darkBackground($secondary-color);
       background-color: $secondary-color;
       padding: 0.3rem 1rem 0.5rem 1rem;
       .noSelect {
         @include button(transparent, none);
+        @include darkColor($primary-color);
         font-family: $primary-font;
         color: $primary-color;
         font-size: $primary-size;
@@ -83,6 +92,7 @@
       }
       .select {
         @include button($primary-color, none);
+        @include darkColor($font-color);
         font-family: $primary-font;
         color: $font-color;
         font-size: $primary-size;
@@ -109,6 +119,8 @@
     .selected {
       @include centerFlex(flex, row, flex-start, center, 0);
       @include width(100%, 100%);
+      @include darkBackground($secondary-color);
+      @include darkColor($primary-color);
       position: relative;
       padding: 0.5rem 1rem;
       cursor: pointer;
@@ -140,6 +152,7 @@
 .colorContainer {
   @include width(1.7rem, 1.7rem);
   @include height(1.7rem, 1.7rem);
+  @include darkBorder(2px solid $primary-color);
   margin-left: 1rem;
   border: 2px solid $primary-color;
 }

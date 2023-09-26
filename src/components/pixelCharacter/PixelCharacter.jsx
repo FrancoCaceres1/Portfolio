@@ -6,7 +6,7 @@ import PixelArt2 from "../.././assets/images/character-run-1.png";
 import PixelArt3 from "../.././assets/images/character-run-2.png";
 import PixelArt4 from "../.././assets/images/character-run-side.png";
 import PixelArt5 from "../.././assets/images/character-side.png";
-import Grass1 from "../.././assets/images/grass-1.png";
+import Grass from "../.././assets/images/grass-2.png";
 import Arrow from "../.././assets/images/arrow.png";
 import styles from "./PixelCharacter.module.scss";
 
@@ -49,7 +49,7 @@ const PixelCharacter = (click) => {
         <img className={styles.pixelArtImg} src={Arrow} alt="pixel-arrow" />
       </div>
       <div className={styles.grassContainer}>
-        <img className={styles.grassImg} src={Grass1} alt="pixel-grass" />
+        <img className={styles.grassImg} src={Grass} alt="pixel-grass" />
       </div>
     </section>
   );

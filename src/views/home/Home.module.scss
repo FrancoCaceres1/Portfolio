@@ -4,6 +4,8 @@
 .sectionHome {
   @include centerFlex(flex, column, space-between, center, 0);
   @include height(57vh, 57vh);
+  @include darkBackground($primary-color);
+  @include darkShadow(inset 0px 5px 0px 0px $third-color);
   background-color: $primary-color;
   font-family: $primary-font;
   border-radius: 5px;
@@ -17,6 +19,8 @@
   padding: 0.313rem 0 0 0.313rem;
   h1 {
     @include width(100%, 100%);
+    @include darkBackground($secondary-color);
+    @include darkColor($primary-color);
     background-color: $secondary-color;
     color: $primary-color;
     text-align: center;
@@ -30,6 +34,7 @@
 
 .list {
   @include centerFlex(flex, column, center, flex-start, 0.5rem);
+  @include darkColor($font-color);
   color: $font-color;
   font-weight: 600;
   font-size: $primary-size;
@@ -50,6 +55,8 @@
   }
   .selected {
     @include width(100%, 100%);
+    @include darkColor($primary-color);
+    @include darkBackground($secondary-color);
     position: relative;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -74,9 +81,11 @@
 
 .link {
   @include width(100%, 100%);
+  @include darkColor($font-color);
   text-decoration: none;
   color: $font-color;
   &:visited {
+    @include darkColor($font-color);
     color: $font-color;
   }
 }
@@ -89,6 +98,7 @@
     @include centerFlex(flex, row, center, center, 0);
     @include width(3rem, 3rem);
     @include height(3rem, 3rem);
+    @include darkBackground($secondary-color);
     background-color: $secondary-color;
     border: none;
     cursor: pointer;
