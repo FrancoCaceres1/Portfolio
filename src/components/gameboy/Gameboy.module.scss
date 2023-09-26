@@ -29,7 +29,6 @@
 
 .buttonLeft,
 .buttonRight {
-  @include darkBackground(#565e6a);
   width: 100%;
   height: 2rem;
   background-color: #565e6a;
@@ -48,7 +47,6 @@
 .emptyCenter {
   @include width(100%, 100%);
   @include height(2.069rem, 2.069rem);
-  @include darkBackground(#565e6a);
   background-color: #565e6a;
   border: none;
   cursor: pointer;
@@ -59,19 +57,10 @@
   border-top: 0.25rem solid $black;
   border-left: 0.25rem solid $black;
   border-right: 0.25rem solid $black;
-  @media (prefers-color-scheme: dark) {
-    border-top: 0.25rem solid $black;
-    border-left: 0.25rem solid $black;
-    border-right: 0.25rem solid $black;
-  }
   border-radius: 5px 5px 0px 0px;
   position: relative;
   transition: box-shadow 0.1s ease-out, border 0.1s ease-out;
   &:active {
-    @media (prefers-color-scheme: dark) {
-      box-shadow: inset 0px 5px 5px -5px rgba(0, 0, 0, 0.75);
-      background: linear-gradient(to top, #565e6a 0%, #333 100%);
-    }
     box-shadow: inset 0px 5px 5px -5px rgba(0, 0, 0, 0.75);
     background: linear-gradient(to top, #565e6a 0%, #333 100%);
   }
@@ -81,20 +70,11 @@
   border-bottom: 0.25rem solid $black;
   border-left: 0.25rem solid $black;
   border-right: 0.25rem solid $black;
-  @media (prefers-color-scheme: dark) {
-    border-bottom: 0.25rem solid $black;
-    border-left: 0.25rem solid $black;
-    border-right: 0.25rem solid $black;
-  }
   border-radius: 0px 0px 5px 5px;
   box-shadow: 0px -2.5px 0px #888 inset;
   position: relative;
   transition: box-shadow 0.1s ease-out, border 0.1s ease-out;
   &:active {
-    @media (prefers-color-scheme: dark) {
-      box-shadow: inset 0px -5px 5px -5px rgba(0, 0, 0, 0.75);
-      background: linear-gradient(to bottom, #565e6a 0%, #333 100%);
-    }
     box-shadow: inset 0px -5px 5px -5px rgba(0, 0, 0, 0.75);
     background: linear-gradient(to bottom, #565e6a 0%, #333 100%);
   }
@@ -104,20 +84,11 @@
   border-top: 0.25rem solid $black;
   border-bottom: 0.25rem solid $black;
   border-right: 0.25rem solid $black;
-  @media (prefers-color-scheme: dark) {
-    border-top: 0.25rem solid $black;
-    border-bottom: 0.25rem solid $black;
-    border-right: 0.25rem solid $black;
-  }
   border-radius: 0px 5px 5px 0px;
   box-shadow: 0px -2.5px 0px #888 inset;
   position: relative;
   transition: box-shadow 0.1s ease-out, border 0.1s ease-out;
   &:active {
-    @media (prefers-color-scheme: dark) {
-      box-shadow: inset -5px -5px 5px -5px rgba(0, 0, 0, 0.75);
-      background: linear-gradient(to right, #565e6a 0%, #333 100%);
-    }
     box-shadow: inset -5px -5px 5px -5px rgba(0, 0, 0, 0.75);
     background: linear-gradient(to right, #565e6a 0%, #333 100%);
   }
@@ -127,27 +98,17 @@
   border-top: 0.25rem solid $black;
   border-left: 0.25rem solid $black;
   border-bottom: 0.25rem solid $black;
-  @media (prefers-color-scheme: dark) {
-    border-top: 0.25rem solid $black;
-    border-left: 0.25rem solid $black;
-    border-bottom: 0.25rem solid $black;
-  }
   border-radius: 5px 0px 0px 5px;
   box-shadow: 0px -2.5px 0px #888 inset;
   position: relative;
   transition: box-shadow 0.1s ease-out, border 0.1s ease-out;
   &:active {
-    @media (prefers-color-scheme: dark) {
-      box-shadow: inset 5px -5px 5px -5px rgba(0, 0, 0, 0.75);
-      background: linear-gradient(to left, #565e6a 0%, #333 100%);
-    }
     box-shadow: inset 5px -5px 5px -5px rgba(0, 0, 0, 0.75);
     background: linear-gradient(to left, #565e6a 0%, #333 100%);
   }
 }
 
 .buttonImg {
-  @include darkColor(#292929);
   position: absolute;
   color: #292929;
   z-index: 3;
@@ -181,7 +142,6 @@
 }
 
 .innerSquare {
-  @include darkBackground($black);
   width: 0.25rem;
   height: 0.28rem;
   background-color: $black;
@@ -201,7 +161,6 @@
 }
 
 .bottomLeft {
-  @include darkShadow(0px -2.5px 0px #888);
   bottom: 0;
   left: 0;
   border-radius: 0 5px 0 0;
@@ -209,7 +168,6 @@
 }
 
 .bottomRight {
-  @include darkShadow(0px -2.5px 0px #888);
   bottom: 0;
   right: 0;
   border-radius: 5px 0 0 0;
@@ -240,9 +198,6 @@
 .red,
 .orange,
 .purple {
-  @include darkBackground(#d9d9d9);
-  @include darkBorder(2px solid #0f0e0f);
-  @include darkShadow(0px -2px 1px #064b8b);
   width: 2rem;
   height: 1.2rem;
   border-radius: 0.5rem;
@@ -250,15 +205,6 @@
   border: none;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  @media (prefers-color-scheme: dark) {
-    background: linear-gradient(
-      to bottom,
-      #0f0e0f 0%,
-      #0f0e0f 30%,
-      #62636c 70%,
-      #62636c 100%
-    );
-  }
   background: linear-gradient(
     to bottom,
     #0f0e0f 0%,
@@ -270,14 +216,6 @@
   border: 2px solid #0f0e0f;
   box-shadow: 0px -2px 1px #064b8b;
   &:active {
-    @media (prefers-color-scheme: dark) {
-      background: linear-gradient(
-        to bottom,
-        #0f0e0f 0%,
-        #0f0e0f 50%,
-        #62636c 100%
-      );
-    }
     background: linear-gradient(
       to bottom,
       #0f0e0f 0%,
@@ -288,17 +226,12 @@
 }
 
 .red {
-  @include darkShadow(0px -2px 1px #b10f0f);
   box-shadow: 0px -2px 1px #b10f0f;
 }
-
 .orange {
-  @include darkShadow(0px -2px 1px #db7d30);
   box-shadow: 0px -2px 1px #db7d30;
 }
-
 .purple {
-  @include darkShadow(0px -2px 1px #5a1cbd);
   box-shadow: 0px -2px 1px #5a1cbd;
 }
 
@@ -325,13 +258,7 @@
   height: 2.5rem;
   border-radius: 100%;
   border: none;
-  @media (prefers-color-scheme: dark) {
-    background-color: #2c313e;
-    border-bottom: 2px solid #888;
-    box-shadow: -1px 1px 5px $black, 0px 0px 5px $black inset;
-    text-shadow: 0px -1px 1px #888;
-    color: $black;
-  }
+  background-color: #d9d9d9;
   background-color: #2c313e;
   border-bottom: 2px solid #888;
   box-shadow: -1px 1px 5px $black, 0px 0px 5px $black inset;
@@ -345,7 +272,6 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   &:active {
-    @include darkShadow((-1px 1px 1px $black, 0px 0px 5px $black inset));
     box-shadow: -1px 1px 1px $black, 0px 0px 5px $black inset;
     border-width: 0px;
     line-height: 45px;
@@ -359,10 +285,6 @@
 
 .startTextBlue,
 .selectTextBlue {
-  @media (prefers-color-scheme: dark) {
-    text-shadow: 0px 1px 1px #00182e;
-    color: $secondary-blue;
-  }
   text-shadow: 0px 1px 1px #00182e;
   color: $secondary-blue;
   letter-spacing: -1px;
@@ -372,10 +294,6 @@
 
 .startTextRed,
 .selectTextRed {
-  @media (prefers-color-scheme: dark) {
-    text-shadow: 0px 1px 1px #2e0000;
-    color: $secondary-red;
-  }
   text-shadow: 0px 1px 1px #2e0000;
   color: $secondary-red;
   letter-spacing: -1px;
@@ -385,10 +303,6 @@
 
 .startTextOrange,
 .selectTextOrange {
-  @media (prefers-color-scheme: dark) {
-    text-shadow: 0px 1px 1px #2e1600;
-    color: $secondary-orange;
-  }
   text-shadow: 0px 1px 1px #2e1600;
   color: $secondary-orange;
   letter-spacing: -1px;
@@ -398,10 +312,6 @@
 
 .startTextPurple,
 .selectTextPurple {
-  @media (prefers-color-scheme: dark) {
-    text-shadow: 0px 1px 1px #14002e;
-    color: $secondary-purple;
-  }
   text-shadow: 0px 1px 1px #14002e;
   color: $secondary-purple;
   letter-spacing: -1px;

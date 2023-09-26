@@ -22,38 +22,8 @@
 }
 
 @mixin button($background, $border) {
-  @media (prefers-color-scheme: dark) {
-    background-color: $background;
-    border: $border;
-  }
   background-color: $background;
   border: $border;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
-}
-
-@mixin darkColor($color) {
-  @media (prefers-color-scheme: dark) {
-    color: $color;
-  }
-}
-
-@mixin darkBackground($color) {
-  @media (prefers-color-scheme: dark) {
-    background-color: $color;
-  }
-}
-
-@mixin darkBorder($color) {
-  @media (prefers-color-scheme: dark) {
-    border: $color;
-  }
-}
-
-@mixin darkShadow($color) {
-  @media (prefers-color-scheme: dark) {
-    -webkit-box-shadow: $color;
-    -moz-box-shadow: $color;
-    box-shadow: $color;
-  }
 }
