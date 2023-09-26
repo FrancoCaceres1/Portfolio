@@ -147,6 +147,28 @@ const Gameboy = (props) => {
                     ? props.handleScrollStop
                     : null
                 }
+                onTouchStart={() =>
+                  !isHome &&
+                  !isContact &&
+                  !isLandingPage &&
+                  !isSettings &&
+                  props.handleScrollStart("up")
+                }
+                onTouchEnd={
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
+                }
+                onTouchMove={
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
+                }
+                onTouchCancel={
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
+                }
               >
                 <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
               </button>
@@ -180,6 +202,28 @@ const Gameboy = (props) => {
                     : null
                 }
                 onMouseLeave={
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
+                }
+                onTouchStart={() =>
+                  !isHome &&
+                  !isContact &&
+                  !isLandingPage &&
+                  !isSettings &&
+                  props.handleScrollStart("down")
+                }
+                onTouchEnd={
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
+                }
+                onTouchMove={
+                  !isHome && !isContact && !isLandingPage
+                    ? props.handleScrollStop
+                    : null
+                }
+                onTouchCancel={
                   !isHome && !isContact && !isLandingPage
                     ? props.handleScrollStop
                     : null

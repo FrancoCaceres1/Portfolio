@@ -31,6 +31,10 @@ const ScrollButtons = (props) => {
               onMouseDown={() => props.handleScrollStart("up")}
               onMouseUp={props.handleScrollStop}
               onMouseLeave={props.handleScrollStop}
+              onTouchStart={() => props.handleScrollStart("up")}
+              onTouchEnd={props.handleScrollStop}
+              onTouchMove={props.handleScrollStop}
+              onTouchCancel={props.handleScrollStop}
             >
               <img className={styles.arrow} src={UpRow} alt="up-row" />
             </button>
@@ -39,6 +43,10 @@ const ScrollButtons = (props) => {
             onMouseDown={() => props.handleScrollStart("down")}
             onMouseUp={props.handleScrollStop}
             onMouseLeave={props.handleScrollStop}
+            onTouchStart={() => props.handleScrollStart("down")}
+            onTouchEnd={props.handleScrollStop}
+            onTouchMove={props.handleScrollStop}
+            onTouchCancel={props.handleScrollStop}
           >
             <img
               className={

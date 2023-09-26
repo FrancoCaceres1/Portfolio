@@ -15,6 +15,7 @@ import styles from "./App.module.scss";
 function App() {
   const navigate = useNavigate();
   const { changeLanguage } = useLanguage();
+  const { currentLanguage } = useLanguage();
   const [click, setClick] = useState(false);
   const [option, setOption] = useState(1);
   const [selectedOption, setSelectedOption] = useState(1);
@@ -73,10 +74,17 @@ function App() {
 
   const handleDownload = (e) => {
     e.preventDefault();
-    window.open(
-      "https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view",
-      "_blank"
-    );
+    if (currentLanguage === "es") {
+      window.open(
+        "https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view",
+        "_blank"
+      );
+    } else {
+      window.open(
+        "https://drive.google.com/file/d/1z3OUbAFPzU36Mfil4NaAVTERg6GBGm0B/view",
+        "_blank"
+      );
+    }
   };
 
   const handleHover = (value) => {
