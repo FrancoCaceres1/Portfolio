@@ -19,6 +19,10 @@ const ScrollButtons = (props) => {
     showArrowUp: PropTypes.bool,
   };
 
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <div className={styles.scrollButtons}>
       <div className={styles.backButton}>
@@ -35,6 +39,7 @@ const ScrollButtons = (props) => {
               onTouchEnd={props.handleScrollStop}
               onTouchMove={props.handleScrollStop}
               onTouchCancel={props.handleScrollStop}
+              onContextMenu={handleContextMenu}
             >
               <img className={styles.arrow} src={UpRow} alt="up-row" />
             </button>
@@ -47,6 +52,7 @@ const ScrollButtons = (props) => {
             onTouchEnd={props.handleScrollStop}
             onTouchMove={props.handleScrollStop}
             onTouchCancel={props.handleScrollStop}
+            onContextMenu={handleContextMenu}
           >
             <img
               className={
