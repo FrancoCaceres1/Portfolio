@@ -1,8 +1,6 @@
 import path from "path";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import CopyWebpackPlugin from "copy-webpack-plugin";
-import ImageminWebpWebpackPlugin from "imagemin-webp-webpack-plugin";
 
 const __dirname = path.resolve();
 
@@ -48,31 +46,6 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: "./index.html",
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: "src/assets/images",
-          to: "images",
-          globOptions: {
-            dot: true,
-            gitignore: true,
-            ignore: ["*.png"],
-          },
-        },
-      ],
-      overrideExtension: true,
-    }),
-    new ImageminWebpWebpackPlugin({
-      config: [
-        {
-          test: /\.(png)/,
-          options: {
-            quality: 100,
-          },
-        },
-      ],
-      overrideExtension: true,
     }),
   ],
   resolve: {
