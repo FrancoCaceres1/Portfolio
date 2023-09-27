@@ -71,12 +71,11 @@ const ResizeButton = () => {
 
   return (
     <div className={styles.risizeContainer}>
-      <button onClick={isFullscreen ? exitFullScreen : goFullScreen}>
-        {isFullscreen ? (
-          <img src={Min} alt="minimize" />
-        ) : (
-          <img src={Max} alt="maximize" />
-        )}
+      <button
+        className={!isFullscreen ? styles.bounce : styles.nobounce}
+        onClick={isFullscreen ? exitFullScreen : goFullScreen}
+      >
+        <img src={isFullscreen ? Min : Max} alt="resize" />
       </button>
     </div>
   );
