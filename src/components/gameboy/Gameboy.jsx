@@ -2,6 +2,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import ResizeButton from "../.././components/resizeButton/ResizeButton.jsx";
 import { CgZeit } from "react-icons/cg";
 import styles from "./Gameboy.module.scss";
 
@@ -110,6 +111,7 @@ const Gameboy = (props) => {
   return (
     <section className={styles.sectionController}>
       <div className={styles.controllersContainer}>
+        <ResizeButton />
         <div className={styles.controllers1}>
           <div className={styles.rowButtons}>
             <div className={styles.sideButtons}>

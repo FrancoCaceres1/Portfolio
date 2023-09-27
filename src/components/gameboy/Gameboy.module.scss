@@ -9,6 +9,7 @@
 .controllersContainer {
   @include centerFlex(flex, row, center, center, 0);
   @include controllersContainer();
+  position: relative;
 }
 
 .centerButtons,
@@ -17,9 +18,9 @@
 }
 
 .rowButtons {
+  @include centerFlex(flex, row, center, center, 0);
   width: 100%;
   height: 6.2082rem;
-  @include centerFlex(flex, row, center, center, 0);
 }
 
 .sideButtons {
