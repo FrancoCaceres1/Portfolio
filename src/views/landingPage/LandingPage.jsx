@@ -4,6 +4,12 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import Start from "../.././assets/images/buttons/start.png";
+import ButtonA from "../.././assets/images/buttons/a-button.png";
+import Config from "../.././assets/images/icons/config.png";
+import ButtonB from "../.././assets/images/buttons/b-button.png";
+import DownRow from "../.././assets/images/buttons/down-row.png";
+import UpRow from "../.././assets/images/buttons/up-row.png";
+import Download from "../.././assets/images/icons/download.png";
 import PixelCharacter from "../.././components/pixelCharacter/PixelCharacter.jsx";
 import styles from "./LandingPage.module.scss";
 
@@ -18,6 +24,13 @@ const LandingPage = (props) => {
     start: PropTypes.bool.isRequired,
   };
 
+  const preloadImages = (imageUrls) => {
+    imageUrls.forEach((imageUrl) => {
+      const img = new Image();
+      img.src = imageUrl;
+    });
+  };
+
   const handleClick = () => {
     props.handleAnimation(true);
     props.setStart(true);
@@ -28,6 +41,8 @@ const LandingPage = (props) => {
 
   useEffect(() => {
     props.setStart(false);
+    const imageUrls = [Config, ButtonA, ButtonB, Download, UpRow, DownRow];
+    preloadImages(imageUrls);
   }, []);
 
   return (
