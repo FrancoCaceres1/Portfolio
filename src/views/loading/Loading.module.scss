@@ -1,0 +1,41 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.sectionLoading {
+  @include centerFlex(flex, column, center, center, 0);
+  @include height(57vh, 57vh);
+  background-color: $secondary-color;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
+  -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
+  box-shadow: inset 5px 5px 0px 0px $third-color;
+  .loadingContainer {
+    @include centerFlex(flex, column, space-evenly, center, 0);
+    @include width(10rem, 10rem);
+    @include height(5.5rem, 5.5rem);
+    background-color: $third-color;
+    h1 {
+      @include width(6rem, 6rem);
+      font-family: $primary-font;
+      color: $primary-color;
+      font-size: 1.5rem;
+    }
+    span {
+      @include width(8rem, 8rem);
+      @include height(1.2rem, 1.2rem);
+      @include centerFlex(flex, row, center, center, 0);
+      background-color: $primary-color;
+      animation: loading 1.7s linear;
+      transform-origin: left center;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: scaleX(0); 
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}

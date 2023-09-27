@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useLanguage } from "./language/LanguageContext.jsx";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
@@ -9,6 +9,7 @@ import Contact from "./views/Contact/Contact.jsx";
 import About from "./views/About/About.jsx";
 import Skills from "./views/skills/Skills.jsx";
 import Settings from "./views/settings/Settings.jsx";
+import Loading from "./views/loading/Loading.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
 import styles from "./App.module.scss";
 
@@ -28,6 +29,14 @@ function App() {
   const [language, setLanguage] = useState(1);
   const [color, setColor] = useState(1);
   const [start, setStart] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, "1700");
+  }, []);
 
   const handleScrollStart = (direction) => {
     const pElement = pRef;
@@ -170,12 +179,21 @@ function App() {
             <Route
               path="/"
               element={
-                <LandingPage
-                  handleAnimation={handleAnimation}
-                  click={click}
-                  setStart={setStart}
-                  start={start}
-                />
+                !isLoading ? (
+                  <LandingPage
+                    handleAnimation={handleAnimation}
+                    click={click}
+                    setStart={setStart}
+                    start={start}
+                  />
+                ) : (
+                  <Loading
+                    handleAnimation={handleAnimation}
+                    click={click}
+                    setStart={setStart}
+                    start={start}
+                  />
+                )
               }
             />
             <Route
