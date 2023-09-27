@@ -27,6 +27,7 @@ function App() {
   const [selected, setSelected] = useState(0);
   const [language, setLanguage] = useState(1);
   const [color, setColor] = useState(1);
+  const [start, setStart] = useState(false);
 
   const handleScrollStart = (direction) => {
     const pElement = pRef;
@@ -169,7 +170,12 @@ function App() {
             <Route
               path="/"
               element={
-                <LandingPage handleAnimation={handleAnimation} click={click} />
+                <LandingPage
+                  handleAnimation={handleAnimation}
+                  click={click}
+                  setStart={setStart}
+                  start={start}
+                />
               }
             />
             <Route
@@ -267,6 +273,7 @@ function App() {
         handleSelect={handleSelect}
         handleColorChange={handleColorChange}
         color={color}
+        setStart={setStart}
       />
     </main>
   );

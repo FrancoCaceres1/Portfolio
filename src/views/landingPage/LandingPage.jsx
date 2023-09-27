@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
@@ -10,57 +10,44 @@ import styles from "./LandingPage.module.scss";
 const LandingPage = (props) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [startImageClass, setStartImageClass] = useState(styles.startImg);
-  
+
   LandingPage.propTypes = {
     handleAnimation: PropTypes.func.isRequired,
     click: PropTypes.bool.isRequired,
+    setStart: PropTypes.func.isRequired,
+    start: PropTypes.bool.isRequired,
   };
 
   const handleClick = () => {
     props.handleAnimation(true);
+    props.setStart(true);
     setTimeout(() => {
       navigate("/home");
     }, "1150");
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setStartImageClass((prevClass) =>
-        prevClass === styles.startImg ? styles.startImgShadow : styles.startImg
-      );
-    }, 700);
-
-    return () => clearInterval(interval);
+    props.setStart(false);
   }, []);
 
   return (
     <section className={styles.sectionLanding}>
       <div className={styles.contentLandingContainer}>
         <h1 className={styles.titleLanding}>
-        {t("landing.title")}
-          <span className={styles.subtitleLanding}>
-          {t("landing.text")}
-          </span>
+          {t("landing.title")}
+          <span className={styles.subtitleLanding}>{t("landing.text")}</span>
         </h1>
         <div className={styles.startImgContainer}>
-          {props.click ? (
-            <button className={styles.startButton}>
-              <img
-                className={startImageClass}
-                src={Start}
-                alt="pixel-play-button"
-              />
-            </button>
-          ) : (
-            <button className={styles.startButton} onClick={handleClick}>
-              <img
-                className={startImageClass}
-                src={Start}
-                alt="pixel-play-button"
-              />
-            </button>
-          )}
+          <button
+            className={styles.startButton}
+            onClick={!props.click ? handleClick : null}
+          >
+            <img
+              className={!props.start ? styles.startImg : styles.startImgShadow}
+              src={Start}
+              alt="pixel-play-button"
+            />
+          </button>
           <h2 className={styles.pressStart}>{t("landing.button")}</h2>
         </div>
         <PixelCharacter click={props.click} />

@@ -3,15 +3,15 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import ResizeButton from "../.././components/resizeButton/ResizeButton.jsx";
-import { CgZeit } from "react-icons/cg";
+import RowButtons from "../rowButtons/RowButtons.jsx";
+import CenterButtons from "../centerButtons/CenterButtons.jsx";
+import CircleButtons from "../circleButtons/CircleButtons.jsx";
 import styles from "./Gameboy.module.scss";
 
 const Gameboy = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isLandingPage = location.pathname === "/";
   const isHome = location.pathname === "/home";
-  const isAbout = location.pathname === "/about";
   const isContact = location.pathname === "/contact";
   const isSettings = location.pathname === "/settings";
 
@@ -32,22 +32,7 @@ const Gameboy = (props) => {
     setSelected: PropTypes.func.isRequired,
     color: PropTypes.number.isRequired,
     handleColorChange: PropTypes.func.isRequired,
-  };
-
-  const handleBack = () => {
-    props.handleAnimation(false);
-    window.history.back();
-  };
-
-  const handleClick = () => {
-    props.handleAnimation(true);
-    setTimeout(() => {
-      navigate("/home");
-    }, "1150");
-  };
-
-  const handleSelect = () => {
-    navigate("/home");
+    setStart: PropTypes.func.isRequired,
   };
 
   const handleNavigation = (value) => {
@@ -72,6 +57,20 @@ const Gameboy = (props) => {
     }
   };
 
+  const handleChangeOption = (value) => {
+    if (isSettings && props.selected === 2) {
+      value === "r" &&
+        (props.color < 4) & props.handleColorChange(props.color + 1);
+      value === "l" &&
+        (props.color > 1) & props.handleColorChange(props.color - 1);
+    } else {
+      value === "r" &&
+        (props.language === 1) & props.handleLanguageChange("es", 2);
+      value === "l" &&
+        (props.language === 2) & props.handleLanguageChange("en", 1);
+    }
+  };
+
   const handleRedirect = (url) => {
     if (isHome) {
       const navigationRoutes = {
@@ -90,22 +89,25 @@ const Gameboy = (props) => {
     }
   };
 
-  const handleSettings = () => {
-    navigate("/settings");
+  const handleClick = () => {
+    props.handleAnimation(true);
+    props.setStart(true);
+    setTimeout(() => {
+      navigate("/home");
+    }, "1150");
   };
 
-  const handleChangeOption = (value) => {
-    if (isSettings && props.selected === 2) {
-      value === "r" &&
-        (props.color < 4) & props.handleColorChange(props.color + 1);
-      value === "l" &&
-        (props.color > 1) & props.handleColorChange(props.color - 1);
-    } else {
-      value === "r" &&
-        (props.language === 1) & props.handleLanguageChange("es", 2);
-      value === "l" &&
-        (props.language === 2) & props.handleLanguageChange("en", 1);
-    }
+  const handleBack = () => {
+    props.handleAnimation(false);
+    window.history.back();
+  };
+
+  const handleSelect = () => {
+    navigate("/home");
+  };
+
+  const handleSettings = () => {
+    navigate("/settings");
   };
 
   return (
@@ -113,285 +115,33 @@ const Gameboy = (props) => {
       <div className={styles.controllersContainer}>
         <ResizeButton />
         <div className={styles.controllers1}>
-          <div className={styles.rowButtons}>
-            <div className={styles.sideButtons}>
-              {(isSettings && props.selected === 1) || props.selected === 2 ? (
-                <button
-                  className={styles.buttonLeft}
-                  onClick={() => handleChangeOption("l")}
-                >
-                  <CgZeit className={`${styles.buttonImg} ${styles.left}`} />
-                </button>
-              ) : (
-                <button className={styles.buttonLeft}>
-                  <CgZeit className={`${styles.buttonImg} ${styles.left}`} />
-                </button>
-              )}
-            </div>
-            <div className={styles.centerButtons}>
-              <button
-                className={styles.buttonUp}
-                onClick={() => handleNavigation("up")}
-                onMouseDown={() =>
-                  !isHome &&
-                  !isContact &&
-                  !isLandingPage &&
-                  !isSettings &&
-                  props.handleScrollStart("up")
-                }
-                onMouseUp={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onMouseLeave={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onTouchStart={() =>
-                  !isHome &&
-                  !isContact &&
-                  !isLandingPage &&
-                  !isSettings &&
-                  props.handleScrollStart("up")
-                }
-                onTouchEnd={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onTouchMove={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onTouchCancel={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-              >
-                <CgZeit className={`${styles.buttonImg} ${styles.up}`} />
-              </button>
-              <span className={styles.emptyCenter}>
-                <div
-                  className={`${styles.innerSquare} ${styles.topLeft}`}
-                ></div>
-                <div
-                  className={`${styles.innerSquare} ${styles.topRight}`}
-                ></div>
-                <div
-                  className={`${styles.innerSquare} ${styles.bottomLeft}`}
-                ></div>
-                <div
-                  className={`${styles.innerSquare} ${styles.bottomRight}`}
-                ></div>
-              </span>
-              <button
-                className={styles.buttonDown}
-                onClick={() => handleNavigation("down")}
-                onMouseDown={() =>
-                  !isHome &&
-                  !isContact &&
-                  !isLandingPage &&
-                  !isSettings &&
-                  props.handleScrollStart("down")
-                }
-                onMouseUp={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onMouseLeave={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onTouchStart={() =>
-                  !isHome &&
-                  !isContact &&
-                  !isLandingPage &&
-                  !isSettings &&
-                  props.handleScrollStart("down")
-                }
-                onTouchEnd={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onTouchMove={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-                onTouchCancel={
-                  !isHome && !isContact && !isLandingPage
-                    ? props.handleScrollStop
-                    : null
-                }
-              >
-                <CgZeit className={`${styles.buttonImg} ${styles.down}`} />
-              </button>
-            </div>
-            <div className={styles.sideButtons}>
-              {(isSettings && props.selected === 1) || props.selected === 2 ? (
-                <button
-                  className={styles.buttonRight}
-                  onClick={() => handleChangeOption("r")}
-                >
-                  <CgZeit className={`${styles.buttonImg} ${styles.right}`} />
-                </button>
-              ) : (
-                <button className={styles.buttonRight}>
-                  <CgZeit className={`${styles.buttonImg} ${styles.right}`} />
-                </button>
-              )}
-            </div>
-          </div>
+          <RowButtons
+            handleChangeOption={handleChangeOption}
+            handleNavigation={handleNavigation}
+            selected={props.selected}
+            handleScrollStart={props.handleScrollStart}
+            handleScrollStop={props.handleScrollStop}
+          />
         </div>
         <div className={styles.controllers2}>
-          <div className={styles.centerButtons2}>
-            <span className={styles.select}>
-              <button
-                className={`${styles.buttonsCenter} ${
-                  props.color === 1
-                    ? styles.blue
-                    : props.color === 2
-                    ? styles.red
-                    : props.color === 3
-                    ? styles.orange
-                    : props.color === 4
-                    ? styles.purple
-                    : styles.blue
-                }`}
-                onClick={
-                  !isHome && !isLandingPage
-                    ? handleSelect
-                    : isHome || props.click
-                    ? handleSettings
-                    : handleClick
-                }
-              ></button>
-              <span
-                className={
-                  props.color === 1
-                    ? styles.selectTextBlue
-                    : props.color === 2
-                    ? styles.selectTextRed
-                    : props.color === 3
-                    ? styles.selectTextOrange
-                    : props.color === 4
-                    ? styles.selectTextPurple
-                    : styles.selectTextBlue
-                }
-              >
-                SELECT
-              </span>
-            </span>
-            <span className={styles.start}>
-              <button
-                className={`${styles.buttonsCenter} ${
-                  props.color === 1
-                    ? styles.blue
-                    : props.color === 2
-                    ? styles.red
-                    : props.color === 3
-                    ? styles.orange
-                    : props.color === 4
-                    ? styles.purple
-                    : styles.blue
-                }`}
-                onClick={isLandingPage ? handleClick : null}
-              ></button>
-              <span
-                className={
-                  props.color === 1
-                    ? styles.selectTextBlue
-                    : props.color === 2
-                    ? styles.selectTextRed
-                    : props.color === 3
-                    ? styles.selectTextOrange
-                    : props.color === 4
-                    ? styles.selectTextPurple
-                    : styles.selectTextBlue
-                }
-              >
-                START
-              </span>
-            </span>
-          </div>
+          <CenterButtons
+            handleSettings={handleSettings}
+            handleSelect={handleSelect}
+            handleClick={handleClick}
+            color={props.color}
+            click={props.click}
+          />
         </div>
         <div className={styles.controllers3}>
-          <div className={styles.circleButtonContainer}>
-            <div className={styles.circleButtonContainer1}>
-              {isLandingPage ? (
-                <button className={styles.circleButton1}>B</button>
-              ) : isSettings && props.selected > 0 ? (
-                <button
-                  className={styles.circleButton1}
-                  onClick={() => props.setSelected(0)}
-                >
-                  B
-                </button>
-              ) : (
-                <button className={styles.circleButton1} onClick={handleBack}>
-                  B
-                </button>
-              )}
-            </div>
-            <div className={styles.circleButtonContainer2}>
-              {isAbout ? (
-                <button
-                  className={styles.circleButton2}
-                  onClick={props.handleDownload}
-                >
-                  A
-                </button>
-              ) : isContact && props.option === 3 ? (
-                <button
-                  className={styles.circleButton2}
-                  onClick={props.handleDownload}
-                >
-                  A
-                </button>
-              ) : isContact && props.option === 2 ? (
-                <button
-                  className={styles.circleButton2}
-                  onClick={() => {
-                    handleRedirect("https://github.com/FrancoCaceres1");
-                  }}
-                >
-                  A
-                </button>
-              ) : isContact && props.option === 1 ? (
-                <button
-                  className={styles.circleButton2}
-                  onClick={() => {
-                    handleRedirect(
-                      "https://www.linkedin.com/in/franco-c%C3%A1ceres-2731a0273/"
-                    );
-                  }}
-                >
-                  A
-                </button>
-              ) : isSettings ? (
-                <button
-                  className={styles.circleButton2}
-                  onClick={() => props.handleSelect(props.selectedOption)}
-                >
-                  A
-                </button>
-              ) : (
-                <button
-                  className={styles.circleButton2}
-                  onClick={handleRedirect}
-                >
-                  A
-                </button>
-              )}
-            </div>
-          </div>
+          <CircleButtons
+            handleBack={handleBack}
+            handleRedirect={handleRedirect}
+            setSelected={props.setSelected}
+            option={props.option}
+            handleDownload={props.handleDownload}
+            selectedOption={props.selectedOption}
+            handleSelect={props.handleSelect}
+          />
         </div>
       </div>
     </section>
