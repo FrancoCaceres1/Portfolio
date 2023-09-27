@@ -11,6 +11,13 @@ import Skills from "./views/skills/Skills.jsx";
 import Settings from "./views/settings/Settings.jsx";
 import Loading from "./views/loading/Loading.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
+import PixelArt1 from "./assets/images/character/character-1.png";
+import PixelArt2 from "./assets/images/character/character-run-1.png";
+import PixelArt3 from "./assets/images/character/character-run-2.png";
+import PixelArt4 from "./assets/images/character/character-run-side.png";
+import PixelArt5 from "./assets/images/character/character-side.png";
+import Grass from "./assets/images/stage/grass-2.png";
+import Arrow from "./assets/images/stage/arrow.png";
 import styles from "./App.module.scss";
 
 function App() {
@@ -31,8 +38,25 @@ function App() {
   const [start, setStart] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const preloadImages = (imageUrls) => {
+    imageUrls.forEach((imageUrl) => {
+      const img = new Image();
+      img.src = imageUrl;
+    });
+  };
+
   useEffect(() => {
     setIsLoading(true);
+    const imageUrls = [
+      PixelArt1,
+      PixelArt2,
+      PixelArt3,
+      PixelArt4,
+      PixelArt5,
+      Grass,
+      Arrow,
+    ];
+    preloadImages(imageUrls);
     setTimeout(() => {
       setIsLoading(false);
     }, "1700");
