@@ -18,7 +18,7 @@ const CircleButtons = (props) => {
     option: PropTypes.number.isRequired,
     selectedOption: PropTypes.number.isRequired,
     handleDownload: PropTypes.func.isRequired,
-    selected: PropTypes.number,
+    selected: PropTypes.number.isRequired,
     handleSelect: PropTypes.func.isRequired,
     setSelected: PropTypes.func.isRequired,
   };

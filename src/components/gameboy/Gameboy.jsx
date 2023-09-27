@@ -137,6 +137,7 @@ const Gameboy = (props) => {
             handleBack={handleBack}
             handleRedirect={handleRedirect}
             setSelected={props.setSelected}
+            selected={props.selected}
             option={props.option}
             handleDownload={props.handleDownload}
             selectedOption={props.selectedOption}
