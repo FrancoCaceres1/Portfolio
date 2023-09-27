@@ -2,8 +2,8 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import ButtonA from "../.././assets/images/a-button.png";
-import Config from "../.././assets/images/config.png";
+import ButtonA from "../.././assets/images/buttons/a-button.png";
+import Config from "../.././assets/images/icons/config.png";
 import BackButtton from "../.././components/backButton/BackButton.jsx";
 import styles from "./Home.module.scss";
 

@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
-import LinkedIn from "../.././assets/images/linkedin.png";
-import Github from "../.././assets/images/github.png";
-import ButtonA from "../.././assets/images/a-button.png";
+import LinkedIn from "../.././assets/images/icons/linkedin.png";
+import Github from "../.././assets/images/icons/github.png";
+import ButtonA from "../.././assets/images/buttons/a-button.png";
 import styles from "./Contact.module.scss";
 
 const Contact = (props) => {

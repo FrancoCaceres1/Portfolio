@@ -3,8 +3,8 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import Download from "../.././assets/images/download.png";
-import ButtonA from "../.././assets/images/a-button.png";
+import Download from "../.././assets/images/icons/download.png";
+import ButtonA from "../.././assets/images/buttons/a-button.png";
 import styles from "./DownloadButton.module.scss";
 
 const DownloadButton = (props) => {

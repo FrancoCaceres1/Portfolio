@@ -3,8 +3,8 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import BackButtton from "../.././components/backButton/BackButton.jsx";
-import DownRow from "../.././assets/images/down-row.png";
-import UpRow from "../.././assets/images/up-row.png";
+import DownRow from "../.././assets/images/buttons/down-row.png";
+import UpRow from "../.././assets/images/buttons/up-row.png";
 import styles from "./ScrollButtons.module.scss";
 
 const ScrollButtons = (props) => {

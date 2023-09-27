@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
-import PixelArt1 from "../.././assets/images/character-1.png";
-import PixelArt2 from "../.././assets/images/character-run-1.png";
-import PixelArt3 from "../.././assets/images/character-run-2.png";
-import PixelArt4 from "../.././assets/images/character-run-side.png";
-import PixelArt5 from "../.././assets/images/character-side.png";
-import Grass from "../.././assets/images/grass-2.png";
-import Arrow from "../.././assets/images/arrow.png";
+import PixelArt1 from "../.././assets/images/character/character-1.png";
+import PixelArt2 from "../.././assets/images/character/character-run-1.png";
+import PixelArt3 from "../.././assets/images/character/character-run-2.png";
+import PixelArt4 from "../.././assets/images/character/character-run-side.png";
+import PixelArt5 from "../.././assets/images/character/character-side.png";
+import Grass from "../.././assets/images/stage/grass-2.png";
+import Arrow from "../.././assets/images/stage/arrow.png";
 import styles from "./PixelCharacter.module.scss";
 
 const PixelCharacter = (click) => {

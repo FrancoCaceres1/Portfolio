@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import Max from "../.././assets/images/max.png";
-import Min from "../.././assets/images/min.png";
+import Max from "../.././assets/images/buttons/max.png";
+import Min from "../.././assets/images/buttons/min.png";
 import styles from "./ResizeButton.module.scss";
 
 const ResizeButton = () => {

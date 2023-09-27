@@ -2,8 +2,8 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import ButtonA from "../.././assets/images/a-button.png";
-import ButtonB from "../.././assets/images/b-button.png";
+import ButtonA from "../.././assets/images/buttons/a-button.png";
+import ButtonB from "../.././assets/images/buttons/b-button.png";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
 import styles from "./Settings.module.scss";
 
@@ -53,6 +53,7 @@ const Settings = (props) => {
                 <span className={styles.line}>-</span>
                 {t("settings.language")}
                 {props.selected === 1 && t("settings.selection")}
+                {/! modularizar !/}
                 {props.selected != 1 ? (
                   <span
                     className={
@@ -136,6 +137,7 @@ const Settings = (props) => {
                     ></div>
                   </>
                 )}
+                {/! modularizar !/}
                 {props.selected != 2 ? (
                   <span
                     className={

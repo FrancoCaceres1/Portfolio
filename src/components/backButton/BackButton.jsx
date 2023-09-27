@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import ButtonB from "../.././assets/images/b-button.png";
+import ButtonB from "../.././assets/images/buttons/b-button.png";
 import styles from "./BackButton.module.scss";
 
 const BackButtton = (props) => {

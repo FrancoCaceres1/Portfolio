@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import Start from "../.././assets/images/start.png";
+import Start from "../.././assets/images/buttons/start.png";
 import PixelCharacter from "../.././components/pixelCharacter/PixelCharacter.jsx";
 import styles from "./LandingPage.module.scss";
 
