@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import ButtonA from "../.././assets/images/buttons/a-button.png";
@@ -25,13 +25,26 @@ const Projects = (props) => {
     setSelected: PropTypes.func.isRequired,
     handleSelect: PropTypes.func.isRequired,
     handleHoverOptions: PropTypes.func.isRequired,
+    setHidden: PropTypes.func.isRequired,
+    hidden: PropTypes.bool.isRequired,
   };
 
   useEffect(() => {
     props.setSelectedOption(1);
     props.setOption(1);
     props.setSelected(0);
+    props.setHidden(false);
   }, []);
+
+  const handleHidding = () => {
+    if (props.selected === 4) {
+      props.setHidden(false);
+      props.setSelected(0);
+    } else {
+      props.handleSelect(4);
+      props.setHidden(true);
+    }
+  };
 
   return (
     <section className={styles.sectionProjects}>
@@ -39,101 +52,103 @@ const Projects = (props) => {
         <div className={styles.projectsContainer}>
           <h1>{t("projects.title")}</h1>
           <div className={styles.textContainer}>
-            <div
-              className={styles.projectContainer}
-              onMouseEnter={() => props.handleHover("1")}
-            >
+            {!props.hidden && (
               <div
-                className={
-                  props.selectedOption === 1 || props.option === 1
-                    ? styles.selected
-                    : styles.option
-                }
-                onClick={() => props.handleSelect(1)}
+                className={styles.projectContainer}
+                onMouseEnter={!props.selected > 0 ? () => props.handleHover("1") : null}
               >
-                <span className={styles.line}>-</span>
-                PUEBLA DEL MAR
-                <span
+                <div
                   className={
                     props.selectedOption === 1 || props.option === 1
-                      ? styles.buttonAContainer
-                      : styles.buttonAContainerHidden
+                      ? styles.selected
+                      : styles.option
                   }
+                  onClick={() => props.handleSelect(1)}
                 >
-                  <img
-                    src={props.selected != 1 ? ButtonA : ButtonB}
-                    alt="a-button"
-                    className={styles.buttonAImage}
-                  />
-                </span>
+                  <span className={styles.line}>-</span>
+                  PUEBLA DEL MAR
+                  <span
+                    className={
+                      props.selectedOption === 1 || props.option === 1
+                        ? styles.buttonAContainer
+                        : styles.buttonAContainerHidden
+                    }
+                  >
+                    <img
+                      src={props.selected != 1 ? ButtonA : ButtonB}
+                      alt="a-button"
+                      className={styles.buttonAImage}
+                    />
+                  </span>
+                </div>
+                {props.selected === 1 && (
+                  <section className={styles.projectOptions}>
+                    <div>
+                      <img src={soyPuebla} alt="soy-puebla" />
+                      <ul>
+                        <li
+                          className={
+                            props.projectOptions === 5
+                              ? styles.selectedOption
+                              : styles.noSelectedOption
+                          }
+                          onMouseEnter={() => props.handleHoverOptions("5")}
+                        >
+                          <span className={styles.hyphen}>-</span>
+                          VISIT
+                          <span className={styles.buttonAContainer}>
+                            <img
+                              src={ButtonA}
+                              alt="a-button"
+                              className={styles.buttonAImage}
+                            />
+                          </span>
+                        </li>
+                        <li
+                          className={
+                            props.projectOptions === 6
+                              ? styles.selectedOption
+                              : styles.noSelectedOption
+                          }
+                          onMouseEnter={() => props.handleHoverOptions("6")}
+                        >
+                          <span className={styles.hyphen}>-</span>
+                          REPO
+                          <span className={styles.buttonAContainer}>
+                            <img
+                              src={ButtonA}
+                              alt="a-button"
+                              className={styles.buttonAImage}
+                            />
+                          </span>
+                        </li>
+                        <li
+                          className={
+                            props.projectOptions === 7
+                              ? styles.selectedOption
+                              : styles.noSelectedOption
+                          }
+                          onMouseEnter={() => props.handleHoverOptions("7")}
+                        >
+                          <span className={styles.hyphen}>-</span>
+                          INFO
+                          <span className={styles.buttonAContainer}>
+                            <img
+                              src={ButtonA}
+                              alt="a-button"
+                              className={styles.buttonAImage}
+                            />
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </section>
+                )}
               </div>
-              {props.selected === 1 && (
-                <section className={styles.projectOptions}>
-                  <div>
-                    <img src={soyPuebla} alt="soy-puebla" />
-                    <ul>
-                      <li
-                        className={
-                          props.projectOptions === 5
-                            ? styles.selectedOption
-                            : styles.noSelectedOption
-                        }
-                        onMouseEnter={() => props.handleHoverOptions("5")}
-                      >
-                        <span className={styles.hyphen}>-</span>
-                        VISIT
-                        <span className={styles.buttonAContainer}>
-                          <img
-                            src={ButtonA}
-                            alt="a-button"
-                            className={styles.buttonAImage}
-                          />
-                        </span>
-                      </li>
-                      <li
-                        className={
-                          props.projectOptions === 6
-                            ? styles.selectedOption
-                            : styles.noSelectedOption
-                        }
-                        onMouseEnter={() => props.handleHoverOptions("6")}
-                      >
-                        <span className={styles.hyphen}>-</span>
-                        REPO
-                        <span className={styles.buttonAContainer}>
-                          <img
-                            src={ButtonA}
-                            alt="a-button"
-                            className={styles.buttonAImage}
-                          />
-                        </span>
-                      </li>
-                      <li
-                        className={
-                          props.projectOptions === 7
-                            ? styles.selectedOption
-                            : styles.noSelectedOption
-                        }
-                        onMouseEnter={() => props.handleHoverOptions("7")}
-                      >
-                        <span className={styles.hyphen}>-</span>
-                        INFO
-                        <span className={styles.buttonAContainer}>
-                          <img
-                            src={ButtonA}
-                            alt="a-button"
-                            className={styles.buttonAImage}
-                          />
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </section>
-              )}
-            </div>
+            )}
             <div
               className={styles.projectContainer}
-              onMouseEnter={() => props.handleHover("2")}
+              onMouseEnter={!props.selected > 0 ? () => props.handleHover("2") : null}
             >
               <div
                 className={
@@ -225,7 +240,7 @@ const Projects = (props) => {
             </div>
             <div
               className={styles.projectContainer}
-              onMouseEnter={() => props.handleHover("3")}
+              onMouseEnter={!props.selected > 0 ? () => props.handleHover("3") : null}
             >
               <div
                 className={
@@ -317,7 +332,7 @@ const Projects = (props) => {
             </div>
             <div
               className={styles.projectContainer}
-              onMouseEnter={() => props.handleHover("4")}
+              onMouseEnter={!props.selected > 0 ? () => props.handleHover("4") : null}
             >
               <div
                 className={
@@ -325,7 +340,7 @@ const Projects = (props) => {
                     ? styles.selected
                     : styles.option
                 }
-                onClick={() => props.handleSelect(4)}
+                onClick={handleHidding}
               >
                 <span className={styles.line}>-</span>
                 ROCK&EDM

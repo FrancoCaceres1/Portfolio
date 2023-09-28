@@ -22,6 +22,18 @@ const CircleButtons = (props) => {
     selected: PropTypes.number.isRequired,
     handleSelect: PropTypes.func.isRequired,
     setSelected: PropTypes.func.isRequired,
+    setHidden: PropTypes.func.isRequired,
+    hidden: PropTypes.bool.isRequired,
+  };
+
+  const handleHidding = () => {
+    props.handleSelect(4);
+    props.setHidden(true);
+  };
+
+  const handleShow = () => {
+    props.setHidden(false);
+    props.setSelected(0)
   };
 
   return (
@@ -32,8 +44,11 @@ const CircleButtons = (props) => {
           onClick={
             isLandingPage
               ? null
-              : isSettings && props.selected > 0 || isProjects && props.selected > 0
+              : (isSettings && props.selected > 0) ||
+                (isProjects && props.selected > 0 && props.selected != 4)
               ? () => props.setSelected(0)
+              : isProjects && props.selected === 4
+              ? handleShow
               : props.handleBack
           }
         >
@@ -55,8 +70,11 @@ const CircleButtons = (props) => {
                   props.handleRedirect(
                     "https://www.linkedin.com/in/franco-c%C3%A1ceres-2731a0273/"
                   )
-              : isSettings && props.selected === 0 || isProjects && props.selected === 0
+              : (isSettings && props.selected === 0) ||
+                (isProjects && props.selected === 0 && props.option != 4)
               ? () => props.handleSelect(props.selectedOption)
+              : isProjects && props.selected === 0 && props.option === 4
+              ? handleHidding
               : props.handleRedirect
           }
         >

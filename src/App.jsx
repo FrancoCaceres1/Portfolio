@@ -22,7 +22,6 @@ import styles from "./App.module.scss";
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
-  const isProjects = location.pathname === "/projects";
   const { changeLanguage } = useLanguage();
   const { currentLanguage } = useLanguage();
   const [click, setClick] = useState(false);
@@ -39,6 +38,7 @@ function App() {
   const [start, setStart] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [projectOptions, setProjectOptions] = useState(5);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -246,6 +246,8 @@ function App() {
                   handleSelect={handleSelect}
                   projectOptions={projectOptions}
                   handleHoverOptions={handleHoverOptions}
+                  setHidden={setHidden}
+                  hidden={hidden}
                 />
               }
             />
@@ -332,6 +334,8 @@ function App() {
         setStart={setStart}
         setProjectOptions={setProjectOptions}
         projectOptions={projectOptions}
+        setHidden={setHidden}
+        hidden={hidden}
       />
     </main>
   );

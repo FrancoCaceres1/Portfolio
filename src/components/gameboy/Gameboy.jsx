@@ -36,6 +36,8 @@ const Gameboy = (props) => {
     handleColorChange: PropTypes.func.isRequired,
     setStart: PropTypes.func.isRequired,
     setProjectOptions: PropTypes.func.isRequired,
+    setHidden: PropTypes.func.isRequired,
+    hidden: PropTypes.bool.isRequired,
   };
 
   const handleNavigation = (value) => {
@@ -51,7 +53,7 @@ const Gameboy = (props) => {
         props.projectOptions > 5
       ) {
         props.setProjectOptions(props.projectOptions - 1);
-      } else if (value === "down" && props.option < 4) {
+      } else if (value === "down" && props.option < 4 && props.selected === 0) {
         if (isSettings && props.option < 2) {
           props.setSelected(0);
           props.setOption(props.option + 1);
@@ -66,13 +68,14 @@ const Gameboy = (props) => {
           props.setSelected(0);
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
-        } else if (
-          isProjects &&
-          props.selected > 0 &&
-          props.projectOptions < 7
-        ) {
-          props.setProjectOptions(props.projectOptions + 1);
         }
+      } else if (
+        value === "down" &&
+        isProjects &&
+        props.selected > 0 &&
+        props.projectOptions < 7
+      ) {
+        props.setProjectOptions(props.projectOptions + 1);
       }
     }
   };
@@ -162,6 +165,8 @@ const Gameboy = (props) => {
             handleDownload={props.handleDownload}
             selectedOption={props.selectedOption}
             handleSelect={props.handleSelect}
+            setHidden={props.setHidden}
+            hidden={props.hidden}
           />
         </div>
       </div>
