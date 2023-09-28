@@ -152,6 +152,7 @@ function App() {
       1: 1,
       2: 2,
       3: 3,
+      4: 4,
     };
 
     if (optionMap[value]) {
@@ -210,7 +211,26 @@ function App() {
                 />
               }
             />
-            <Route path="/projects" element={<Projects />} />
+            <Route
+              path="/projects"
+              element={
+                <Projects
+                  option={option}
+                  setOption={setOption}
+                  selectedOption={selectedOption}
+                  setSelectedOption={setSelectedOption}
+                  handleHover={handleHover}
+                  selected={selected}
+                  setSelected={setSelected}
+                  language={language}
+                  setLanguage={setLanguage}
+                  handleLanguageChange={handleLanguageChange}
+                  handleSelect={handleSelect}
+                  handleColorChange={handleColorChange}
+                  color={color}
+                />
+              }
+            />
             <Route
               path="/about"
               element={

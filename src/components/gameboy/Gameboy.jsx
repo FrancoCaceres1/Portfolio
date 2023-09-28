@@ -14,6 +14,7 @@ const Gameboy = (props) => {
   const isHome = location.pathname === "/home";
   const isContact = location.pathname === "/contact";
   const isSettings = location.pathname === "/settings";
+  const isProjects = location.pathname === "/projects";
 
   Gameboy.propTypes = {
     handleAnimation: PropTypes.func.isRequired,
@@ -36,7 +37,7 @@ const Gameboy = (props) => {
   };
 
   const handleNavigation = (value) => {
-    if (isHome || isContact || isSettings) {
+    if (isHome || isContact || isSettings || isProjects) {
       if (value === "up" && props.option > 1) {
         isSettings && props.setSelected(0);
         props.setOption(props.option - 1);
@@ -50,6 +51,10 @@ const Gameboy = (props) => {
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
         } else if (isHome) {
+          props.setOption(props.option + 1);
+          props.setSelectedOption(props.selectedOption + 1);
+        } else if (isProjects && props.option < 4) {
+          props.setSelected(0);
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
         }

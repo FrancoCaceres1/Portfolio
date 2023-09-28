@@ -29,7 +29,7 @@
       text-align: center;
       font-size: $primary-size;
       font-weight: 600;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.25rem;
       padding: 0.5rem 0 0.5rem 0.313rem;
     }
   }
@@ -43,7 +43,7 @@
 }
 
 .textContainer {
-  @include centerFlex(flex, column, flex-start, center, 1rem);
+  @include centerFlex(flex, column, flex-start, center, 0.5rem);
   @include height(37vh, 37vh);
   overflow: hidden;
   overflow-y: scroll;

@@ -11,6 +11,7 @@ const RowButtons = (props) => {
   const isHome = location.pathname === "/home";
   const isContact = location.pathname === "/contact";
   const isSettings = location.pathname === "/settings";
+  const isProjects = location.pathname === "/projects";
 
   RowButtons.propTypes = {
     handleScrollStart: PropTypes.func.isRequired,
@@ -43,15 +44,16 @@ const RowButtons = (props) => {
             !isContact &&
             !isLandingPage &&
             !isSettings &&
+            !isProjects &&
             props.handleScrollStart("up")
           }
           onMouseUp={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
           onMouseLeave={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
@@ -60,20 +62,21 @@ const RowButtons = (props) => {
             !isContact &&
             !isLandingPage &&
             !isSettings &&
+            !isProjects &&
             props.handleScrollStart("up")
           }
           onTouchEnd={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
           onTouchMove={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
           onTouchCancel={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
@@ -94,15 +97,16 @@ const RowButtons = (props) => {
             !isContact &&
             !isLandingPage &&
             !isSettings &&
+            !isProjects &&
             props.handleScrollStart("down")
           }
           onMouseUp={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
           onMouseLeave={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
@@ -111,20 +115,21 @@ const RowButtons = (props) => {
             !isContact &&
             !isLandingPage &&
             !isSettings &&
+            !isProjects &&
             props.handleScrollStart("down")
           }
           onTouchEnd={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
           onTouchMove={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }
           onTouchCancel={
-            !isHome && !isContact && !isLandingPage
+            !isHome && !isContact && !isLandingPage && !isProjects
               ? props.handleScrollStop
               : null
           }

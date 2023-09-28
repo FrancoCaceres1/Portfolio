@@ -5,8 +5,214 @@
   @include centerFlex(flex, column, space-between, center, 0);
   @include height(57vh, 57vh);
   background-color: $primary-color;
+  font-family: $primary-font;
   border-radius: 5px;
   -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
   -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
   box-shadow: inset 5px 5px 0px 0px $third-color;
+}
+
+.infoContainer {
+  @include centerFlex(flex, column, space-between, center, 0);
+  @include width(100%, 100%);
+  @include height(57vh, 57vh);
+  color: $font-color;
+  padding: 0.3rem 0 0 0.313rem;
+  .settingsContainer {
+    @include width(100%, 100%);
+    @include height(45vh, 45vh);
+    overflow: hidden;
+    h1 {
+      @include width(100%, 100%);
+      background-color: $secondary-color;
+      color: $primary-color;
+      text-align: center;
+      font-size: $primary-size;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      padding: 0.5rem 0 0.5rem 0.313rem;
+    }
+  }
+  cursor: default;
+  p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    text-align: left;
+  }
+}
+
+.textContainer {
+  @include centerFlex(flex, column, flex-start, center, 0.5rem);
+  @include height(37vh, 37vh);
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 1.2rem;
+  color: $font-color;
+  font-weight: 600;
+  font-size: $primary-size;
+  text-align: left;
+  &::-webkit-scrollbar {
+    width: 0.1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $primary-color;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  .languageContainer {
+    @include width(100%, 100%);
+    .languageOptions {
+      @include centerFlex(flex, row, space-between, center, 0);
+      @include width(100%, 100%);
+      @include height(7rem, 7rem);
+      background-color: $secondary-color;
+      padding: 0.3rem 1rem 0.9rem 1.1rem;
+      div {
+        @include centerFlex(flex, row, flex-start, center, 1rem);
+        @include width(100%, 100%);
+        @include height(7rem, 7rem);
+        img {
+          @include height(5.5rem, 5.5rem);
+        }
+        ul {
+          color: $primary-color;
+          flex: 1;
+          text-align: left;
+          list-style-type: none;
+          li {
+            position: relative;
+            .buttonAContainer {
+              @include width(2rem, 2rem);
+              @include height(2rem, 2rem);
+              position: absolute;
+              right: -0.1rem;
+              .buttonAImage {
+                @include width(100%, 100%);
+                @include height(100%, 100%);
+                filter: drop-shadow(-1.5px 1px 0px #090e09);
+              }
+            }
+            .hyphen {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    .line {
+      padding-right: 0.5rem;
+    }
+    .option {
+      @include width(100%, 100%);
+      position: relative;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      .hyphen {
+        margin-right: 0.5rem;
+      }
+      .buttonAContainerHidden {
+        position: absolute;
+        visibility: hidden;
+      }
+    }
+    .selected {
+      @include centerFlex(flex, row, flex-start, center, 0);
+      @include width(100%, 100%);
+      position: relative;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      background-color: $secondary-color;
+      color: $primary-color;
+      .hyphen {
+        margin-right: 0.5rem;
+      }
+      .buttonAContainer {
+        @include width(2rem, 2rem);
+        @include height(2rem, 2rem);
+        position: absolute;
+        right: 0.9rem;
+        padding-right: 0;
+        .buttonAImage {
+          @include width(100%, 100%);
+          @include height(100%, 100%);
+          filter: drop-shadow(-1.5px 1px 0px #090e09);
+        }
+      }
+    }
+  }
+}
+
+.arrow {
+  padding-left: 1rem;
+}
+
+.colorContainer {
+  @include width(1.7rem, 1.7rem);
+  @include height(1.7rem, 1.7rem);
+  margin-left: 1rem;
+  border: 2px solid $primary-color;
+}
+
+.backgroundBlue {
+  background-color: $primary-blue;
+}
+
+.backgroundRed {
+  background-color: $primary-red;
+}
+
+.backgroundOrange {
+  background-color: $primary-orange;
+}
+
+.backgroundPurple {
+  background-color: $primary-purple;
+}
+
+.optionBackgroundBlue,
+.optionBackgroundRed,
+.optionBackgroundOrange,
+.optionBackgroundPurple {
+  @include button(transparent, 2px solid $primary-color);
+  @include width(1.7rem, 1.7rem);
+  @include height(1.7rem, 1.7rem);
+}
+
+.noBackgroundBlue,
+.noBackgroundRed,
+.noBackgroundOrange,
+.noBackgroundPurple {
+  @include button(transparent, none);
+  @include width(1.7rem, 1.7rem);
+  @include height(1.7rem, 1.7rem);
+}
+
+.noBackgroundBlue,
+.optionBackgroundBlue {
+  background-color: $primary-blue;
+}
+
+.noBackgroundRed,
+.optionBackgroundRed {
+  background-color: $primary-red;
+}
+
+.noBackgroundOrange,
+.optionBackgroundOrange {
+  background-color: $primary-orange;
+}
+
+.optionBackgroundPurple {
+  background-color: $primary-purple;
+}
+
+.noBackgroundPurple {
+  @include button($primary-purple, none);
 }

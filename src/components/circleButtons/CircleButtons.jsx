@@ -11,6 +11,7 @@ const CircleButtons = (props) => {
   const isContact = location.pathname === "/contact";
   const isSettings = location.pathname === "/settings";
   const isSkills = location.pathname === "/skills";
+  const isProjects = location.pathname === "/projects";
 
   CircleButtons.propTypes = {
     handleBack: PropTypes.func.isRequired,
@@ -31,7 +32,7 @@ const CircleButtons = (props) => {
           onClick={
             isLandingPage
               ? null
-              : isSettings && props.selected > 0
+              : isSettings || isProjects && props.selected > 0
               ? () => props.setSelected(0)
               : props.handleBack
           }
@@ -54,7 +55,7 @@ const CircleButtons = (props) => {
                   props.handleRedirect(
                     "https://www.linkedin.com/in/franco-c%C3%A1ceres-2731a0273/"
                   )
-              : isSettings
+              : isSettings || isProjects
               ? () => props.handleSelect(props.selectedOption)
               : props.handleRedirect
           }
