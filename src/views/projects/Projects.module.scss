@@ -18,7 +18,7 @@
   @include height(57vh, 57vh);
   color: $font-color;
   padding: 0.3rem 0 0 0.313rem;
-  .settingsContainer {
+  .projectsContainer {
     @include width(100%, 100%);
     @include height(45vh, 45vh);
     overflow: hidden;
@@ -66,9 +66,9 @@
     background-color: transparent;
     border-radius: 4px;
   }
-  .languageContainer {
+  .projectContainer {
     @include width(100%, 100%);
-    .languageOptions {
+    .projectOptions {
       @include centerFlex(flex, row, space-between, center, 0);
       @include width(100%, 100%);
       @include height(7rem, 7rem);
@@ -86,8 +86,11 @@
           flex: 1;
           text-align: left;
           list-style-type: none;
-          li {
+          .selectedOption {
             position: relative;
+            background-color: $third-color;
+            padding-left: 0.2rem;
+            cursor: pointer;
             .buttonAContainer {
               @include width(2rem, 2rem);
               @include height(2rem, 2rem);
@@ -96,6 +99,25 @@
               .buttonAImage {
                 @include width(100%, 100%);
                 @include height(100%, 100%);
+                filter: drop-shadow(-1.5px 1px 0px #090e09);
+              }
+            }
+            .hyphen {
+              margin-right: 0.5rem;
+            }
+          }
+          .noSelectedOption {
+            position: relative;
+            padding-left: 0.2rem;
+            .buttonAContainer {
+              @include width(2rem, 2rem);
+              @include height(2rem, 2rem);
+              position: absolute;
+              right: -0.1rem;
+              .buttonAImage {
+                @include width(100%, 100%);
+                @include height(100%, 100%);
+                visibility: hidden;
                 filter: drop-shadow(-1.5px 1px 0px #090e09);
               }
             }
@@ -147,72 +169,4 @@
       }
     }
   }
-}
-
-.arrow {
-  padding-left: 1rem;
-}
-
-.colorContainer {
-  @include width(1.7rem, 1.7rem);
-  @include height(1.7rem, 1.7rem);
-  margin-left: 1rem;
-  border: 2px solid $primary-color;
-}
-
-.backgroundBlue {
-  background-color: $primary-blue;
-}
-
-.backgroundRed {
-  background-color: $primary-red;
-}
-
-.backgroundOrange {
-  background-color: $primary-orange;
-}
-
-.backgroundPurple {
-  background-color: $primary-purple;
-}
-
-.optionBackgroundBlue,
-.optionBackgroundRed,
-.optionBackgroundOrange,
-.optionBackgroundPurple {
-  @include button(transparent, 2px solid $primary-color);
-  @include width(1.7rem, 1.7rem);
-  @include height(1.7rem, 1.7rem);
-}
-
-.noBackgroundBlue,
-.noBackgroundRed,
-.noBackgroundOrange,
-.noBackgroundPurple {
-  @include button(transparent, none);
-  @include width(1.7rem, 1.7rem);
-  @include height(1.7rem, 1.7rem);
-}
-
-.noBackgroundBlue,
-.optionBackgroundBlue {
-  background-color: $primary-blue;
-}
-
-.noBackgroundRed,
-.optionBackgroundRed {
-  background-color: $primary-red;
-}
-
-.noBackgroundOrange,
-.optionBackgroundOrange {
-  background-color: $primary-orange;
-}
-
-.optionBackgroundPurple {
-  background-color: $primary-purple;
-}
-
-.noBackgroundPurple {
-  @include button($primary-purple, none);
 }

@@ -32,16 +32,25 @@ const Gameboy = (props) => {
     handleSelect: PropTypes.func.isRequired,
     setSelected: PropTypes.func.isRequired,
     color: PropTypes.number.isRequired,
+    projectOptions: PropTypes.number.isRequired,
     handleColorChange: PropTypes.func.isRequired,
     setStart: PropTypes.func.isRequired,
+    setProjectOptions: PropTypes.func.isRequired,
   };
 
   const handleNavigation = (value) => {
     if (isHome || isContact || isSettings || isProjects) {
-      if (value === "up" && props.option > 1) {
+      if (value === "up" && props.option > 1 && props.selected === 0) {
         isSettings && props.setSelected(0);
         props.setOption(props.option - 1);
         props.setSelectedOption(props.selectedOption - 1);
+      } else if (
+        value === "up" &&
+        isProjects &&
+        props.selected > 0 &&
+        props.projectOptions > 5
+      ) {
+        props.setProjectOptions(props.projectOptions - 1);
       } else if (value === "down" && props.option < 4) {
         if (isSettings && props.option < 2) {
           props.setSelected(0);
@@ -53,10 +62,16 @@ const Gameboy = (props) => {
         } else if (isHome) {
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
-        } else if (isProjects && props.option < 4) {
+        } else if (isProjects && props.selected === 0 && props.option < 4) {
           props.setSelected(0);
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
+        } else if (
+          isProjects &&
+          props.selected > 0 &&
+          props.projectOptions < 7
+        ) {
+          props.setProjectOptions(props.projectOptions + 1);
         }
       }
     }

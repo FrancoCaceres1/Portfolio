@@ -21,13 +21,10 @@ const Projects = (props) => {
     setSelectedOption: PropTypes.func.isRequired,
     handleHover: PropTypes.func.isRequired,
     selected: PropTypes.number.isRequired,
+    projectOptions: PropTypes.number.isRequired,
     setSelected: PropTypes.func.isRequired,
-    language: PropTypes.number.isRequired,
-    setLanguage: PropTypes.func.isRequired,
-    handleLanguageChange: PropTypes.func.isRequired,
     handleSelect: PropTypes.func.isRequired,
-    handleColorChange: PropTypes.func.isRequired,
-    color: PropTypes.number.isRequired,
+    handleHoverOptions: PropTypes.func.isRequired,
   };
 
   useEffect(() => {
@@ -39,11 +36,11 @@ const Projects = (props) => {
   return (
     <section className={styles.sectionProjects}>
       <div className={styles.infoContainer}>
-        <div className={styles.settingsContainer}>
+        <div className={styles.projectsContainer}>
           <h1>{t("projects.title")}</h1>
           <div className={styles.textContainer}>
             <div
-              className={styles.languageContainer}
+              className={styles.projectContainer}
               onMouseEnter={() => props.handleHover("1")}
             >
               <div
@@ -71,11 +68,18 @@ const Projects = (props) => {
                 </span>
               </div>
               {props.selected === 1 && (
-                <section className={styles.languageOptions}>
+                <section className={styles.projectOptions}>
                   <div>
                     <img src={soyPuebla} alt="soy-puebla" />
                     <ul>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 5
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("5")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         VISIT
                         <span className={styles.buttonAContainer}>
@@ -86,7 +90,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 6
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("6")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         REPO
                         <span className={styles.buttonAContainer}>
@@ -97,7 +108,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 7
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("7")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         INFO
                         <span className={styles.buttonAContainer}>
@@ -114,7 +132,7 @@ const Projects = (props) => {
               )}
             </div>
             <div
-              className={styles.languageContainer}
+              className={styles.projectContainer}
               onMouseEnter={() => props.handleHover("2")}
             >
               <div
@@ -142,11 +160,18 @@ const Projects = (props) => {
                 </span>
               </div>
               {props.selected === 2 && (
-                <section className={styles.languageOptions}>
+                <section className={styles.projectOptions}>
                   <div>
                     <img src={Countries} alt="soy-puebla" />
                     <ul>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 5
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("5")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         VISIT
                         <span className={styles.buttonAContainer}>
@@ -157,7 +182,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 6
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("6")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         REPO
                         <span className={styles.buttonAContainer}>
@@ -168,7 +200,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 7
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("7")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         INFO
                         <span className={styles.buttonAContainer}>
@@ -185,7 +224,7 @@ const Projects = (props) => {
               )}
             </div>
             <div
-              className={styles.languageContainer}
+              className={styles.projectContainer}
               onMouseEnter={() => props.handleHover("3")}
             >
               <div
@@ -213,11 +252,18 @@ const Projects = (props) => {
                 </span>
               </div>
               {props.selected === 3 && (
-                <section className={styles.languageOptions}>
+                <section className={styles.projectOptions}>
                   <div>
                     <img src={Rym} alt="soy-puebla" />
                     <ul>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 5
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("5")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         VISIT
                         <span className={styles.buttonAContainer}>
@@ -228,7 +274,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 6
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("6")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         REPO
                         <span className={styles.buttonAContainer}>
@@ -239,7 +292,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 7
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("7")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         INFO
                         <span className={styles.buttonAContainer}>
@@ -256,7 +316,7 @@ const Projects = (props) => {
               )}
             </div>
             <div
-              className={styles.languageContainer}
+              className={styles.projectContainer}
               onMouseEnter={() => props.handleHover("4")}
             >
               <div
@@ -284,11 +344,18 @@ const Projects = (props) => {
                 </span>
               </div>
               {props.selected === 4 && (
-                <section className={styles.languageOptions}>
+                <section className={styles.projectOptions}>
                   <div>
                     <img src={Edm} alt="soy-puebla" />
                     <ul>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 5
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("5")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         VISIT
                         <span className={styles.buttonAContainer}>
@@ -299,7 +366,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 6
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("6")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         REPO
                         <span className={styles.buttonAContainer}>
@@ -310,7 +384,14 @@ const Projects = (props) => {
                           />
                         </span>
                       </li>
-                      <li>
+                      <li
+                        className={
+                          props.projectOptions === 7
+                            ? styles.selectedOption
+                            : styles.noSelectedOption
+                        }
+                        onMouseEnter={() => props.handleHoverOptions("7")}
+                      >
                         <span className={styles.hyphen}>-</span>
                         INFO
                         <span className={styles.buttonAContainer}>

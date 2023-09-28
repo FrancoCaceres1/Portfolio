@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { useLanguage } from "./language/LanguageContext.jsx";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
@@ -15,6 +21,8 @@ import styles from "./App.module.scss";
 
 function App() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isProjects = location.pathname === "/projects";
   const { changeLanguage } = useLanguage();
   const { currentLanguage } = useLanguage();
   const [click, setClick] = useState(false);
@@ -30,6 +38,7 @@ function App() {
   const [color, setColor] = useState(1);
   const [start, setStart] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [projectOptions, setProjectOptions] = useState(5);
 
   useEffect(() => {
     setIsLoading(true);
@@ -111,6 +120,18 @@ function App() {
     if (optionMap[value]) {
       setSelectedOption(optionMap[value]);
       setOption(optionMap[value]);
+    }
+  };
+
+  const handleHoverOptions = (value) => {
+    const optionMap = {
+      5: 5,
+      6: 6,
+      7: 7,
+    };
+
+    if (optionMap[value]) {
+      setProjectOptions(optionMap[value]);
     }
   };
 
@@ -222,12 +243,9 @@ function App() {
                   handleHover={handleHover}
                   selected={selected}
                   setSelected={setSelected}
-                  language={language}
-                  setLanguage={setLanguage}
-                  handleLanguageChange={handleLanguageChange}
                   handleSelect={handleSelect}
-                  handleColorChange={handleColorChange}
-                  color={color}
+                  projectOptions={projectOptions}
+                  handleHoverOptions={handleHoverOptions}
                 />
               }
             />
@@ -312,6 +330,8 @@ function App() {
         handleColorChange={handleColorChange}
         color={color}
         setStart={setStart}
+        setProjectOptions={setProjectOptions}
+        projectOptions={projectOptions}
       />
     </main>
   );
