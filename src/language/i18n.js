@@ -31,6 +31,7 @@ i18n.use(initReactI18next).init({
         },
         projects: {
           title: "PROJECTS",
+          visit: "VISIT",
         },
         contact: {
           title: "CONTACT ME",
@@ -75,6 +76,7 @@ i18n.use(initReactI18next).init({
         },
         projects: {
           title: "PROYECTOS",
+          visit: "VER",
         },
         contact: {
           title: "CONTÁCTAME",

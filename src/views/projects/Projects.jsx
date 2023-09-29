@@ -116,7 +116,7 @@ const Projects = (props) => {
                           }
                         >
                           <span className={styles.hyphen}>-</span>
-                          VISIT
+                          {t("projects.visit")}
                           <span className={styles.buttonAContainer}>
                             <img
                               src={ButtonA}
@@ -229,7 +229,7 @@ const Projects = (props) => {
                         }
                       >
                         <span className={styles.hyphen}>-</span>
-                        VISIT
+                        {t("projects.visit")}
                         <span className={styles.buttonAContainer}>
                           <img
                             src={ButtonA}
@@ -341,7 +341,7 @@ const Projects = (props) => {
                         }
                       >
                         <span className={styles.hyphen}>-</span>
-                        VISIT
+                        {t("projects.visit")}
                         <span className={styles.buttonAContainer}>
                           <img
                             src={ButtonA}
@@ -450,7 +450,7 @@ const Projects = (props) => {
                         }
                       >
                         <span className={styles.hyphen}>-</span>
-                        VISIT
+                        {t("projects.visit")}
                         <span className={styles.buttonAContainer}>
                           <img
                             src={ButtonA}

@@ -40,7 +40,9 @@ const Settings = (props) => {
           <div className={styles.textContainer}>
             <div
               className={styles.languageContainer}
-              onMouseEnter={() => props.handleHover("1")}
+              onMouseEnter={
+                props.selected === 0 ? () => props.handleHover("1") : null
+              }
             >
               <div
                 className={
@@ -48,7 +50,9 @@ const Settings = (props) => {
                     ? styles.selected
                     : styles.option
                 }
-                onClick={() => props.handleSelect(1)}
+                onClick={
+                  props.selected === 0 ? () => props.handleSelect(1) : null
+                }
               >
                 <span className={styles.line}>-</span>
                 {t("settings.language")}
@@ -90,7 +94,9 @@ const Settings = (props) => {
             </div>
             <div
               className={styles.languageContainer}
-              onMouseEnter={() => props.handleHover("2")}
+              onMouseEnter={
+                props.selected === 0 ? () => props.handleHover("2") : null
+              }
             >
               <div
                 className={
@@ -98,7 +104,9 @@ const Settings = (props) => {
                     ? styles.selected
                     : styles.option
                 }
-                onClick={() => props.handleSelect(2)}
+                onClick={
+                  props.selected === 0 ? () => props.handleSelect(2) : null
+                }
               >
                 <span className={styles.line}>-</span>
                 {t("settings.color")}
