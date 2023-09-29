@@ -27,6 +27,7 @@ const Projects = (props) => {
     handleHoverOptions: PropTypes.func.isRequired,
     setHidden: PropTypes.func.isRequired,
     hidden: PropTypes.bool.isRequired,
+    setProjectOptions: PropTypes.func.isRequired,
   };
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const Projects = (props) => {
     if (props.selected === 4) {
       props.setHidden(false);
       props.setSelected(0);
+      props.setProjectOptions(5);
     } else {
       props.handleSelect(4);
       props.setHidden(true);
@@ -55,7 +57,9 @@ const Projects = (props) => {
             {!props.hidden && (
               <div
                 className={styles.projectContainer}
-                onMouseEnter={!props.selected > 0 ? () => props.handleHover("1") : null}
+                onMouseEnter={
+                  !props.selected > 0 ? () => props.handleHover("1") : null
+                }
               >
                 <div
                   className={
@@ -63,7 +67,14 @@ const Projects = (props) => {
                       ? styles.selected
                       : styles.option
                   }
-                  onClick={() => props.handleSelect(1)}
+                  onClick={
+                    !props.selected > 0 || props.selected === 1
+                      ? () => {
+                          props.handleSelect(1);
+                          props.setProjectOptions(5);
+                        }
+                      : null
+                  }
                 >
                   <span className={styles.line}>-</span>
                   PUEBLA DEL MAR
@@ -148,7 +159,9 @@ const Projects = (props) => {
             )}
             <div
               className={styles.projectContainer}
-              onMouseEnter={!props.selected > 0 ? () => props.handleHover("2") : null}
+              onMouseEnter={
+                !props.selected > 0 ? () => props.handleHover("2") : null
+              }
             >
               <div
                 className={
@@ -156,7 +169,14 @@ const Projects = (props) => {
                     ? styles.selected
                     : styles.option
                 }
-                onClick={() => props.handleSelect(2)}
+                onClick={
+                  !props.selected > 0 || props.selected === 2
+                    ? () => {
+                        props.handleSelect(2);
+                        props.setProjectOptions(5);
+                      }
+                    : null
+                }
               >
                 <span className={styles.line}>-</span>
                 COUNTRIES API
@@ -240,7 +260,9 @@ const Projects = (props) => {
             </div>
             <div
               className={styles.projectContainer}
-              onMouseEnter={!props.selected > 0 ? () => props.handleHover("3") : null}
+              onMouseEnter={
+                !props.selected > 0 ? () => props.handleHover("3") : null
+              }
             >
               <div
                 className={
@@ -248,7 +270,14 @@ const Projects = (props) => {
                     ? styles.selected
                     : styles.option
                 }
-                onClick={() => props.handleSelect(3)}
+                onClick={
+                  !props.selected > 0 || props.selected === 3
+                    ? () => {
+                        props.handleSelect(3);
+                        props.setProjectOptions(5);
+                      }
+                    : null
+                }
               >
                 <span className={styles.line}>-</span>
                 R&M API
@@ -332,7 +361,9 @@ const Projects = (props) => {
             </div>
             <div
               className={styles.projectContainer}
-              onMouseEnter={!props.selected > 0 ? () => props.handleHover("4") : null}
+              onMouseEnter={
+                !props.selected > 0 ? () => props.handleHover("4") : null
+              }
             >
               <div
                 className={
@@ -340,7 +371,11 @@ const Projects = (props) => {
                     ? styles.selected
                     : styles.option
                 }
-                onClick={handleHidding}
+                onClick={
+                  !props.selected > 0 || props.selected === 4
+                    ? handleHidding
+                    : null
+                }
               >
                 <span className={styles.line}>-</span>
                 ROCK&EDM
@@ -362,7 +397,7 @@ const Projects = (props) => {
                 <section className={styles.projectOptions}>
                   <div>
                     <img src={Edm} alt="soy-puebla" />
-                    <ul>
+                    <ul className={styles.Edm}>
                       <li
                         className={
                           props.projectOptions === 5
@@ -388,24 +423,6 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("6")}
-                      >
-                        <span className={styles.hyphen}>-</span>
-                        REPO
-                        <span className={styles.buttonAContainer}>
-                          <img
-                            src={ButtonA}
-                            alt="a-button"
-                            className={styles.buttonAImage}
-                          />
-                        </span>
-                      </li>
-                      <li
-                        className={
-                          props.projectOptions === 7
-                            ? styles.selectedOption
-                            : styles.noSelectedOption
-                        }
-                        onMouseEnter={() => props.handleHoverOptions("7")}
                       >
                         <span className={styles.hyphen}>-</span>
                         INFO

@@ -248,6 +248,7 @@ function App() {
                   handleHoverOptions={handleHoverOptions}
                   setHidden={setHidden}
                   hidden={hidden}
+                  setProjectOptions={setProjectOptions}
                 />
               }
             />

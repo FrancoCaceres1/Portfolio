@@ -49,6 +49,13 @@ const Gameboy = (props) => {
       } else if (
         value === "up" &&
         isProjects &&
+        props.selected === 4 &&
+        props.projectOptions > 5
+      ) {
+        props.setProjectOptions(props.projectOptions - 2);
+      } else if (
+        value === "up" &&
+        isProjects &&
         props.selected > 0 &&
         props.projectOptions > 5
       ) {
@@ -69,6 +76,13 @@ const Gameboy = (props) => {
           props.setOption(props.option + 1);
           props.setSelectedOption(props.selectedOption + 1);
         }
+      } else if (
+        value === "down" &&
+        isProjects &&
+        props.selected === 4 &&
+        props.projectOptions < 6
+      ) {
+        props.setProjectOptions(props.projectOptions + 2);
       } else if (
         value === "down" &&
         isProjects &&
@@ -107,7 +121,7 @@ const Gameboy = (props) => {
         navigate(route);
       }
     }
-    if (isContact) {
+    if (isContact || isProjects) {
       window.open(url, "_blank");
     }
   };
@@ -167,6 +181,8 @@ const Gameboy = (props) => {
             handleSelect={props.handleSelect}
             setHidden={props.setHidden}
             hidden={props.hidden}
+            projectOptions={props.projectOptions}
+            setProjectOptions={props.setProjectOptions}
           />
         </div>
       </div>

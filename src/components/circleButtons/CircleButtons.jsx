@@ -11,6 +11,7 @@ const CircleButtons = (props) => {
   const isContact = location.pathname === "/contact";
   const isSettings = location.pathname === "/settings";
   const isSkills = location.pathname === "/skills";
+  const isHome = location.pathname === "/home";
   const isProjects = location.pathname === "/projects";
 
   CircleButtons.propTypes = {
@@ -24,6 +25,8 @@ const CircleButtons = (props) => {
     setSelected: PropTypes.func.isRequired,
     setHidden: PropTypes.func.isRequired,
     hidden: PropTypes.bool.isRequired,
+    setProjectOptions: PropTypes.func.isRequired,
+    projectOptions: PropTypes.number.isRequired,
   };
 
   const handleHidding = () => {
@@ -33,7 +36,8 @@ const CircleButtons = (props) => {
 
   const handleShow = () => {
     props.setHidden(false);
-    props.setSelected(0)
+    props.setSelected(0);
+    props.setProjectOptions(5);
   };
 
   return (
@@ -46,7 +50,10 @@ const CircleButtons = (props) => {
               ? null
               : (isSettings && props.selected > 0) ||
                 (isProjects && props.selected > 0 && props.selected != 4)
-              ? () => props.setSelected(0)
+              ? () => {
+                  props.setSelected(0);
+                  props.setProjectOptions(5);
+                }
               : isProjects && props.selected === 4
               ? handleShow
               : props.handleBack
@@ -70,12 +77,45 @@ const CircleButtons = (props) => {
                   props.handleRedirect(
                     "https://www.linkedin.com/in/franco-c%C3%A1ceres-2731a0273/"
                   )
+              : isProjects && props.selected === 1 && props.projectOptions === 5
+              ? () =>
+                  props.handleRedirect("https://soy-puebla-deploy.vercel.app/")
+              : isProjects && props.selected === 2 && props.projectOptions === 5
+              ? () =>
+                  props.handleRedirect(
+                    "https://pi-countries-api-flax.vercel.app/"
+                  )
+              : isProjects && props.selected === 3 && props.projectOptions === 5
+              ? () =>
+                  props.handleRedirect("https://proyecto-final-utn.vercel.app/")
+              : isProjects && props.selected === 4 && props.projectOptions === 5
+              ? () =>
+                  props.handleRedirect(
+                    "https://bright-kangaroo-442885.netlify.app/"
+                  )
+              : isProjects && props.selected === 1 && props.projectOptions === 6
+              ? () =>
+                  props.handleRedirect(
+                    "https://github.com/PuebladelMar/SoyPuebla"
+                  )
+              : isProjects && props.selected === 2 && props.projectOptions === 6
+              ? () =>
+                  props.handleRedirect(
+                    "https://github.com/FrancoCaceres1/proyecto_final-Henry"
+                  )
+              : isProjects && props.selected === 3 && props.projectOptions === 6
+              ? () =>
+                  props.handleRedirect(
+                    "https://github.com/FrancoCaceres1/proyecto-final-UTN"
+                  )
               : (isSettings && props.selected === 0) ||
                 (isProjects && props.selected === 0 && props.option != 4)
               ? () => props.handleSelect(props.selectedOption)
               : isProjects && props.selected === 0 && props.option === 4
               ? handleHidding
-              : props.handleRedirect
+              : isHome
+              ? props.handleRedirect
+              : null
           }
         >
           A
