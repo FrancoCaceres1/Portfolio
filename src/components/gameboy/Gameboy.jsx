@@ -37,6 +37,7 @@ const Gameboy = (props) => {
     setStart: PropTypes.func.isRequired,
     setProjectOptions: PropTypes.func.isRequired,
     setHidden: PropTypes.func.isRequired,
+    handleNavigate: PropTypes.func.isRequired,
     hidden: PropTypes.bool.isRequired,
   };
 
@@ -183,6 +184,7 @@ const Gameboy = (props) => {
             hidden={props.hidden}
             projectOptions={props.projectOptions}
             setProjectOptions={props.setProjectOptions}
+            handleNavigate={props.handleNavigate}
           />
         </div>
       </div>

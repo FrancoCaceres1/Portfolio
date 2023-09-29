@@ -27,6 +27,7 @@ const CircleButtons = (props) => {
     hidden: PropTypes.bool.isRequired,
     setProjectOptions: PropTypes.func.isRequired,
     projectOptions: PropTypes.number.isRequired,
+    handleNavigate: PropTypes.func.isRequired,
   };
 
   const handleHidding = () => {
@@ -108,6 +109,14 @@ const CircleButtons = (props) => {
                   props.handleRedirect(
                     "https://github.com/FrancoCaceres1/proyecto-final-UTN"
                   )
+              : isProjects && props.selected === 1 && props.projectOptions === 7
+              ? () => props.handleNavigate("/project-1")
+              : isProjects && props.selected === 2 && props.projectOptions === 7
+              ? () => props.handleNavigate("/project-2")
+              : isProjects && props.selected === 3 && props.projectOptions === 7
+              ? () => props.handleNavigate("/project-3")
+              : isProjects && props.selected === 4 && props.projectOptions === 7
+              ? () => props.handleNavigate("/project-4")
               : (isSettings && props.selected === 0) ||
                 (isProjects && props.selected === 0 && props.option != 4)
               ? () => props.handleSelect(props.selectedOption)

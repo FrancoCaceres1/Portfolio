@@ -22,6 +22,7 @@ import styles from "./App.module.scss";
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
+  const isProjects = location.pathname === "/projects";
   const { changeLanguage } = useLanguage();
   const { currentLanguage } = useLanguage();
   const [click, setClick] = useState(false);
@@ -161,7 +162,7 @@ function App() {
   };
 
   const handleNavigate = (value) => {
-    value === "/settings"
+    isProjects || value === "/settings"
       ? navigate(value)
       : setTimeout(() => {
           navigate(value);
@@ -249,6 +250,7 @@ function App() {
                   setHidden={setHidden}
                   hidden={hidden}
                   setProjectOptions={setProjectOptions}
+                  handleNavigate={handleNavigate}
                 />
               }
             />
@@ -337,6 +339,7 @@ function App() {
         projectOptions={projectOptions}
         setHidden={setHidden}
         hidden={hidden}
+        handleNavigate={handleNavigate}
       />
     </main>
   );

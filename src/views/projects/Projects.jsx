@@ -28,6 +28,7 @@ const Projects = (props) => {
     setHidden: PropTypes.func.isRequired,
     hidden: PropTypes.bool.isRequired,
     setProjectOptions: PropTypes.func.isRequired,
+    handleNavigate: PropTypes.func.isRequired,
   };
 
   useEffect(() => {
@@ -46,6 +47,10 @@ const Projects = (props) => {
       props.handleSelect(4);
       props.setHidden(true);
     }
+  };
+
+  const handleRedirect = (url) => {
+    window.open(url, "_blank");
   };
 
   return (
@@ -104,6 +109,11 @@ const Projects = (props) => {
                               : styles.noSelectedOption
                           }
                           onMouseEnter={() => props.handleHoverOptions("5")}
+                          onClick={() =>
+                            handleRedirect(
+                              "https://soy-puebla-deploy.vercel.app/"
+                            )
+                          }
                         >
                           <span className={styles.hyphen}>-</span>
                           VISIT
@@ -122,6 +132,11 @@ const Projects = (props) => {
                               : styles.noSelectedOption
                           }
                           onMouseEnter={() => props.handleHoverOptions("6")}
+                          onClick={() =>
+                            handleRedirect(
+                              "https://github.com/PuebladelMar/SoyPuebla"
+                            )
+                          }
                         >
                           <span className={styles.hyphen}>-</span>
                           REPO
@@ -140,6 +155,7 @@ const Projects = (props) => {
                               : styles.noSelectedOption
                           }
                           onMouseEnter={() => props.handleHoverOptions("7")}
+                          onClick={() => props.handleNavigate("/project-1")}
                         >
                           <span className={styles.hyphen}>-</span>
                           INFO
@@ -206,6 +222,11 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("5")}
+                        onClick={() =>
+                          handleRedirect(
+                            "https://pi-countries-api-flax.vercel.app/"
+                          )
+                        }
                       >
                         <span className={styles.hyphen}>-</span>
                         VISIT
@@ -224,6 +245,11 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("6")}
+                        onClick={() =>
+                          handleRedirect(
+                            "https://github.com/FrancoCaceres1/proyecto_final-Henry"
+                          )
+                        }
                       >
                         <span className={styles.hyphen}>-</span>
                         REPO
@@ -242,6 +268,7 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("7")}
+                        onClick={() => props.handleNavigate("/project-2")}
                       >
                         <span className={styles.hyphen}>-</span>
                         INFO
@@ -307,6 +334,11 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("5")}
+                        onClick={() =>
+                          handleRedirect(
+                            "https://proyecto-final-utn.vercel.app/"
+                          )
+                        }
                       >
                         <span className={styles.hyphen}>-</span>
                         VISIT
@@ -325,6 +357,11 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("6")}
+                        onClick={() =>
+                          handleRedirect(
+                            "https://github.com/FrancoCaceres1/proyecto-final-UTN"
+                          )
+                        }
                       >
                         <span className={styles.hyphen}>-</span>
                         REPO
@@ -343,6 +380,7 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("7")}
+                        onClick={() => props.handleNavigate("/project-3")}
                       >
                         <span className={styles.hyphen}>-</span>
                         INFO
@@ -405,6 +443,11 @@ const Projects = (props) => {
                             : styles.noSelectedOption
                         }
                         onMouseEnter={() => props.handleHoverOptions("5")}
+                        onClick={() =>
+                          handleRedirect(
+                            "https://bright-kangaroo-442885.netlify.app/"
+                          )
+                        }
                       >
                         <span className={styles.hyphen}>-</span>
                         VISIT
@@ -418,11 +461,12 @@ const Projects = (props) => {
                       </li>
                       <li
                         className={
-                          props.projectOptions === 6
+                          props.projectOptions === 7
                             ? styles.selectedOption
                             : styles.noSelectedOption
                         }
-                        onMouseEnter={() => props.handleHoverOptions("6")}
+                        onMouseEnter={() => props.handleHoverOptions("7")}
+                        onClick={() => props.handleNavigate("/project-4")}
                       >
                         <span className={styles.hyphen}>-</span>
                         INFO
