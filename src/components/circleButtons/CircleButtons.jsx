@@ -13,6 +13,10 @@ const CircleButtons = (props) => {
   const isSkills = location.pathname === "/skills";
   const isHome = location.pathname === "/home";
   const isProjects = location.pathname === "/projects";
+  const isProject1 = location.pathname === "/project-1";
+  const isProject2 = location.pathname === "/project-2";
+  const isProject3 = location.pathname === "/project-3";
+  const isProject4 = location.pathname === "/project-4";
 
   CircleButtons.propTypes = {
     handleBack: PropTypes.func.isRequired,
@@ -69,6 +73,14 @@ const CircleButtons = (props) => {
           onClick={
             isAbout || isSkills
               ? props.handleDownload
+              : isProject1
+              ? () => props.handleRedirect("https://soy-puebla-deploy.vercel.app/")
+              : isProject2
+              ? () => props.handleRedirect("https://pi-countries-api-flax.vercel.app/")
+              : isProject3
+              ? () => props.handleRedirect("https://proyecto-final-utn.vercel.app/")
+              : isProject4
+              ? () => props.handleRedirect("https://bright-kangaroo-442885.netlify.app/")
               : isContact && props.option === 3
               ? props.handleDownload
               : isContact && props.option === 2

@@ -15,6 +15,10 @@ const Gameboy = (props) => {
   const isContact = location.pathname === "/contact";
   const isSettings = location.pathname === "/settings";
   const isProjects = location.pathname === "/projects";
+  const isProject1 = location.pathname === "/project-1";
+  const isProject2 = location.pathname === "/project-2";
+  const isProject3 = location.pathname === "/project-3";
+  const isProject4 = location.pathname === "/project-4";
 
   Gameboy.propTypes = {
     handleAnimation: PropTypes.func.isRequired,
@@ -122,7 +126,14 @@ const Gameboy = (props) => {
         navigate(route);
       }
     }
-    if (isContact || isProjects) {
+    if (
+      isContact ||
+      isProjects ||
+      isProject1 ||
+      isProject2 ||
+      isProject3 ||
+      isProject4
+    ) {
       window.open(url, "_blank");
     }
   };

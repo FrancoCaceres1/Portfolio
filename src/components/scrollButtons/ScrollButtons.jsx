@@ -11,6 +11,10 @@ const ScrollButtons = (props) => {
   const location = useLocation();
   const isAbout = location.pathname === "/about";
   const isSkills = location.pathname === "/skills";
+  const isProject1 = location.pathname === "/project-1";
+  const isProject2 = location.pathname === "/project-2";
+  const isProject3 = location.pathname === "/project-3";
+  const isProject4 = location.pathname === "/project-4";
 
   ScrollButtons.propTypes = {
     handleScrollStart: PropTypes.func,
@@ -21,14 +25,19 @@ const ScrollButtons = (props) => {
 
   const handleContextMenu = (e) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <div className={styles.scrollButtons}>
       <div className={styles.backButton}>
         <BackButtton />
       </div>
-      {isAbout || isSkills ? (
+      {isAbout ||
+      isSkills ||
+      isProject1 ||
+      isProject2 ||
+      isProject3 ||
+      isProject4 ? (
         <div className={styles.scrollButtonsContainer}>
           {props.showArrowUp && (
             <button

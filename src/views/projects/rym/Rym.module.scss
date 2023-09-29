@@ -1,0 +1,120 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.sectionProject {
+  @include centerFlex(flex, column, flex-start, center, 0);
+  @include height(57vh, 57vh);
+  background-color: $primary-color;
+  font-family: $primary-font;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0px 5px 0px 0px $third-color;
+  -moz-box-shadow: inset 0px 5px 0px 0px $third-color;
+  box-shadow: inset 5px 5px 0px 0px $third-color;
+}
+
+.infoContainer {
+  @include centerFlex(flex, column, space-between, center, 0);
+  @include width(100%, 100%);
+  @include height(57vh, 57vh);
+  color: $font-color;
+  padding: 0.3rem 0 0 0.313rem;
+  .projectContainer {
+    @include height(45vh, 45vh);
+    overflow: hidden;
+    h1 {
+      @include width(100%, 100%);
+      background-color: $secondary-color;
+      color: $primary-color;
+      text-align: center;
+      font-size: $primary-size;
+      font-weight: 600;
+      margin-bottom: 1.8rem;
+      padding: 0.5rem 0 0.5rem 0.313rem;
+    }
+    .technologies {
+      margin-bottom: 0.5rem;
+    }
+  }
+  cursor: default;
+  p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    text-align: left;
+  }
+}
+
+.textContainer {
+  @include centerFlex(flex, column, flex-start, center, 2rem);
+  @include height(37vh, 37vh);
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-bottom: 2rem;
+  &::-webkit-scrollbar {
+    width: 0.1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $primary-color;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  span {
+    @include centerFlex(flex, row, center, center, 0);
+    @include width(16.5rem, 16.5rem);
+    img {
+      @include width(16.5rem, 16.5rem);
+    }
+  }
+  .iconsContainer {
+    @include width(100%, 100%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 0 1.7rem 0 1.7rem;
+    span {
+      @include centerFlex(flex, column, flex-start, center, 0.5rem);
+      @include width(100%, 100%);
+      @include height(3rem, 3rem);
+      text-align: center;
+      img {
+        @include width(3rem, 3rem);
+        @include height(3rem, 3rem);
+      }
+    }
+  }
+}
+
+.visitContainer {
+  @include width(100%, 100%);
+  margin-top: 1.5rem;
+  .visitButton {
+    @include centerFlex(flex, row, center, center, 0.8rem);
+    @include width(100%, 100%);
+    @include height(3rem, 3rem);
+    @include button($secondary-color, none);
+    font-family: $primary-font;
+    color: $primary-color;
+    position: relative;
+    font-size: $primary-size;
+    font-weight: 600;
+    padding-right: 2.25rem;
+    .wwwImage {
+      @include width(2rem, 2rem);
+      @include height(2rem, 2rem);
+    }
+    .AButton {
+      @include height(2rem, 2rem);
+      position: absolute;
+      right: 1.1rem;
+      filter: drop-shadow(-1.5px 1px 0px #090e09);
+    }
+  }
+}

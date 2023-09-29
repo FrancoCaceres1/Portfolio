@@ -17,7 +17,11 @@ import Skills from "./views/skills/Skills.jsx";
 import Settings from "./views/settings/Settings.jsx";
 import Loading from "./views/loading/Loading.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
+import Pdm from "./views/projects/pdm/Pdm.jsx";
+import Countries from "./views/projects/countries/Countries.jsx";
+import Rym from "./views/projects/rym/Rym.jsx";
 import styles from "./App.module.scss";
+import Edm from "./views/projects/edm/Edm.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -182,6 +186,10 @@ function App() {
     }
   };
 
+  const handleRedirect = (url) => {
+    window.open(url, "_blank");
+  };
+
   return (
     <main
       className={`${styles.mainGameboy} ${
@@ -251,6 +259,58 @@ function App() {
                   hidden={hidden}
                   setProjectOptions={setProjectOptions}
                   handleNavigate={handleNavigate}
+                />
+              }
+            />
+            <Route
+              path="/project-1"
+              element={
+                <Pdm
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                  handleRedirect={handleRedirect}
+                />
+              }
+            />
+            <Route
+              path="/project-2"
+              element={
+                <Countries
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                  handleRedirect={handleRedirect}
+                />
+              }
+            />
+            <Route
+              path="/project-3"
+              element={
+                <Rym
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                  handleRedirect={handleRedirect}
+                />
+              }
+            />
+            <Route
+              path="/project-4"
+              element={
+                <Edm
+                  handleScrollStart={handleScrollStart}
+                  handleScrollStop={handleScrollStop}
+                  showArrowDown={showArrowDown}
+                  showArrowUp={showArrowUp}
+                  setPRef={setPRef}
+                  handleRedirect={handleRedirect}
                 />
               }
             />
