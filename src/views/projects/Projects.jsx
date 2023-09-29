@@ -195,7 +195,7 @@ const Projects = (props) => {
                 }
               >
                 <span className={styles.line}>-</span>
-                COUNTRIES API
+                {t("projects.countries")}
                 <span
                   className={
                     props.selectedOption === 2 || props.option === 2
@@ -307,7 +307,7 @@ const Projects = (props) => {
                 }
               >
                 <span className={styles.line}>-</span>
-                R&M API
+                {t("projects.rym")}
                 <span
                   className={
                     props.selectedOption === 3 || props.option === 3

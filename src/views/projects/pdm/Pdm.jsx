@@ -44,14 +44,9 @@ const Pdm = (props) => {
               <img src={soyPuebla} alt="puebla-del-mar" />
             </span>
             <p>
-              En este proyecto, trabjé con un equipo para llevar acabo los
-              requerimientos de la startup &quot;Puebla del Mar&quot;. Es una
-              tienda de ropa femenina virtual, que busca ser accesible para
-              todas las edades y ofrecer una excelente experiencia de usuario.
-              Fue un gran desafío pero lo supimos sobrellevar y superar las
-              expectativas de los clientes.
+            {t("project1.information")}
             </p>
-            <h1 className={styles.technologies}>TECHNOLOGIES</h1>
+            <h1 className={styles.technologies}>{t("project1.technologies")}</h1>
             <section className={styles.iconsContainer}>
               <span>
                 <img src={Js} alt="JavaScript" />
@@ -100,7 +95,7 @@ const Pdm = (props) => {
                   src={Www}
                   alt="www"
                 />
-                VISITAR
+                {t("project1.visit")}
                 <img className={styles.AButton} src={ButtonA} alt="a-button" />
               </button>
             </div>

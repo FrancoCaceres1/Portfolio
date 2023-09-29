@@ -39,13 +39,8 @@ const Edm = (props) => {
             <span>
               <img src={soyPuebla} alt="puebla-del-mar" />
             </span>
-            <p>
-              Aplicación que tenía por objetivo consolidar todas las tecnologías
-              front end aprendidas. En este proyecto debía crear una landing
-              page usando SASS y Webpack. Es una aplicación simple y una de las
-              primeras que realice.
-            </p>
-            <h1 className={styles.technologies}>TECHNOLOGIES</h1>
+            <p>{t("project4.information")}</p>
+            <h1 className={styles.technologies}>{t("project1.technologies")}</h1>
             <section className={styles.iconsContainer}>
               <span>
                 <img src={Js} alt="JavaScript" />
@@ -68,11 +63,13 @@ const Edm = (props) => {
               <button
                 className={styles.visitButton}
                 onClick={() =>
-                  props.handleRedirect("https://bright-kangaroo-442885.netlify.app/")
+                  props.handleRedirect(
+                    "https://bright-kangaroo-442885.netlify.app/"
+                  )
                 }
               >
                 <img className={styles.wwwImage} src={Www} alt="www" />
-                VISITAR
+                {t("project1.visit")}
                 <img className={styles.AButton} src={ButtonA} alt="a-button" />
               </button>
             </div>
