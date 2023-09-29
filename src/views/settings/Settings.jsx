@@ -51,7 +51,7 @@ const Settings = (props) => {
                     : styles.option
                 }
                 onClick={
-                  props.selected === 0 ? () => props.handleSelect(1) : null
+                  props.selected === 0 || props.selected === 1 ? () => props.handleSelect(1) : null
                 }
               >
                 <span className={styles.line}>-</span>
@@ -105,7 +105,7 @@ const Settings = (props) => {
                     : styles.option
                 }
                 onClick={
-                  props.selected === 0 ? () => props.handleSelect(2) : null
+                  props.selected === 0 || props.selected === 2 ? () => props.handleSelect(2) : null
                 }
               >
                 <span className={styles.line}>-</span>
