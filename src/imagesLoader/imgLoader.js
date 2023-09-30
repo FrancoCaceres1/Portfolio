@@ -40,6 +40,8 @@ import Config from ".././assets/images/icons/config.png";
 import Start from ".././assets/images/buttons/start.png";
 import DownRow from ".././assets/images/buttons/down-row.png";
 import UpRow from ".././assets/images/buttons/up-row.png";
+import Max from ".././assets/images/buttons/max.png";
+import Min from ".././assets/images/buttons/min.png";
 
 export const imgLoader = () => {
   const imageUrls = [
@@ -84,6 +86,8 @@ export const imgLoader = () => {
     PixelArt5,
     Grass,
     Arrow,
+    Max,
+    Min,
   ];
   const preloadImages = (imageUrls) => {
     imageUrls.forEach((imageUrl) => {

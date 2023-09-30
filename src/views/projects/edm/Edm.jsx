@@ -33,7 +33,9 @@ const Edm = (props) => {
               <img src={props.imageUrls[31]} alt="puebla-del-mar" />
             </span>
             <p>{t("project4.information")}</p>
-            <h1 className={styles.technologies}>{t("project1.technologies")}</h1>
+            <h1 className={styles.technologies}>
+              {t("project1.technologies")}
+            </h1>
             <section className={styles.iconsContainer}>
               <span>
                 <img src={props.imageUrls[11]} alt="JavaScript" />
@@ -61,9 +63,17 @@ const Edm = (props) => {
                   )
                 }
               >
-                <img className={styles.wwwImage} src={props.imageUrls[33]} alt="www" />
+                <img
+                  className={styles.wwwImage}
+                  src={props.imageUrls[33]}
+                  alt="www"
+                />
                 {t("project1.visit")}
-                <img className={styles.AButton} src={props.imageUrls[1]} alt="a-button" />
+                <img
+                  className={styles.AButton}
+                  src={props.imageUrls[1]}
+                  alt="a-button"
+                />
               </button>
             </div>
           </div>

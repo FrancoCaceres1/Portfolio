@@ -2,8 +2,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import ButtonA from "../.././assets/images/buttons/a-button.png";
-import ButtonB from "../.././assets/images/buttons/b-button.png";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
 import styles from "./Settings.module.scss";
 
@@ -24,6 +22,7 @@ const Settings = (props) => {
     handleSelect: PropTypes.func.isRequired,
     handleColorChange: PropTypes.func.isRequired,
     color: PropTypes.number.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {
@@ -51,7 +50,9 @@ const Settings = (props) => {
                     : styles.option
                 }
                 onClick={
-                  props.selected === 0 || props.selected === 1 ? () => props.handleSelect(1) : null
+                  props.selected === 0 || props.selected === 1
+                    ? () => props.handleSelect(1)
+                    : null
                 }
               >
                 <span className={styles.line}>-</span>
@@ -65,7 +66,11 @@ const Settings = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 1 ? ButtonA : ButtonB}
+                    src={
+                      props.selected != 1
+                        ? props.imageUrls[1]
+                        : props.imageUrls[2]
+                    }
                     alt="a-button"
                     className={styles.buttonAImage}
                   />
@@ -105,7 +110,9 @@ const Settings = (props) => {
                     : styles.option
                 }
                 onClick={
-                  props.selected === 0 || props.selected === 2 ? () => props.handleSelect(2) : null
+                  props.selected === 0 || props.selected === 2
+                    ? () => props.handleSelect(2)
+                    : null
                 }
               >
                 <span className={styles.line}>-</span>
@@ -136,7 +143,11 @@ const Settings = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 2 ? ButtonA : ButtonB}
+                    src={
+                      props.selected != 2
+                        ? props.imageUrls[1]
+                        : props.imageUrls[2]
+                    }
                     alt="a-button"
                     className={styles.buttonAImage}
                   />

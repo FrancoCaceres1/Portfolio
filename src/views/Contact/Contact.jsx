@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
-import LinkedIn from "../.././assets/images/icons/linkedin.png";
-import Github from "../.././assets/images/icons/github.png";
-import ButtonA from "../.././assets/images/buttons/a-button.png";
 import styles from "./Contact.module.scss";
 
 const Contact = (props) => {
@@ -19,6 +16,7 @@ const Contact = (props) => {
     selectedOption: PropTypes.number.isRequired,
     setSelectedOption: PropTypes.func.isRequired,
     handleHover: PropTypes.func.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {
@@ -49,9 +47,17 @@ const Contact = (props) => {
               }
               onMouseEnter={() => props.handleHover("1")}
             >
-              <img className={styles.iconImage} src={LinkedIn} alt="linkedin" />
+              <img
+                className={styles.iconImage}
+                src={props.imageUrls[8]}
+                alt="linkedin"
+              />
               LINKEDIN
-              <img className={styles.AButton} src={ButtonA} alt="a-button" />
+              <img
+                className={styles.AButton}
+                src={props.imageUrls[1]}
+                alt="a-button"
+              />
             </button>
             <button
               className={
@@ -64,9 +70,17 @@ const Contact = (props) => {
               }
               onMouseEnter={() => props.handleHover("2")}
             >
-              <img className={styles.iconImage} src={Github} alt="github" />
+              <img
+                className={styles.iconImage}
+                src={props.imageUrls[7]}
+                alt="github"
+              />
               GITHUB
-              <img className={styles.AButton} src={ButtonA} alt="a-button" />
+              <img
+                className={styles.AButton}
+                src={props.imageUrls[1]}
+                alt="a-button"
+              />
             </button>
             <DownloadButton
               handleDownload={props.handleDownload}

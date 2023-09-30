@@ -86,7 +86,11 @@ const Projects = (props) => {
                     }
                   >
                     <img
-                      src={props.selected != 1 ? props.imageUrls[1] : props.imageUrls[2]}
+                      src={
+                        props.selected != 1
+                          ? props.imageUrls[1]
+                          : props.imageUrls[2]
+                      }
                       alt="a-button"
                       className={styles.buttonAImage}
                     />
@@ -199,7 +203,11 @@ const Projects = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 2 ? props.imageUrls[1] : props.imageUrls[2]}
+                    src={
+                      props.selected != 2
+                        ? props.imageUrls[1]
+                        : props.imageUrls[2]
+                    }
                     alt="a-button"
                     className={styles.buttonAImage}
                   />
@@ -311,7 +319,11 @@ const Projects = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 3 ? props.imageUrls[1] : props.imageUrls[2]}
+                    src={
+                      props.selected != 3
+                        ? props.imageUrls[1]
+                        : props.imageUrls[2]
+                    }
                     alt="a-button"
                     className={styles.buttonAImage}
                   />
@@ -420,7 +432,11 @@ const Projects = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 4 ? props.imageUrls[1] : props.imageUrls[2]}
+                    src={
+                      props.selected != 4
+                        ? props.imageUrls[1]
+                        : props.imageUrls[2]
+                    }
                     alt="a-button"
                     className={styles.buttonAImage}
                   />

@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
-import Max from "../.././assets/images/buttons/max.png";
-import Min from "../.././assets/images/buttons/min.png";
+import { imgLoader } from "../.././imagesLoader/imgLoader.js";
 import styles from "./ResizeButton.module.scss";
 
 const ResizeButton = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const { imageUrls } = imgLoader();
 
   useEffect(() => {
     const fullscreenChangeHandler = () => {
@@ -75,7 +75,7 @@ const ResizeButton = () => {
         className={!isFullscreen ? styles.bounce : styles.nobounce}
         onClick={isFullscreen ? exitFullScreen : goFullScreen}
       >
-        <img src={isFullscreen ? Min : Max} alt="resize" />
+        <img src={isFullscreen ? imageUrls[42] : imageUrls[41]} alt="resize" />
       </button>
     </div>
   );

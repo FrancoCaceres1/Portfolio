@@ -3,12 +3,6 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import ScrollButtons from "../../../components/scrollButtons/ScrollButtons.jsx";
-import rym from "../../.././assets/images/projects/rym-api.png";
-import Js from "../../.././assets/images/skills/js.png";
-import Css from "../../.././assets/images/skills/css.png";
-import Html from "../../.././assets/images/skills/html.png";
-import Www from "../../.././assets/images/icons/www.png";
-import ButtonA from "../../.././assets/images/buttons/a-button.png";
 import styles from "./Rym.module.scss";
 
 const Rym = (props) => {
@@ -22,6 +16,7 @@ const Rym = (props) => {
     handleRedirect: PropTypes.func.isRequired,
     showArrowDown: PropTypes.bool.isRequired,
     showArrowUp: PropTypes.bool.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {
@@ -35,23 +30,23 @@ const Rym = (props) => {
           <h1>{t("project3.title")}</h1>
           <div className={styles.textContainer} ref={pRef}>
             <span>
-              <img src={rym} alt="puebla-del-mar" />
+              <img src={props.imageUrls[28]} alt="puebla-del-mar" />
             </span>
-            <p>
-            {t("project3.information")}
-            </p>
-            <h1 className={styles.technologies}>{t("project1.technologies")}</h1>
+            <p>{t("project3.information")}</p>
+            <h1 className={styles.technologies}>
+              {t("project1.technologies")}
+            </h1>
             <section className={styles.iconsContainer}>
               <span>
-                <img src={Js} alt="JavaScript" />
+                <img src={props.imageUrls[11]} alt="JavaScript" />
                 <h3>JavaScript</h3>
               </span>
               <span>
-                <img src={Css} alt="CSS" />
+                <img src={props.imageUrls[16]} alt="CSS" />
                 <h3>CSS</h3>
               </span>
               <span>
-                <img src={Html} alt="HTML" />
+                <img src={props.imageUrls[17]} alt="HTML" />
                 <h3>HTML</h3>
               </span>
             </section>
@@ -59,14 +54,20 @@ const Rym = (props) => {
               <button
                 className={styles.visitButton}
                 onClick={() =>
-                  props.handleRedirect(
-                    "https://proyecto-final-utn.vercel.app/"
-                  )
+                  props.handleRedirect("https://proyecto-final-utn.vercel.app/")
                 }
               >
-                <img className={styles.wwwImage} src={Www} alt="www" />
+                <img
+                  className={styles.wwwImage}
+                  src={props.imageUrls[33]}
+                  alt="www"
+                />
                 {t("project1.visit")}
-                <img className={styles.AButton} src={ButtonA} alt="a-button" />
+                <img
+                  className={styles.AButton}
+                  src={props.imageUrls[1]}
+                  alt="a-button"
+                />
               </button>
             </div>
           </div>

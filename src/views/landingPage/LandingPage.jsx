@@ -50,7 +50,7 @@ const LandingPage = (props) => {
           </button>
           <h2 className={styles.pressStart}>{t("landing.button")}</h2>
         </div>
-        <PixelCharacter click={props.click} imageUrls={props.imageUrls}/>
+        <PixelCharacter click={props.click} imageUrls={props.imageUrls} />
       </div>
     </section>
   );

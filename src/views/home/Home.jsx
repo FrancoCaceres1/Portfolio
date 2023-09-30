@@ -133,7 +133,10 @@ const Home = (props) => {
       </div>
       <div className={styles.backButtonContainer}>
         <span className={styles.backContainer}>
-          <BackButtton handleAnimation={props.handleAnimation} imageUrls={props.imageUrls}/>
+          <BackButtton
+            handleAnimation={props.handleAnimation}
+            imageUrls={props.imageUrls}
+          />
         </span>
         <button
           className={styles.configContainer}

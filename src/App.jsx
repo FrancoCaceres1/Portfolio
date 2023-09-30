@@ -347,6 +347,7 @@ function App() {
                   setSelectedOption={setSelectedOption}
                   handleDownload={handleDownload}
                   handleHover={handleHover}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -360,6 +361,7 @@ function App() {
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
                   handleDownload={handleDownload}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -380,6 +382,7 @@ function App() {
                   handleSelect={handleSelect}
                   handleColorChange={handleColorChange}
                   color={color}
+                  imageUrls={imageUrls}
                 />
               }
             />

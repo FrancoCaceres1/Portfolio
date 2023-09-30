@@ -4,22 +4,6 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import DownloadButton from "../../components/downloadButton/DownloadButton.jsx";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
-import C from "../.././assets/images/skills/c.png";
-import CPlus from "../.././assets/images/skills/c-plus.png";
-import Js from "../.././assets/images/skills/js.png";
-import Ts from "../.././assets/images/skills/ts.png";
-import Webpack from "../.././assets/images/skills/webpack.png";
-import PostgreSql from "../.././assets/images/skills/postgresql.png";
-import MySql from "../.././assets/images/skills/mysql.png";
-import Css from "../.././assets/images/skills/css.png";
-import Html from "../.././assets/images/skills/html.png";
-import Node from "../.././assets/images/skills/node.png";
-import Sequelize from "../.././assets/images/skills/sequelize.png";
-import Express from "../.././assets/images/skills/express.png";
-import Mui from "../.././assets/images/skills/mui.png";
-import Sass from "../.././assets/images/skills/sass.png";
-import Php from "../.././assets/images/skills/php.png";
-import ReactJs from "../.././assets/images/skills/react.png";
 import styles from "./Skills.module.scss";
 
 const Skills = (props) => {
@@ -33,6 +17,7 @@ const Skills = (props) => {
     handleScrollStop: PropTypes.func.isRequired,
     showArrowDown: PropTypes.bool.isRequired,
     showArrowUp: PropTypes.bool.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {
@@ -47,67 +32,67 @@ const Skills = (props) => {
           <div className={styles.textContainer} ref={pRef}>
             <section className={styles.iconsContainer}>
               <span>
-                <img src={Js} alt="JavaScript" />
+                <img src={props.imageUrls[11]} alt="JavaScript" />
                 <h3>JavaScript</h3>
               </span>
               <span>
-                <img src={Ts} alt="TypeScript" />
+                <img src={props.imageUrls[12]} alt="TypeScript" />
                 <h3>TypeScript</h3>
               </span>
               <span>
-                <img src={ReactJs} alt="React-js" />
+                <img src={props.imageUrls[24]} alt="React-js" />
                 <h3>React</h3>
               </span>
               <span>
-                <img src={Node} alt="Node-js" />
+                <img src={props.imageUrls[18]} alt="Node-js" />
                 <h3>Node</h3>
               </span>
               <span>
-                <img src={Express} alt="Express-js" />
+                <img src={props.imageUrls[20]} alt="Express-js" />
                 <h3>Express</h3>
               </span>
               <span>
-                <img src={Sequelize} alt="Sequelize" />
+                <img src={props.imageUrls[19]} alt="Sequelize" />
                 <h3>Sequelize</h3>
               </span>
               <span>
-                <img src={PostgreSql} alt="PostgreSql" />
+                <img src={props.imageUrls[14]} alt="PostgreSql" />
                 <h3>PostgreSQL</h3>
               </span>
               <span>
-                <img src={MySql} alt="MySql" />
+                <img src={props.imageUrls[15]} alt="MySql" />
                 <h3>MySQL</h3>
               </span>
               <span>
-                <img src={Php} alt="PHP" />
+                <img src={props.imageUrls[23]} alt="PHP" />
                 <h3>PHP</h3>
               </span>
               <span>
-                <img src={Webpack} alt="Webpack" />
+                <img src={props.imageUrls[13]} alt="Webpack" />
                 <h3>Webpack</h3>
               </span>
               <span>
-                <img src={Sass} alt="SASS" />
+                <img src={props.imageUrls[22]} alt="SASS" />
                 <h3>Sass</h3>
               </span>
               <span>
-                <img src={Mui} alt="MaterialUI" />
+                <img src={props.imageUrls[21]} alt="MaterialUI" />
                 <h3>MaterialUI</h3>
               </span>
               <span>
-                <img src={Css} alt="CSS" />
+                <img src={props.imageUrls[16]} alt="CSS" />
                 <h3>CSS</h3>
               </span>
               <span>
-                <img src={Html} alt="HTML" />
+                <img src={props.imageUrls[17]} alt="HTML" />
                 <h3>HTML</h3>
               </span>
               <span>
-                <img src={C} alt="C" />
+                <img src={props.imageUrls[9]} alt="C" />
                 <h3>C</h3>
               </span>
               <span>
-                <img src={CPlus} alt="C++" />
+                <img src={props.imageUrls[10]} alt="C++" />
                 <h3>C++</h3>
               </span>
             </section>

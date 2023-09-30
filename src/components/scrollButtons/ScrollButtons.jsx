@@ -2,13 +2,13 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { imgLoader } from "../../imagesLoader/imgLoader.js";
 import BackButtton from "../.././components/backButton/BackButton.jsx";
-import DownRow from "../.././assets/images/buttons/down-row.png";
-import UpRow from "../.././assets/images/buttons/up-row.png";
 import styles from "./ScrollButtons.module.scss";
 
 const ScrollButtons = (props) => {
   const location = useLocation();
+  const { imageUrls } = imgLoader();
   const isAbout = location.pathname === "/about";
   const isSkills = location.pathname === "/skills";
   const isProject1 = location.pathname === "/project-1";
@@ -50,7 +50,7 @@ const ScrollButtons = (props) => {
               onTouchCancel={props.handleScrollStop}
               onContextMenu={handleContextMenu}
             >
-              <img className={styles.arrow} src={UpRow} alt="up-row" />
+              <img className={styles.arrow} src={imageUrls[4]} alt="up-row" />
             </button>
           )}
           <button
@@ -67,7 +67,7 @@ const ScrollButtons = (props) => {
               className={
                 !props.showArrowDown ? `${styles.arrowDown}` : `${styles.arrow}`
               }
-              src={DownRow}
+              src={imageUrls[5]}
               alt="down-row"
             />
           </button>

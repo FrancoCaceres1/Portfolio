@@ -3,13 +3,13 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import Download from "../.././assets/images/icons/download.png";
-import ButtonA from "../.././assets/images/buttons/a-button.png";
+import { imgLoader } from "../../imagesLoader/imgLoader.js";
 import styles from "./DownloadButton.module.scss";
 
 const DownloadButton = (props) => {
   const location = useLocation();
   const { t } = useTranslation();
+  const { imageUrls } = imgLoader();
   const isAbout = location.pathname === "/about";
   const isSkills = location.pathname === "/skills";
 
@@ -24,9 +24,13 @@ const DownloadButton = (props) => {
     <div className={styles.downloadContainer}>
       {isAbout || isSkills ? (
         <button className={styles.downloadCV} onClick={props.handleDownload}>
-          <img className={styles.downloadImage} src={Download} alt="download" />
+          <img
+            className={styles.downloadImage}
+            src={imageUrls[3]}
+            alt="download"
+          />
           {t("download.title")}
-          <img className={styles.AButton} src={ButtonA} alt="a-button" />
+          <img className={styles.AButton} src={imageUrls[1]} alt="a-button" />
         </button>
       ) : (
         <button
@@ -38,9 +42,13 @@ const DownloadButton = (props) => {
           onClick={props.handleDownload}
           onMouseEnter={() => props.handleHover("3")}
         >
-          <img className={styles.downloadImage} src={Download} alt="download" />
+          <img
+            className={styles.downloadImage}
+            src={imageUrls[3]}
+            alt="download"
+          />
           {t("download.title")}
-          <img className={styles.AButton} src={ButtonA} alt="a-button" />
+          <img className={styles.AButton} src={imageUrls[1]} alt="a-button" />
         </button>
       )}
     </div>
