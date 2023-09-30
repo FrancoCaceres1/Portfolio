@@ -4,8 +4,8 @@ import { imgLoader } from "../.././imagesLoader/imgLoader.js";
 import styles from "./ResizeButton.module.scss";
 
 const ResizeButton = () => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const { imageUrls } = imgLoader();
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
     const fullscreenChangeHandler = () => {

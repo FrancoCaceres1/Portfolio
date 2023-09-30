@@ -8,6 +8,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { useLanguage } from "./language/LanguageContext.jsx";
+import { imgLoader } from "./imagesLoader/imgLoader.js";
 import LandingPage from "./views/landingPage/LandingPage.jsx";
 import Home from "./views/home/Home.jsx";
 import Projects from "./views/projects/Projects.jsx";
@@ -20,9 +21,8 @@ import Gameboy from "./components/gameboy/Gameboy.jsx";
 import Pdm from "./views/projects/pdm/Pdm.jsx";
 import Countries from "./views/projects/countries/Countries.jsx";
 import Rym from "./views/projects/rym/Rym.jsx";
-import { imgLoader } from "./imagesLoader/imgLoader.js";
-import styles from "./App.module.scss";
 import Edm from "./views/projects/edm/Edm.jsx";
+import styles from "./App.module.scss";
 
 function App() {
   const navigate = useNavigate();
@@ -88,32 +88,6 @@ function App() {
     setScrollInterval(interval);
   };
 
-  const handleScrollStop = () => {
-    if (scrollInterval) {
-      clearInterval(scrollInterval);
-      setScrollInterval(null);
-    }
-  };
-
-  const handleAnimation = (value) => {
-    setClick(value);
-  };
-
-  const handleDownload = (e) => {
-    e.preventDefault();
-    if (currentLanguage === "es") {
-      window.open(
-        "https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view",
-        "_blank"
-      );
-    } else {
-      window.open(
-        "https://drive.google.com/file/d/1z3OUbAFPzU36Mfil4NaAVTERg6GBGm0B/view",
-        "_blank"
-      );
-    }
-  };
-
   const handleHover = (value) => {
     if (value != option) {
       setSelected(0);
@@ -168,14 +142,6 @@ function App() {
     }
   };
 
-  const handleNavigate = (value) => {
-    isProjects || value === "/settings"
-      ? navigate(value)
-      : setTimeout(() => {
-          navigate(value);
-        }, "150");
-  };
-
   const handleSelect = (value) => {
     const optionMap = {
       1: 1,
@@ -187,6 +153,40 @@ function App() {
     if (optionMap[value]) {
       selected === value ? setSelected(0) : setSelected(optionMap[value]);
     }
+  };
+
+  const handleDownload = (e) => {
+    e.preventDefault();
+    if (currentLanguage === "es") {
+      window.open(
+        "https://drive.google.com/file/d/10yZ_c-QOtM6Z_FojPbMonCNAJLN7ijOd/view",
+        "_blank"
+      );
+    } else {
+      window.open(
+        "https://drive.google.com/file/d/1z3OUbAFPzU36Mfil4NaAVTERg6GBGm0B/view",
+        "_blank"
+      );
+    }
+  };
+
+  const handleNavigate = (value) => {
+    isProjects || value === "/settings"
+      ? navigate(value)
+      : setTimeout(() => {
+          navigate(value);
+        }, "150");
+  };
+
+  const handleScrollStop = () => {
+    if (scrollInterval) {
+      clearInterval(scrollInterval);
+      setScrollInterval(null);
+    }
+  };
+
+  const handleAnimation = (value) => {
+    setClick(value);
   };
 
   const handleRedirect = (url) => {

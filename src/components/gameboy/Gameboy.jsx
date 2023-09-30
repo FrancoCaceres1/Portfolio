@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useLocation, useNavigate } from "react-router-dom";
 import ResizeButton from "../.././components/resizeButton/ResizeButton.jsx";
 import RowButtons from "../rowButtons/RowButtons.jsx";
 import CenterButtons from "../centerButtons/CenterButtons.jsx";
@@ -99,20 +99,6 @@ const Gameboy = (props) => {
     }
   };
 
-  const handleChangeOption = (value) => {
-    if (isSettings && props.selected === 2) {
-      value === "r" &&
-        (props.color < 4) & props.handleColorChange(props.color + 1);
-      value === "l" &&
-        (props.color > 1) & props.handleColorChange(props.color - 1);
-    } else {
-      value === "r" &&
-        (props.language === 1) & props.handleLanguageChange("es", 2);
-      value === "l" &&
-        (props.language === 2) & props.handleLanguageChange("en", 1);
-    }
-  };
-
   const handleRedirect = (url) => {
     if (isHome) {
       const navigationRoutes = {
@@ -135,6 +121,20 @@ const Gameboy = (props) => {
       isProject4
     ) {
       window.open(url, "_blank");
+    }
+  };
+
+  const handleChangeOption = (value) => {
+    if (isSettings && props.selected === 2) {
+      value === "r" &&
+        (props.color < 4) & props.handleColorChange(props.color + 1);
+      value === "l" &&
+        (props.color > 1) & props.handleColorChange(props.color - 1);
+    } else {
+      value === "r" &&
+        (props.language === 1) & props.handleLanguageChange("es", 2);
+      value === "l" &&
+        (props.language === 2) & props.handleLanguageChange("en", 1);
     }
   };
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import PixelCharacter from "../.././components/pixelCharacter/PixelCharacter.jsx";
 import styles from "./LandingPage.module.scss";

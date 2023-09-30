@@ -5,9 +5,20 @@ import PropTypes from "prop-types";
 import styles from "./PixelCharacter.module.scss";
 
 const PixelCharacter = (props) => {
-  const images = [props.imageUrls[34], props.imageUrls[35], props.imageUrls[34], props.imageUrls[36]];
-  const sideImages = [props.imageUrls[38], props.imageUrls[37], props.imageUrls[38], props.imageUrls[37]];
+  const images = [
+    props.imageUrls[34],
+    props.imageUrls[35],
+    props.imageUrls[34],
+    props.imageUrls[36],
+  ];
+  const sideImages = [
+    props.imageUrls[38],
+    props.imageUrls[37],
+    props.imageUrls[38],
+    props.imageUrls[37],
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
+
   PixelCharacter.propTypes = {
     click: PropTypes.bool.isRequired,
     imageUrls: PropTypes.array.isRequired,
@@ -44,10 +55,18 @@ const PixelCharacter = (props) => {
             alt={`pixel-character ${currentIndex + 1}`}
           />
         )}
-        <img className={styles.pixelArtImg} src={props.imageUrls[40]} alt="pixel-arrow" />
+        <img
+          className={styles.pixelArtImg}
+          src={props.imageUrls[40]}
+          alt="pixel-arrow"
+        />
       </div>
       <div className={styles.grassContainer}>
-        <img className={styles.grassImg} src={props.imageUrls[39]} alt="pixel-grass" />
+        <img
+          className={styles.grassImg}
+          src={props.imageUrls[39]}
+          alt="pixel-grass"
+        />
       </div>
     </section>
   );

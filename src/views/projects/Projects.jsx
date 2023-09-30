@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";

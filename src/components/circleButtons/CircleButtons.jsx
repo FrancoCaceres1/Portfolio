@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import styles from "./CircleButtons.module.scss";
 
 const CircleButtons = (props) => {
@@ -34,15 +34,15 @@ const CircleButtons = (props) => {
     handleNavigate: PropTypes.func.isRequired,
   };
 
-  const handleHidding = () => {
-    props.handleSelect(4);
-    props.setHidden(true);
-  };
-
   const handleShow = () => {
     props.setHidden(false);
     props.setSelected(0);
     props.setProjectOptions(5);
+  };
+
+  const handleHidding = () => {
+    props.handleSelect(4);
+    props.setHidden(true);
   };
 
   return (
@@ -74,13 +74,21 @@ const CircleButtons = (props) => {
             isAbout || isSkills
               ? props.handleDownload
               : isProject1
-              ? () => props.handleRedirect("https://soy-puebla-deploy.vercel.app/")
+              ? () =>
+                  props.handleRedirect("https://soy-puebla-deploy.vercel.app/")
               : isProject2
-              ? () => props.handleRedirect("https://pi-countries-api-flax.vercel.app/")
+              ? () =>
+                  props.handleRedirect(
+                    "https://pi-countries-api-flax.vercel.app/"
+                  )
               : isProject3
-              ? () => props.handleRedirect("https://proyecto-final-utn.vercel.app/")
+              ? () =>
+                  props.handleRedirect("https://proyecto-final-utn.vercel.app/")
               : isProject4
-              ? () => props.handleRedirect("https://bright-kangaroo-442885.netlify.app/")
+              ? () =>
+                  props.handleRedirect(
+                    "https://bright-kangaroo-442885.netlify.app/"
+                  )
               : isContact && props.option === 3
               ? props.handleDownload
               : isContact && props.option === 2

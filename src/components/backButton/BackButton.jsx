@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { imgLoader } from "../../imagesLoader/imgLoader.js";
 import styles from "./BackButton.module.scss";
