@@ -1,19 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
-import PixelArt1 from "../.././assets/images/character/character-1.png";
-import PixelArt2 from "../.././assets/images/character/character-run-1.png";
-import PixelArt3 from "../.././assets/images/character/character-run-2.png";
-import PixelArt4 from "../.././assets/images/character/character-run-side.png";
-import PixelArt5 from "../.././assets/images/character/character-side.png";
-import Grass from "../.././assets/images/stage/grass-2.png";
-import Arrow from "../.././assets/images/stage/arrow.png";
+import PropTypes from "prop-types";
 import styles from "./PixelCharacter.module.scss";
 
-const PixelCharacter = (click) => {
-  const images = [PixelArt1, PixelArt2, PixelArt1, PixelArt3];
-  const sideImages = [PixelArt5, PixelArt4, PixelArt5, PixelArt4];
+const PixelCharacter = (props) => {
+  const images = [props.imageUrls[34], props.imageUrls[35], props.imageUrls[34], props.imageUrls[36]];
+  const sideImages = [props.imageUrls[38], props.imageUrls[37], props.imageUrls[38], props.imageUrls[37]];
   const [currentIndex, setCurrentIndex] = useState(0);
+  PixelCharacter.propTypes = {
+    click: PropTypes.bool.isRequired,
+    imageUrls: PropTypes.array.isRequired,
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,7 +24,7 @@ const PixelCharacter = (click) => {
   return (
     <section className={styles.pixelCharacterContainer}>
       <div className={styles.onGrass}>
-        {click.click ? (
+        {props.click ? (
           <Fragment>
             <img
               className={styles.pixelArtImgSide}
@@ -46,10 +44,10 @@ const PixelCharacter = (click) => {
             alt={`pixel-character ${currentIndex + 1}`}
           />
         )}
-        <img className={styles.pixelArtImg} src={Arrow} alt="pixel-arrow" />
+        <img className={styles.pixelArtImg} src={props.imageUrls[40]} alt="pixel-arrow" />
       </div>
       <div className={styles.grassContainer}>
-        <img className={styles.grassImg} src={Grass} alt="pixel-grass" />
+        <img className={styles.grassImg} src={props.imageUrls[39]} alt="pixel-grass" />
       </div>
     </section>
   );

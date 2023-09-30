@@ -20,6 +20,7 @@ import Gameboy from "./components/gameboy/Gameboy.jsx";
 import Pdm from "./views/projects/pdm/Pdm.jsx";
 import Countries from "./views/projects/countries/Countries.jsx";
 import Rym from "./views/projects/rym/Rym.jsx";
+import { imgLoader } from "./imagesLoader/imgLoader.js";
 import styles from "./App.module.scss";
 import Edm from "./views/projects/edm/Edm.jsx";
 
@@ -44,8 +45,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [projectOptions, setProjectOptions] = useState(5);
   const [hidden, setHidden] = useState(false);
+  const { imageUrls } = imgLoader();
 
   useEffect(() => {
+    imgLoader();
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -216,6 +219,7 @@ function App() {
                     click={click}
                     setStart={setStart}
                     start={start}
+                    imageUrls={imageUrls}
                   />
                 ) : (
                   <Loading
@@ -238,6 +242,7 @@ function App() {
                   handleAnimation={handleAnimation}
                   handleNavigate={handleNavigate}
                   handleHover={handleHover}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -259,6 +264,7 @@ function App() {
                   hidden={hidden}
                   setProjectOptions={setProjectOptions}
                   handleNavigate={handleNavigate}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -272,6 +278,7 @@ function App() {
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
                   handleRedirect={handleRedirect}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -285,6 +292,7 @@ function App() {
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
                   handleRedirect={handleRedirect}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -298,6 +306,7 @@ function App() {
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
                   handleRedirect={handleRedirect}
+                  imageUrls={imageUrls}
                 />
               }
             />
@@ -311,6 +320,7 @@ function App() {
                   showArrowUp={showArrowUp}
                   setPRef={setPRef}
                   handleRedirect={handleRedirect}
+                  imageUrls={imageUrls}
                 />
               }
             />

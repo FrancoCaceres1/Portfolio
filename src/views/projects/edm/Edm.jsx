@@ -3,14 +3,6 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import ScrollButtons from "../../../components/scrollButtons/ScrollButtons.jsx";
-import soyPuebla from "../../.././assets/images/projects/festival.png";
-import Js from "../../.././assets/images/skills/js.png";
-import Css from "../../.././assets/images/skills/css.png";
-import Html from "../../.././assets/images/skills/html.png";
-import Webpack from "../../.././assets/images/skills/webpack.png";
-import Sass from "../../.././assets/images/skills/sass.png";
-import Www from "../../.././assets/images/icons/www.png";
-import ButtonA from "../../.././assets/images/buttons/a-button.png";
 import styles from "./Edm.module.scss";
 
 const Edm = (props) => {
@@ -24,6 +16,7 @@ const Edm = (props) => {
     handleRedirect: PropTypes.func.isRequired,
     showArrowDown: PropTypes.bool.isRequired,
     showArrowUp: PropTypes.bool.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {
@@ -37,25 +30,25 @@ const Edm = (props) => {
           <h1>ROCK&EDM</h1>
           <div className={styles.textContainer} ref={pRef}>
             <span>
-              <img src={soyPuebla} alt="puebla-del-mar" />
+              <img src={props.imageUrls[31]} alt="puebla-del-mar" />
             </span>
             <p>{t("project4.information")}</p>
             <h1 className={styles.technologies}>{t("project1.technologies")}</h1>
             <section className={styles.iconsContainer}>
               <span>
-                <img src={Js} alt="JavaScript" />
+                <img src={props.imageUrls[11]} alt="JavaScript" />
                 <h3>JavaScript</h3>
               </span>
               <span>
-                <img src={Webpack} alt="Webpack" />
+                <img src={props.imageUrls[13]} alt="Webpack" />
                 <h3>Webpack</h3>
               </span>
               <span>
-                <img src={Sass} alt="SASS" />
+                <img src={props.imageUrls[22]} alt="SASS" />
                 <h3>Sass</h3>
               </span>
               <span>
-                <img src={Html} alt="HTML" />
+                <img src={props.imageUrls[17]} alt="HTML" />
                 <h3>HTML</h3>
               </span>
             </section>
@@ -68,9 +61,9 @@ const Edm = (props) => {
                   )
                 }
               >
-                <img className={styles.wwwImage} src={Www} alt="www" />
+                <img className={styles.wwwImage} src={props.imageUrls[33]} alt="www" />
                 {t("project1.visit")}
-                <img className={styles.AButton} src={ButtonA} alt="a-button" />
+                <img className={styles.AButton} src={props.imageUrls[1]} alt="a-button" />
               </button>
             </div>
           </div>

@@ -27,6 +27,7 @@ const Countries = (props) => {
     handleRedirect: PropTypes.func.isRequired,
     showArrowDown: PropTypes.bool.isRequired,
     showArrowUp: PropTypes.bool.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {

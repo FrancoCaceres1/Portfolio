@@ -3,13 +3,6 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import Start from "../.././assets/images/buttons/start.png";
-import ButtonA from "../.././assets/images/buttons/a-button.png";
-import Config from "../.././assets/images/icons/config.png";
-import ButtonB from "../.././assets/images/buttons/b-button.png";
-import DownRow from "../.././assets/images/buttons/down-row.png";
-import UpRow from "../.././assets/images/buttons/up-row.png";
-import Download from "../.././assets/images/icons/download.png";
 import PixelCharacter from "../.././components/pixelCharacter/PixelCharacter.jsx";
 import styles from "./LandingPage.module.scss";
 
@@ -22,13 +15,7 @@ const LandingPage = (props) => {
     click: PropTypes.bool.isRequired,
     setStart: PropTypes.func.isRequired,
     start: PropTypes.bool.isRequired,
-  };
-
-  const preloadImages = (imageUrls) => {
-    imageUrls.forEach((imageUrl) => {
-      const img = new Image();
-      img.src = imageUrl;
-    });
+    imageUrls: PropTypes.array.isRequired,
   };
 
   const handleClick = () => {
@@ -41,8 +28,6 @@ const LandingPage = (props) => {
 
   useEffect(() => {
     props.setStart(false);
-    const imageUrls = [Config, ButtonA, ButtonB, Download, UpRow, DownRow];
-    preloadImages(imageUrls);
   }, []);
 
   return (
@@ -59,13 +44,13 @@ const LandingPage = (props) => {
           >
             <img
               className={!props.start ? styles.startImg : styles.startImgShadow}
-              src={Start}
+              src={props.imageUrls[6]}
               alt="pixel-play-button"
             />
           </button>
           <h2 className={styles.pressStart}>{t("landing.button")}</h2>
         </div>
-        <PixelCharacter click={props.click} />
+        <PixelCharacter click={props.click} imageUrls={props.imageUrls}/>
       </div>
     </section>
   );

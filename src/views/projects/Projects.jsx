@@ -2,12 +2,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import ButtonA from "../.././assets/images/buttons/a-button.png";
-import ButtonB from "../.././assets/images/buttons/b-button.png";
-import soyPuebla from "../.././assets/images/projects/soy-puebla-1.png";
-import Countries from "../.././assets/images/projects/countries-api-1.png";
-import Rym from "../.././assets/images/projects/rym-api-1.png";
-import Edm from "../.././assets/images/projects/festival-1.png";
 import ScrollButtons from "../../components/scrollButtons/ScrollButtons.jsx";
 import styles from "./Projects.module.scss";
 
@@ -29,6 +23,7 @@ const Projects = (props) => {
     hidden: PropTypes.bool.isRequired,
     setProjectOptions: PropTypes.func.isRequired,
     handleNavigate: PropTypes.func.isRequired,
+    imageUrls: PropTypes.array.isRequired,
   };
 
   useEffect(() => {
@@ -91,7 +86,7 @@ const Projects = (props) => {
                     }
                   >
                     <img
-                      src={props.selected != 1 ? ButtonA : ButtonB}
+                      src={props.selected != 1 ? props.imageUrls[1] : props.imageUrls[2]}
                       alt="a-button"
                       className={styles.buttonAImage}
                     />
@@ -100,7 +95,7 @@ const Projects = (props) => {
                 {props.selected === 1 && (
                   <section className={styles.projectOptions}>
                     <div>
-                      <img src={soyPuebla} alt="soy-puebla" />
+                      <img src={props.imageUrls[25]} alt="soy-puebla" />
                       <ul>
                         <li
                           className={
@@ -119,7 +114,7 @@ const Projects = (props) => {
                           {t("projects.visit")}
                           <span className={styles.buttonAContainer}>
                             <img
-                              src={ButtonA}
+                              src={props.imageUrls[1]}
                               alt="a-button"
                               className={styles.buttonAImage}
                             />
@@ -142,7 +137,7 @@ const Projects = (props) => {
                           REPO
                           <span className={styles.buttonAContainer}>
                             <img
-                              src={ButtonA}
+                              src={props.imageUrls[1]}
                               alt="a-button"
                               className={styles.buttonAImage}
                             />
@@ -161,7 +156,7 @@ const Projects = (props) => {
                           INFO
                           <span className={styles.buttonAContainer}>
                             <img
-                              src={ButtonA}
+                              src={props.imageUrls[1]}
                               alt="a-button"
                               className={styles.buttonAImage}
                             />
@@ -204,7 +199,7 @@ const Projects = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 2 ? ButtonA : ButtonB}
+                    src={props.selected != 2 ? props.imageUrls[1] : props.imageUrls[2]}
                     alt="a-button"
                     className={styles.buttonAImage}
                   />
@@ -213,7 +208,7 @@ const Projects = (props) => {
               {props.selected === 2 && (
                 <section className={styles.projectOptions}>
                   <div>
-                    <img src={Countries} alt="soy-puebla" />
+                    <img src={props.imageUrls[26]} alt="soy-puebla" />
                     <ul>
                       <li
                         className={
@@ -232,7 +227,7 @@ const Projects = (props) => {
                         {t("projects.visit")}
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -255,7 +250,7 @@ const Projects = (props) => {
                         REPO
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -274,7 +269,7 @@ const Projects = (props) => {
                         INFO
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -316,7 +311,7 @@ const Projects = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 3 ? ButtonA : ButtonB}
+                    src={props.selected != 3 ? props.imageUrls[1] : props.imageUrls[2]}
                     alt="a-button"
                     className={styles.buttonAImage}
                   />
@@ -325,7 +320,7 @@ const Projects = (props) => {
               {props.selected === 3 && (
                 <section className={styles.projectOptions}>
                   <div>
-                    <img src={Rym} alt="soy-puebla" />
+                    <img src={props.imageUrls[27]} alt="soy-puebla" />
                     <ul>
                       <li
                         className={
@@ -344,7 +339,7 @@ const Projects = (props) => {
                         {t("projects.visit")}
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -367,7 +362,7 @@ const Projects = (props) => {
                         REPO
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -386,7 +381,7 @@ const Projects = (props) => {
                         INFO
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -425,7 +420,7 @@ const Projects = (props) => {
                   }
                 >
                   <img
-                    src={props.selected != 4 ? ButtonA : ButtonB}
+                    src={props.selected != 4 ? props.imageUrls[1] : props.imageUrls[2]}
                     alt="a-button"
                     className={styles.buttonAImage}
                   />
@@ -434,7 +429,7 @@ const Projects = (props) => {
               {props.selected === 4 && (
                 <section className={styles.projectOptions}>
                   <div>
-                    <img src={Edm} alt="soy-puebla" />
+                    <img src={props.imageUrls[29]} alt="soy-puebla" />
                     <ul className={styles.Edm}>
                       <li
                         className={
@@ -453,7 +448,7 @@ const Projects = (props) => {
                         {t("projects.visit")}
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />
@@ -472,7 +467,7 @@ const Projects = (props) => {
                         INFO
                         <span className={styles.buttonAContainer}>
                           <img
-                            src={ButtonA}
+                            src={props.imageUrls[1]}
                             alt="a-button"
                             className={styles.buttonAImage}
                           />

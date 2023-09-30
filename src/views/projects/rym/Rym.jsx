@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import ScrollButtons from "../../../components/scrollButtons/ScrollButtons.jsx";
-import soyPuebla from "../../.././assets/images/projects/rym-api.png";
+import rym from "../../.././assets/images/projects/rym-api.png";
 import Js from "../../.././assets/images/skills/js.png";
 import Css from "../../.././assets/images/skills/css.png";
 import Html from "../../.././assets/images/skills/html.png";
@@ -35,7 +35,7 @@ const Rym = (props) => {
           <h1>{t("project3.title")}</h1>
           <div className={styles.textContainer} ref={pRef}>
             <span>
-              <img src={soyPuebla} alt="puebla-del-mar" />
+              <img src={rym} alt="puebla-del-mar" />
             </span>
             <p>
             {t("project3.information")}
