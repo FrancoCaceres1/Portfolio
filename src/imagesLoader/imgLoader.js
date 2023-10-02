@@ -42,6 +42,7 @@ import DownRow from ".././assets/images/buttons/down-row.png";
 import UpRow from ".././assets/images/buttons/up-row.png";
 import Max from ".././assets/images/buttons/max.png";
 import Min from ".././assets/images/buttons/min.png";
+import Warning from ".././assets/images/icons/warning.png";
 
 export const imgLoader = () => {
   const imageUrls = [
@@ -88,6 +89,7 @@ export const imgLoader = () => {
     Arrow,
     Max,
     Min,
+    Warning,
   ];
   const preloadImages = (imageUrls) => {
     imageUrls.forEach((imageUrl) => {

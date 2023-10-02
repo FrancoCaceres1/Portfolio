@@ -1,0 +1,80 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.sectionWarning {
+  @include centerFlex(flex, row, center, flex-start, 0);
+  @include width(100%, 100%);
+  @include height(100%, 100%);
+  font-family: $primary-font;
+  color: #f5f5f5;
+  position: absolute;
+  z-index: 999;
+  backdrop-filter: blur(1rem);
+  .warningContainer {
+    @include centerFlex(flex, column, space-between, center, 0);
+    @include width(45rem, 45rem);
+    @include height(25rem, 25rem);
+    margin-top: 10rem;
+    padding: 1rem 2rem;
+    background-color: #d53b3d;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-box-shadow: -2px 2px 19px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 2px 19px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: -2px 2px 19px -3px rgba(0, 0, 0, 0.75);
+    .infoContainer {
+      @include width(100%, 100%);
+      h1 {
+        font-size: 3rem;
+        padding: 1rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
+    .optionContainer {
+      @include width(100%, 100%);
+      position: relative;
+      margin-bottom: 1rem;
+      .languages {
+        position: absolute;
+        button {
+          @include width(3rem, 3rem);
+          @include height(3rem, 3rem);
+          border: none;
+          font-family: $primary-font;
+          font-size: 1.5rem;
+          cursor: pointer;
+          transition: 0.1s ease;
+        }
+        .selected {
+          background-color: transparent;
+          border: solid 2px #f5f5f5;
+          color: #f5f5f5
+        }
+      }
+      .accept {
+        @include width(6rem, 6rem);
+        @include height(3rem, 3rem);
+        font-family: $primary-font;
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        transition: 0.1s ease;
+        &:hover {
+          background-color: transparent;
+          border: solid 2px #f5f5f5;
+          color: #f5f5f5
+        }
+      }
+      img {
+        @include width(3rem, 3rem);
+        @include height(3rem, 3rem);
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        filter: drop-shadow(0px 0px 3px #000000);
+      }
+    }
+  }
+}

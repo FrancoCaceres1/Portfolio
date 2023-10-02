@@ -18,6 +18,7 @@ import Skills from "./views/skills/Skills.jsx";
 import Settings from "./views/settings/Settings.jsx";
 import Loading from "./views/loading/Loading.jsx";
 import Gameboy from "./components/gameboy/Gameboy.jsx";
+import Warning from "./components/warning/Warning.jsx";
 import Pdm from "./views/projects/pdm/Pdm.jsx";
 import Countries from "./views/projects/countries/Countries.jsx";
 import Rym from "./views/projects/rym/Rym.jsx";
@@ -45,6 +46,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [projectOptions, setProjectOptions] = useState(5);
   const [hidden, setHidden] = useState(false);
+  const [showWarning, setShowWarning] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { imageUrls } = imgLoader();
 
   useEffect(() => {
@@ -53,6 +56,15 @@ function App() {
     setTimeout(() => {
       setIsLoading(false);
     }, "1700");
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const handleScrollStart = (direction) => {
@@ -390,6 +402,14 @@ function App() {
           </Routes>
         </div>
       </section>
+      {windowWidth <= 750 ||
+        (showWarning && (
+          <Warning
+            setShowWarning={setShowWarning}
+            language={language}
+            handleLanguageChange={handleLanguageChange}
+          />
+        ))}
       <Gameboy
         handleAnimation={handleAnimation}
         click={click}

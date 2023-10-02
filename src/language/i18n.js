@@ -11,6 +11,14 @@ i18n.use(initReactI18next).init({
           text: "Franco's portfolio",
           button: "press start",
         },
+        warning: {
+          title: "WARNING!",
+          text1: "My PORTFOLIO is not yet available at this resolution",
+          text2: "It supports resolutions up to 750px",
+          text3: "If you still wish to proceed, you can press ACCEPT. Remember, you can always resize the window ;)",
+          button1: "ACCEPT",
+          button2: "EN",
+        },
         home: {
           title: "HOME",
           projects: "PROJECTS",
@@ -77,6 +85,14 @@ i18n.use(initReactI18next).init({
           title: "BIENVENIDO",
           text: "portfolio de Franco",
           button: "presiona start",
+        },
+        warning: {
+          title: "¡ADVERTENCIA!",
+          text1: "Mi PORTFOLIO aún no está disponible en esta resolución",
+          text2: "Soporta resoluciones hasta 750px",
+          text3: "Si deseas continuar de todas formas, puedes presionar ACEPTAR. Recuerda que siempre puedes cambiar el tamaño de la ventana ;)",
+          button1: "ACEPTAR",
+          button2: "IN",
         },
         home: {
           title: "INICIO",
