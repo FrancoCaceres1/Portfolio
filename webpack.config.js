@@ -1,6 +1,7 @@
 import path from "path";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
 
 const __dirname = path.resolve();
 
@@ -46,6 +47,14 @@ export default {
     }),
     new HtmlWebpackPlugin({
       template: "./index.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "public"),
+          to: path.resolve(__dirname, "dist"),
+        },
+      ],
     }),
   ],
   resolve: {
